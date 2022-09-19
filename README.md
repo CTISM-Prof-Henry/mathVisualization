@@ -47,7 +47,45 @@ aquela atividade.
 8. [ ] () Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
        isto ocorre.
-9. [ ] (Henry) implementar gráfico da reta e da circunferência.
+9. [ ] () Implementar layout da página HTML utilizando dash.
+10. [ ] (Henry) implementar gráfico da reta e da circunferência.
+
+## API
+
+Esta seção detalha, de acordo com os itens descritos no [Checklist de atividades](#checklist-de-atividades), qual 
+deve ser a entrada e a saída esperada de cada uma das funções implementadas.
+
+Por exemplo, para o primeiro item da lista, devemos implementar uma função que recebe uma string, e retorna uma string
+também. Em Python, essa função teria essa forma:
+
+```python
+def reta_reduzida_para_geral(reduzida: str) -> str:
+   return 'ax + by + c = 0'
+```
+
+Perceba que esta função recebe uma variável como parâmetro (`reduzida`, do tipo `str`), e retorna uma variável do tipo
+`str` também. Por isso, a **Entrada** na tabela abaixo é uma `str`, e a **saída** é uma `str` também.
+
+É importante atentar-se esta tabela pois alguns colegas precisarão do retorno de uma função que você irá implementar,
+para implementar as suas próprias funções. O tipo de retorno influenciará na maneira como os colegas farão o trabalho
+deles.
+
+| Item da checklist |       Entrada |                                         Saída |
+|:------------------|--------------:|----------------------------------------------:|
+| 2                 |           str |                                           str |
+| 3                 |           str |                                           str |
+| 4                 |           str |                                  float, float |
+| 5                 |           str |                           float, float, float |
+| 6                 |           str |                                         float |
+| 7                 |           str |                    tuple(float, float), float |
+| 8                 |           str | str, tuple(float, float), tuple(float, float) |
+| 9                 | não se aplica |                                 não se aplica |
+| 10                | não se aplica |                                 não se aplica |
+
+
+## Link da reunião 
+
+[link](https://drive.google.com/file/d/1jte5aDalkYnU4661NR-E6pZAd0d8ITp8/view?usp=sharing)
 
 ## Bibliografia
 
