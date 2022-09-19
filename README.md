@@ -48,6 +48,7 @@ aquela atividade.
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
        isto ocorre.
 9. [ ] () Implementar layout da página HTML utilizando dash.
+       * Dica: https://dash.plotly.com/dash-core-components
 10. [ ] (Henry) implementar gráfico da reta e da circunferência.
 
 ## API
