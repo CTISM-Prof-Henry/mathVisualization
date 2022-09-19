@@ -4,27 +4,50 @@ Repositório para organizar o código-fonte do projeto da Feira de Ciências do 
 
 ## Resumo
 
-O software desenvolvido aqui é um visualizador de funções matemáticas lineares e função do círculo, desenvolvido usando a biblioteca plotly, escrita em Python. O software é majoritariamente escrito em Python, com as projeções sendo geradas em HTML.
+O software desenvolvido aqui é um visualizador de funções matemáticas lineares e função do círculo, desenvolvido usando 
+a biblioteca dash, escrita em Python. O software é majoritariamente escrito em Python, com as projeções sendo geradas 
+em HTML.
 
 ## Instalação
 
 1. Clone este repositório na sua máquina
 2. Crie um ambiente virtual e instale as dependências:
 
-`conda create --name math --file requirements.txt --yes`
-(mais sobre ambientes virtuais [aqui](https://github.com/CTISM-Prof-Henry/pythonEssentials/blob/main/chapters/venvs.md#criando-pela-linha-de-comando))
+   `conda create --name math --file requirements.txt --yes`
 
-3. Instale a biblioteca dash usando pip: `pip install dash==2.6.*`
-4. Ative o ambiente virtual com `conda activate math`
-5. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. `python teste_plotly.py`
+   (mais sobre ambientes virtuais [aqui](
+   https://github.com/CTISM-Prof-Henry/pythonEssentials/blob/main/chapters/venvs.md#criando-pela-linha-de-comando))
+
+3. Ative o ambiente virtual com `conda activate math`
+4. Instale a biblioteca dash usando pip: `pip install dash==2.6.*`
+5. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. 
+   `python teste_plotly.py`
+6. **Nota:** o `teste_dash.py` não abre uma janela ou página Web, mas sim
+   informa um link na linha de comando (por exemplo, `http://127.0.0.1:8050/`) que você precisa copiar-e-colar no 
+   seu navegador para abrir a página. Não se esqueça de, depois de rodar o código, pressionar `CTRL + C` para parar
+   a execução do script `teste_dash.py`.
 
 ## Checklist de atividades
 
-**Dica:** Para marcar um dos _checkboxes_ abaixo, edite o arquivo em Markdown
+**Dica 1:** Para marcar um dos _checkboxes_ abaixo, edite o arquivo em Markdown
 e troque de `[ ]` para `[x]`.
 
-* [ ] Em 
-* [ ] breve.
+**Dica 2:** Escreva o seu nome entre parênteses para informar que vai fazer
+aquela atividade.
+
+1. [ ] (Henry) Organizar tudo.
+2. [ ] () Implementar função para converter da equação reduzida da reta para a equação geral.
+      * Dica: pesquise a função `eval` para validar expressões matemáticas
+3. [ ] () Implementar função para converter da equação geral da reta para a equação reduzida.
+      * Dica: pesquise a função `eval` para validar expressões matemáticas
+4. [ ] () Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
+5. [ ] () Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
+6. [ ] () Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
+7. [ ] () Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
+8. [ ] () Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
+       secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
+       isto ocorre.
+9. [ ] (Henry) implementar gráfico da reta e da circunferência.
 
 ## Bibliografia
 
@@ -34,3 +57,7 @@ e troque de `[ ]` para `[x]`.
 * [API reference plotly (em inglês)](https://plotly.com/python-api-reference/)
    * A documentação da API contém a documentação de diversas funções da biblioteca plotly
 * [Galeria de exemplo dash (em inglês)](https://dash-example-index.herokuapp.com/)
+
+## Desenho da interface gráfica
+
+![](imagens/croqui.png)
