@@ -38,7 +38,7 @@ aquela atividade.
 1. [ ] (Henry) Organizar tudo.
 2. [ ] () Implementar função para converter da equação reduzida da reta para a equação geral.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
-3. [ ] () Implementar função para converter da equação geral da reta para a equação reduzida.
+3. [ ] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 4. [ ] () Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
 5. [ ] () Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
