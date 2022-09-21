@@ -36,7 +36,7 @@ e troque de `[ ]` para `[x]`.
 aquela atividade.
 
 1. [ ] (Henry) Organizar tudo.
-2. [ ] () Implementar função para converter da equação reduzida da reta para a equação geral.
+2. [ ] (Bruno) Implementar função para converter da equação reduzida da reta para a equação geral.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 3. [ ] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
