@@ -18,6 +18,16 @@ def define_layout():
                 ]
             ),
         html.Div([
+            html.Nav(className="page__menu page__custom-settings menu"),
+            html.Ul([
+                html.Li(className="group_menu"),
+                html.A(["Introdução"], href="main.py#Introdução", className="menu__link r-link text-underlined"),
+                html.A(["Equação de uma reta"], href="main.py#Reta", className="menu__link r-link text-underlined"),
+                html.A(["Equação de uma Circuferencia"], href="main.py#Circuferencia", className="menu__link r-link text-underlined"),
+                html.A(["Grafico"], href="main.py#Grafico", className="menu__link r-link text-underlined"),
+            ], className="menu"),
+        ], className="page"),
+        html.Div([
             html.P(["Math Visualization"], className="titulop1"), 
             html.Section(),
          ], className="container"), 
@@ -25,7 +35,7 @@ def define_layout():
          html.Br(),
         html.Br(),
         # RETA
-        html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta"),
+        html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta", id="Reta"),
         html.Div([
             html.Label(["Digite uma equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
             html.P(["dica: equação reduzida tem-se no formato: y = mx + n"],className="dica1"),
