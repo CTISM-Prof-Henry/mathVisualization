@@ -1,0 +1,43 @@
+p.titulo{
+  font-family:'Rubik Dirt';
+  color:rgb(255, 255, 255);          
+  font-size: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header{
+  font: sans-serif;
+  background-image: url('https://img.myloview.com.br/adesivos/math-educational-vector-seamless-background-with-handwritten-formulas-figures-calculations-chalk-on-blackboard-effect-700-210303281.jpg');
+  height: 100vh;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-position: center;
+}
+.container{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  background: #000000b6;
+}
+section{
+  height: 120px;
+  background-color: #ffffff
+}
+ @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+margin: 0;
+padding: 0;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+label{
+  color: white;
+}
+div.body{
+background: #000000;
+font-family: "Montserrat", sans-serif;
+}
