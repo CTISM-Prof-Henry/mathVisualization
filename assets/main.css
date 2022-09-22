@@ -1,22 +1,20 @@
-p.titulo{
+p.titulop1{
   font-family:'Rubik Dirt';
   color:rgb(255, 255, 255);          
   font-size: 95px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  float: left;
 }
 header{
   font: sans-serif;
   background-image: url('https://img.myloview.com.br/adesivos/math-educational-vector-seamless-background-with-handwritten-formulas-figures-calculations-chalk-on-blackboard-effect-700-210303281.jpg');
-  height: 100vh;
+  height: 80vh;
   background-attachment: fixed;
   background-size: 100%;
   background-position: center;
 }
 .container{
   display: flex;
-  align-items: center;
+  align-items: left;
   margin: auto;
   justify-content: center;
   height: 100%;

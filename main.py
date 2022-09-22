@@ -18,7 +18,7 @@ def define_layout():
                 ]
             ),
          html.Div([
-            html.P(["Math Visualization"], className="titulo"),
+            html.P(["Math Visualization"], className="titulop1"),
             html.Section(),
          ], className="container"),
          ]),
