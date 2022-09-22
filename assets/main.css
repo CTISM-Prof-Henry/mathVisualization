@@ -2,7 +2,12 @@ p.titulop1{
   font-family:'Rubik Dirt';
   color:rgb(255, 255, 255);          
   font-size: 95px;
-  float: left;
+}
+div.body{
+  background-color: black;
+}
+p{
+  color: white;
 }
 header{
   font: sans-serif;
@@ -14,7 +19,7 @@ header{
 }
 .container{
   display: flex;
-  align-items: left;
+  align-items: center;
   margin: auto;
   justify-content: center;
   height: 100%;
