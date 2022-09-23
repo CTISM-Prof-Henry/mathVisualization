@@ -43,8 +43,8 @@ aquela atividade.
 4. [ ] (Tales) Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
 5. [ ] (Liza) Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
 6. [ ] () Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
-7. [ ] () Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
-8. [ ] () Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
+7. [ ] (Nicole) Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
+8. [ ] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
        isto ocorre.
 9. [ ] (Luize) Implementar layout da página HTML utilizando dash.
