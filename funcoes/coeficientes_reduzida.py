@@ -1,4 +1,4 @@
-def coeficientes_reduzida(equação:str):
+def coeficientes_reduzida(equação:str)->"tuple[float, float]":
     """
     Função que dada uma equação de reta reduzida, retorna uma tupla em que, 
     na primeira posição encontra-se o coeficiente angular e na segunda o o coeficiente linear
