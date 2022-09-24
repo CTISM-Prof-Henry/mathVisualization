@@ -1,4 +1,3 @@
-#isso é so um teste
 
 def geral_para_reduzida(geral: str) -> str:
     #tratamento
@@ -8,12 +7,17 @@ def geral_para_reduzida(geral: str) -> str:
     for numero in geral_tranformada:
         geral += numero
 
-    return geral
+    parteImportante = str(geral.split('=')[0])
+
+    if 'y' in parteImportante:
+        print('equação correta')
+    else:
+        print('equação errada')
 
 
 def main():
-    geral = 'Y - 3X+3=0'
-    print(geral_para_reduzida('y - 3 X+3=0'))
+    geral = '2X - 3y-3=0'
+    print(geral_para_reduzida('-3 X+3=0'))
     print(geral_para_reduzida(geral))
 
 
