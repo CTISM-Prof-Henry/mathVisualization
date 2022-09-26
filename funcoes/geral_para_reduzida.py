@@ -12,10 +12,8 @@ def geral_para_reduzida(geral: str) -> str:
 
 
 def main():
-    geral = 'Y - 3X+3=0'
+    geral = 'Y - 3X+3= 0'
     print(geral_para_reduzida('y - 3 X+3=0'))
     print(geral_para_reduzida(geral))
-
-
 if __name__ == "__main__":
     main()
