@@ -15,14 +15,24 @@
 <p id="mouse_click">Mouse click? False</p>
 
  <!-- Botão para abrir o modal -->
-<button id="button_new_session">Começar sessão</button>
+<button id="button_finish_session">Finalizar sessão</button>
 
 <!-- modal -->
-<div id="session_window" class="modal">
+<div id="start_session_modal" class="modal">
   <!-- coneúdo do modal -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Nova sessão</p>
+    <span id="span_start_session_modal" class="close">&times;</span>
+    <p>Aperte o botão abaixo para começar uma sessão do desafio</p>
+      <button id="button_start_session">Começar!</button>
+  </div>
+</div>
+
+<div id="finish_session_modal" class="modal">
+  <!-- coneúdo do modal -->
+  <div class="modal-content">
+    <span id="span_finish_session_modal" class="close">&times;</span>
+    <p>Você concluiu sua sessão!</p>
+      <button id="close_finish_session_modal">Fechar</button>
   </div>
 </div>
 
