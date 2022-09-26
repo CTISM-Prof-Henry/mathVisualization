@@ -1,6 +1,9 @@
-
 def geral_para_reduzida(geral: str) -> str:
-    #tratamento
+    # tratamento
+    a = float()
+    b = float()
+    c = float()
+    partes = list()
     geral = geral.lower()
     geral_tranformada = geral.split(" ")
     geral = str()
@@ -9,25 +12,41 @@ def geral_para_reduzida(geral: str) -> str:
 
     parteImportante = str(geral.split('=')[0])
 
-    try:
-        if 'y' in parteImportante:
-            antessede_y = (parteImportante.split("y")[0])
-            print(antessede_y)
+    if '+' in parteImportante:
+        partes = parteImportante.split("+")
 
-        else:
-            print('não tem y')
+    #### VAI TER QUE ARRUMAR PRA QUANDO TIVER ALGUM -
 
-    except:
-        raise Exception("Errado, não tem y")
+    for parte in partes:
+        try:
+            c = float(parte)
+        except:
+            if "x" in parte:
+                if parte == "x":
+                    a = 1
+                else:
+                    coeficiente = parte.split("x")
+                    for parten in coeficiente:
+                        if len(parten) > 0:
+                            a = float(parten)
+            elif "y" in parte:
+                if parte == "y":
+                    b = 1
+                else:
+                    coeficiente = parte.split("y")
+                    for parten in coeficiente:
+                        if len(parten) > 0:
+                            b = float(parten)
+            else:
+                raise Exception("equação inserida errado")
 
-    return ...
+    return a, b, c
 
 
 def main():
-    geral = '2y- 3x-3=0'
-    print(geral_para_reduzida('-3x+5y+3=0'))
+    geral = 'x+8y+6=0'
     print(geral_para_reduzida(geral))
 
-    
+
 if __name__ == "__main__":
     main()
