@@ -44,28 +44,49 @@
 
 //
 
-// Get the modal
-let modal = document.getElementById("session_window");
+// modais
+let start_session_modal = document.getElementById("start_session_modal");
+let finish_session_modal = document.getElementById("finish_session_modal");
 
-// Get the button that opens the modal
-let btn = document.getElementById("button_new_session");
+// botões que abrem os modais
+let button_finish_session = document.getElementById("button_finish_session");
+let button_start_session = document.getElementById("button_start_session");
 
-// Get the <span> element that closes the modal
-let span = document.getElementsByClassName("close")[0];
+// spans que fecham os modais (botão x)
+let span_start_session_modal = document.getElementById("span_start_session_modal");
+let span_finish_session_modal = document.getElementById("span_finish_session_modal");
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
+// começa com o modal de instruções/início da sessão aberto
+span_start_session_modal.style.display = "block";
+start_session_modal.style.display = "block";
+
+// quando o usuário clicar no botão de finalizar sessão, abre modal com resultados
+button_finish_session.onclick = function() {
+  finish_session_modal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+// quando o usuário clicar no botão de iniciar sessão (dentro do modal),
+// fecha o modal
+button_start_session.onclick = function() {
+  span_start_session_modal.style.display = "none";
+  start_session_modal.style.display = "none";
+}
+
+// quando o usuário apertar o x do span dentro do modal, fecha-o
+span_start_session_modal.onclick = function() {
+  span_start_session_modal.style.display = "none";
+  start_session_modal.style.display = "none";
+}
+
+// quando o usuário apertar o x do span dentro do modal, fecha-o
+span_finish_session_modal.onclick = function() {
+  span_finish_session_modal.style.display = "none";
+  finish_session_modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-}
+// window.onclick = function(event) {
+//   if (event.target === session_modal) {
+//     session_modal.style.display = "none";
+//   }
+// }
