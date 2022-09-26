@@ -22,7 +22,7 @@
               (doc && doc.clientTop  || body && body.clientTop  || 0 );
         }
 
-        document.getElementById("mouse_position").textContent = "Mouse position: (" + event.pageX + ", " + event.pageY + ")";
+        document.getElementById("mouse_position_value").textContent = "(" + event.pageX + ", " + event.pageY + ")";
     }
 })();
 
@@ -30,7 +30,7 @@
     document.onmousedown = handleMouseDown;
 
     function handleMouseDown(event) {
-        document.getElementById("mouse_click").textContent = "Mouse click? True";
+        document.getElementById("mouse_click_value").textContent = "true";
     }
 })();
 
@@ -38,7 +38,7 @@
     document.onmouseup = handleMouseUp;
 
     function handleMouseUp(event) {
-        document.getElementById("mouse_click").textContent = "Mouse click? False";
+        document.getElementById("mouse_click_value").textContent = "false";
     }
 })();
 
@@ -57,11 +57,23 @@ let close_finish_session_modal = document.getElementById("close_finish_session_m
 let span_start_session_modal = document.getElementById("span_start_session_modal");
 let span_finish_session_modal = document.getElementById("span_finish_session_modal");
 
-let timer = 10000; // milisegundos
+let timer = 300000; // 5 minutos (em milisegundos)
 let start = new Date().getTime();
 let running = false;
 
 let countdown_timer = document.getElementById("countdown_timer");
+
+let collected_data = Array();
+
+function record_mouse_movement() {
+    if(running) {
+        let data = '"' + format_time(new Date()) + '","' +
+            document.getElementById("mouse_position_value").textContent + '","' +
+            document.getElementById("mouse_click_value").textContent + '"\n';
+
+        collected_data.push(data);
+    }
+}
 
 function update_countdown_timer() {
     let seconds_timer;
@@ -83,6 +95,11 @@ function update_countdown_timer() {
     countdown_timer.textContent = "Tempo restante: " + minutes + ":" + seconds;
 }
 
+function format_time(time) {
+    return time.getHours() + '-' + time.getMinutes() + '-' + time.getSeconds() + ' ' +
+        time.getDay() + '-' + time.getMonth() + '-' + time.getFullYear()
+}
+
 function start_session_func_show() {
     span_start_session_modal.style.display = "block";
     start_session_modal.style.display = "block";
@@ -93,6 +110,12 @@ function finish_session_func_show() {
     span_finish_session_modal.style.display = "block";
 
     running = false;
+
+    let now = new Date();
+    let filename = 'tracking_' + format_time(now) + ".txt";
+
+    let myFile = new File(collected_data, filename, {type: "text/plain;charset=utf-8"});
+    saveAs(myFile);
 }
 function start_session_func_close() {
     span_start_session_modal.style.display = "none";
@@ -117,6 +140,7 @@ function restart_session_func() {
 // começa com o modal de instruções/início da sessão aberto
 start_session_func_show();
 window.setInterval(update_countdown_timer, 1000);  // a cada segundo
+window.setInterval(record_mouse_movement, 1000);
 
 // quando o usuário apertar o x do span dentro do modal, fecha-o
 span_start_session_modal.onclick = start_session_func_close;
