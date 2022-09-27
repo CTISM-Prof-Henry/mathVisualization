@@ -7,8 +7,6 @@ def define_layout():
     app = Dash(__name__)
 
     app.layout = html.Div([
-
-        html.Title('Math Visualization'),
         html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'), 
         html.Header([ 
             html.Div(
@@ -20,22 +18,42 @@ def define_layout():
         html.Div([
             html.Nav(className="page__menu page__custom-settings menu"),
             html.Ul([
+                # INSERINDO O MENU HORIZONTAL SUPERIOR 
                 html.Li(className="group_menu"),
-                html.A(["Introdução"], href="main.py#Introdução", className="menu__link r-link text-underlined"),
-                html.A(["Equação de uma reta"], href="main.py#Reta", className="menu__link r-link text-underlined"),
-                html.A(["Equação de uma Circuferencia"], href="main.py#Circuferencia", className="menu__link r-link text-underlined"),
-                html.A(["Grafico"], href="main.py#Grafico", className="menu__link r-link text-underlined"),
+                html.A(["Introdução"], href="main.py#Introdução",  className="menu"),
+                html.A(["Equação de uma reta"], href="main.py#Reta", className="menu"),
+                html.A(["Equação de uma Circuferencia"], href="main.py#Circuferencia",  className="menu"),
+                html.A(["Grafico"], href="main.py#Grafico",  className="menu"),
+                html.A(["O Projeto"], href="main.py#Origem",  className="menu"),
             ], className="menu"),
         ], className="page"),
         html.Div([
-            html.P(["Math Visualization"], className="titulop1"), 
+            # DIV PARA O TITULO COMO CONTAINER PARA ESTILIZAR MELHOR
             html.Section(),
          ], className="container"), 
          ]),
+           html.Div([
+            # DIV PARA INTRODUÇÃO
+             html.Br(),
+              html.Br(),
+            html.P("aqui sera colocado a introdução"),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.P("fim da introdução")
+        ], className="Introdução", id="Introdução"),
          html.Br(),
         html.Br(),
-        # RETA
-        html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta", id="Reta"),
+         html.Br(),
+          html.Br(),
+           html.Br(),
+        # RETA:
+        html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta", id="Reta"),  
         html.Div([
             html.Label(["Digite uma equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
             html.P(["dica: equação reduzida tem-se no formato: y = mx + n"],className="dica1"),
@@ -123,7 +141,7 @@ def define_layout():
             html.Br(),
             html.Br(),
         ], className="inputs_reta"),
-        # CIRCUFERENCIA
+        # CIRCUFERENCIA:
         html.P(["EQUAÇÃO DE UMA CIRCUFERENCIA"], className = "name_circulo"),
         html.Div([
         
@@ -162,8 +180,6 @@ def define_layout():
             value="Secante",
         ),
         html.Br(),
-        dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
-
          html.Label(["entre si e se interceptam no ponto: " ], htmlFor="input_interceptam", className="interceptam"),
                 dcc.Input(
                     id="input_interceptam",
@@ -172,6 +188,11 @@ def define_layout():
                     value=''
                 ),
         ], className="circuferencia"),
+        html.Br(),
+        html.Br(),
+        html.Br(),
+        # GRAFICO:
+        dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
           ], className="body")
         
 
