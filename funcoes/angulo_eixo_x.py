@@ -24,4 +24,4 @@ def main(equacao: str) -> float:
 
 
 if __name__ == '__main__':
-    print(main(' y = x + 1 '))
+    print(main(' y = 3x + 1 '))
