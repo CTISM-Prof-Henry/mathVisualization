@@ -1,4 +1,4 @@
-def geral_para_reduzida(geral: str) -> str:
+def main(geral: str) -> str:
     # tratamento
     a = float()
     b = float()
@@ -38,15 +38,11 @@ def geral_para_reduzida(geral: str) -> str:
                         if len(parten) > 0:
                             b = float(parten)
             else:
-                raise Exception("equação inserida errado")
+                raise Exception("equacao inserida errado")
 
+    # TODO precisa retornar uma string, e não uma tupla!!!
     return a, b, c
 
 
-def main():
-    geral = 'x+8y+6=0'
-    print(geral_para_reduzida(geral))
-
-
 if __name__ == "__main__":
-    main()
+    main('x+8y+6=0')

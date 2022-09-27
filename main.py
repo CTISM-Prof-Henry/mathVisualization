@@ -55,8 +55,8 @@ def define_layout():
         # RETA:
         html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta", id="Reta"),  
         html.Div([
-            html.Label(["Digite uma equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
-            html.P(["dica: equação reduzida tem-se no formato: y = mx + n"],className="dica1"),
+            html.Label(["Digite uma equacao reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
+            html.P(["dica: equacao reduzida tem-se no formato: y = mx + n"],className="dica1"),
                 dcc.Input(
                     id="input_reduzida",
                     placeholder='',
@@ -65,8 +65,8 @@ def define_layout():
                 ),
             html.Br(),
             html.Br(),
-            html.Label(["Digite uma equação geral de uma reta: "], htmlFor="input_geral", className="geral"),
-            html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"],className="dica2"),
+            html.Label(["Digite uma equacao geral de uma reta: "], htmlFor="input_geral", className="geral"),
+            html.P(["dica: equacao geral tem-se no formato: ax + by  + c = 0"],className="dica2"),
                 dcc.Input(
                     id="input_geral",
                     placeholder='',
@@ -129,7 +129,7 @@ def define_layout():
                 ),
             html.Br(),
             html.Br(),
-            html.Label(["Angulo formado pela equação da reta e o eixo X: "], htmlFor="input_angulo", className="angulo"),
+            html.Label(["Angulo formado pela equacao da reta e o eixo X: "], htmlFor="input_angulo", className="angulo"),
             
                 dcc.Input(
                     id="input_angulo",
@@ -145,8 +145,8 @@ def define_layout():
         html.P(["EQUAÇÃO DE UMA CIRCUFERENCIA"], className = "name_circulo"),
         html.Div([
         
-            html.Label(["Digite uma equação reduzida de uma circuferencia: "], htmlFor="input_circuferencia", className="circuferencia"),
-            html.P(["dica: equação reduzida da circuferencia tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],className="dica3"),
+            html.Label(["Digite uma equacao reduzida de uma circuferencia: "], htmlFor="input_circuferencia", className="circuferencia"),
+            html.P(["dica: equacao reduzida da circuferencia tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],className="dica3"),
                 dcc.Input(
                     id="input_circuferencia",
                     placeholder='',
