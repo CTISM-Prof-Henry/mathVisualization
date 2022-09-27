@@ -1,9 +1,8 @@
 def main(equacao: str) -> "tuple[float, float]":
     """
-    Função que dada uma equação de reta reduzida, retorna uma tupla em que,
+    Função que dada uma equacao de reta reduzida, retorna uma tupla em que, 
     na primeira posição encontra-se o coeficiente angular e na segunda o coeficiente linear
     """
-
     coeficienteAngular = float()
     coeficienteLinear = float()
 
@@ -17,7 +16,7 @@ def main(equacao: str) -> "tuple[float, float]":
     primeiraParte = str(equacao.split("=")[0])
     segundaParte = str(equacao.split("=")[1])
     if primeiraParte.lower() != "y":
-        raise Exception("equação inserida errado")
+        raise Exception("equacao inserida errado")
 
     # Trata o primeiro +:
     if "+" == segundaParte[0]:
