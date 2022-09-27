@@ -63,11 +63,11 @@ let running = false;
 
 let countdown_timer = document.getElementById("countdown_timer");
 
-let collected_data = Array();
+let collected_data = Array('miliseconds,mouse_position,mouse_click\n');
 
 function record_mouse_movement() {
     if(running) {
-        let data = '"' + format_time(new Date()) + '","' +
+        let data = '"' + new Date().getTime() + '","' +
             document.getElementById("mouse_position_value").textContent + '","' +
             document.getElementById("mouse_click_value").textContent + '"\n';
 
@@ -112,11 +112,12 @@ function finish_session_func_show() {
     running = false;
 
     let now = new Date();
-    let filename = 'tracking_' + format_time(now) + ".txt";
+    let filename = 'tracking_' + format_time(now) + ".csv";
 
     let myFile = new File(collected_data, filename, {type: "text/plain;charset=utf-8"});
     saveAs(myFile);
 }
+
 function start_session_func_close() {
     span_start_session_modal.style.display = "none";
     start_session_modal.style.display = "none";
@@ -140,7 +141,7 @@ function restart_session_func() {
 // começa com o modal de instruções/início da sessão aberto
 start_session_func_show();
 window.setInterval(update_countdown_timer, 1000);  // a cada segundo
-window.setInterval(record_mouse_movement, 1000);
+window.setInterval(record_mouse_movement, 50);  // a cada 50 milisegundos
 
 // quando o usuário apertar o x do span dentro do modal, fecha-o
 span_start_session_modal.onclick = start_session_func_close;
