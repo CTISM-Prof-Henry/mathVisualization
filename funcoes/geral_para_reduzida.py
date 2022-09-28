@@ -12,11 +12,14 @@ def main(geral: str) -> str:
     for numero in geral_tranformada:
         geral += numero
 
+    # seleciona a parte mais importante com os coeficientes
     partes = geral.split('=')
     if partes[1] != "0":
         return Exception("A equacao geral deve ser igualada a zero")
+
     parteImportante = partes[0]
 
+    #Separação dos coeficientes
     if parteImportante[0] == "+":
         parteImportante = parteImportante[1:]
 
@@ -48,14 +51,14 @@ def main(geral: str) -> str:
         for parte in range(len(partes))[1:]:
             partes[parte] = "-"+partes[parte]
 
-
-
     else:
-        return Exception("Problema")
+        return Exception("Algo de errado não esta certo!!")
 
+    #manipulação da strig para dar a forma da reduzida
     reduzida = 'y='
     divisor = None
 
+    #ve se a primiera parte tem algum coeficente antes do y
     if partes[0] != 'y':
         divisor = partes[1].split('y')
         divisor.remove('')
