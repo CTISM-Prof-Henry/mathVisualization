@@ -1,9 +1,8 @@
 import math
 def main(geral: str) -> str:
     # tratamento
-    a = float()
-    b = float()
-    c = float()
+    ca = float()
+    cb = float()
 
     partes = list()
     geral = geral.lower()
@@ -54,9 +53,31 @@ def main(geral: str) -> str:
         for coeficiente in partes:
             if coeficiente != "":
                 print(coeficiente)
+
+
     else:
         return Exception("Problema")
 
+    reduzida = 'y='
+    divisor = None
+    if partes[1] != 'y':
+        divisor = partes[1].split('y')
+        divisor.remove('')
+        divisor = divisor[0]
+
+    if divisor != 0:
+        reduzida = reduzida + '('
+        partes.pop(1)
+        for a in partes:
+            reduzida = reduzida + '-' + a
+        reduzida + ')' + str(divisor)
+    else:
+        partes.pop(1)
+        for a in partes:
+            reduzida = reduzida + '-' + a
+
+    return reduzida
+
 
 if __name__ == "__main__":
-    main('x-8y-6=0')
+    print(main('2x-8y-6=0'))
