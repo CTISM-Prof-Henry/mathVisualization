@@ -4,55 +4,59 @@ def main(geral: str) -> str:
     a = float()
     b = float()
     c = float()
-    n = float()
+
     partes = list()
     geral = geral.lower()
     geral_tranformada = geral.split(" ")
     geral = str()
+
     for numero in geral_tranformada:
         geral += numero
 
-    parteImportante = str(geral.split('=')[0])
+    partes = geral.split('=')
+    if partes[1] != "0":
+        return Exception("A equacao geral deve ser igualada a zero")
+    parteImportante = partes[0]
+
+    if parteImportante[0] == "+":
+        parteImportante = parteImportante[1:]
 
     if '+' in parteImportante:
         partes = parteImportante.split("+")
-
-    if "-" in parteImportante:
-        partes = parteImportante.split("-")
+        partesTemporarias = list()
         if "" in partes:
             partes.remove("")
-            partes[0] = "-" + partes[1]
-        partes[1] = "-" + partes[1]
-        partes[2] = "-" + partes[2]
-
-    for parte in partes:
-        try:
-            c = float(parte)
-
-        except:
-            if "x" in parte:
-                if parte == "x":
-                    a = 1
-                else:
-                    coeficiente = parte.split("x")
-                    for parten in coeficiente:
-                        if len(parten) > 0:
-                            a = float(parten)
-            elif "y" in parte:
-                if parte == "y":
-                    b = 1
-                else:
-                    coeficiente = parte.split("y")
-                    for parten in coeficiente:
-                        if len(parten) > 0:
-                            b = float(parten)
+        for parte in range(len(partes)):
+            if "-" in partes[parte]:
+                partesMenos = partes[parte].split("-")
+                if "" in partesMenos:
+                    partesMenos.remove("")
+                    partesMenos[0] = "-" + partesMenos[0]
+                partesMenos[-1] = "-" + partesMenos[-1]
+                if "--" in partesMenos[0]:
+                    partesMenos[0] = partesMenos[0][1:]
+                partesTemporarias+=partesMenos
             else:
-                raise Exception("equacao inserida errado")
+                partesTemporarias.append(partes[parte])
+        partes = partesTemporarias
+        for coeficiente in partes:
+            if coeficiente != "":
+                print(coeficiente)
 
-    # TODO precisa retornar uma string, e não uma tupla!!!
-
-    return a, b, c
+    elif '-' in parteImportante:
+        partes = parteImportante.split("-")
+        partesTemporarias = list()
+        if "" in partes:
+            partes.remove("")
+            partes[0] = "-"+partes[0]
+        for parte in range(len(partes))[1:]:
+            partes[parte] = "-"+partes[parte]
+        for coeficiente in partes:
+            if coeficiente != "":
+                print(coeficiente)
+    else:
+        return Exception("Problema")
 
 
 if __name__ == "__main__":
-    print(main('x-8y-6=0'))
+    main('x-8y-6=0')
