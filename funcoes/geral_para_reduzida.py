@@ -1,8 +1,10 @@
+import math
 def main(geral: str) -> str:
     # tratamento
     a = float()
     b = float()
     c = float()
+    n = float()
     partes = list()
     geral = geral.lower()
     geral_tranformada = geral.split(" ")
@@ -15,11 +17,18 @@ def main(geral: str) -> str:
     if '+' in parteImportante:
         partes = parteImportante.split("+")
 
-    #### VAI TER QUE ARRUMAR PRA QUANDO TIVER ALGUM -
+    if "-" in parteImportante:
+        partes = parteImportante.split("-")
+        if "" in partes:
+            partes.remove("")
+            partes[0] = "-" + partes[1]
+        partes[1] = "-" + partes[1]
+        partes[2] = "-" + partes[2]
 
     for parte in partes:
         try:
             c = float(parte)
+
         except:
             if "x" in parte:
                 if parte == "x":
@@ -41,8 +50,9 @@ def main(geral: str) -> str:
                 raise Exception("equacao inserida errado")
 
     # TODO precisa retornar uma string, e não uma tupla!!!
+
     return a, b, c
 
 
 if __name__ == "__main__":
-    main('x+8y+6=0')
+    print(main('x-8y-6=0'))
