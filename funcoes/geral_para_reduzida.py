@@ -38,9 +38,9 @@ def main(geral: str) -> str:
             else:
                 partesTemporarias.append(partes[parte])
         partes = partesTemporarias
-        for coeficiente in partes:
-            if coeficiente != "":
-                print(coeficiente)
+        #for coeficiente in partes:
+         #   if coeficiente != "":
+          #      print(coeficiente)
 
     elif '-' in parteImportante:
         partes = parteImportante.split("-")
@@ -50,9 +50,9 @@ def main(geral: str) -> str:
             partes[0] = "-"+partes[0]
         for parte in range(len(partes))[1:]:
             partes[parte] = "-"+partes[parte]
-        for coeficiente in partes:
-            if coeficiente != "":
-                print(coeficiente)
+        #for coeficiente in partes:
+            #if coeficiente != "":
+                #print(coeficiente)
 
 
     else:
@@ -60,19 +60,19 @@ def main(geral: str) -> str:
 
     reduzida = 'y='
     divisor = None
-    if partes[1] != 'y':
+
+    if partes[0] != 'y':
         divisor = partes[1].split('y')
         divisor.remove('')
         divisor = divisor[0]
 
-    if divisor != 0:
-        reduzida = reduzida + '('
-        partes.pop(1)
+    if divisor != None:
+        partes.pop(0)
         for a in partes:
-            reduzida = reduzida + '-' + a
+            reduzida = reduzida + a
         reduzida + ')' + str(divisor)
     else:
-        partes.pop(1)
+        partes.pop(0)
         for a in partes:
             reduzida = reduzida + '-' + a
 
@@ -80,4 +80,4 @@ def main(geral: str) -> str:
 
 
 if __name__ == "__main__":
-    print(main('2x-8y-6=0'))
+    print(main('y+3x+2=0'))
