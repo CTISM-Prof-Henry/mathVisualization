@@ -38,9 +38,6 @@ def main(geral: str) -> str:
             else:
                 partesTemporarias.append(partes[parte])
         partes = partesTemporarias
-        #for coeficiente in partes:
-         #   if coeficiente != "":
-          #      print(coeficiente)
 
     elif '-' in parteImportante:
         partes = parteImportante.split("-")
@@ -50,9 +47,7 @@ def main(geral: str) -> str:
             partes[0] = "-"+partes[0]
         for parte in range(len(partes))[1:]:
             partes[parte] = "-"+partes[parte]
-        #for coeficiente in partes:
-            #if coeficiente != "":
-                #print(coeficiente)
+
 
 
     else:
@@ -80,4 +75,4 @@ def main(geral: str) -> str:
 
 
 if __name__ == "__main__":
-    print(main('y+3x+2=0'))
+    print(main('y-3x+2=0'))
