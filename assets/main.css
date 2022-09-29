@@ -6,8 +6,8 @@ p{
 }
 header{
   font: sans-serif;
-  background-image: url('https://cdn.discordapp.com/attachments/690312693483307008/1024132144840327178/MATH---.png');
-  height: 80vh;
+  background-image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
+  height: 100vh;
   background-attachment: fixed;
   background-size: 100%;
   background-position: center;
@@ -89,7 +89,7 @@ font-family: "Montserrat", sans-serif;
 .text-underlined::after{
   content: "";
   width: 0;
-  height: 0px;
+  height: 3px;
   background-color: var(--textUnderlinedLineColor, currentColor);
 
   will-change: width;
@@ -126,7 +126,7 @@ body{
 }
 .page{
   box-sizing: border-box;
-  float: top;
+  float:top;
   max-width: 1900px;
   padding-left: .0rem;
   padding-right: .0rem;
@@ -134,3 +134,141 @@ body{
 .page__menu:nth-child(n+2){
   margin-top: 3rem;
 }
+/* ESCRITAS*/
+P.name_reta{
+  margin-left: 400px;
+  font-size: 40px;
+  font-family: Rubik Dirt;
+
+}
+label.reduzida{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+p.dica1{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+}
+p.dica2{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
+}
+label.geral{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.angular{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.linear{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.A{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.B{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.C{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.angulo{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+/*CAIXAS DE INPUT*/
+input[id='input_angular']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+input[id='input_reduzida']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px; 
+}
+input[id='input_geral']{
+  margin-left: 250px;
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+
+}
+input[id='input_linear']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+
+}
+input[id='input_A']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}input[id='input_B']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}input[id='input_C']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+
+
