@@ -47,7 +47,7 @@ aquela atividade.
 8. [ ] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
        isto ocorre.
-9. [ ] (Luize) Implementar layout da página HTML utilizando dash.
+9. [x] (Luize) Implementar layout da página HTML utilizando dash.
       * Dica: https://dash.plotly.com/dash-core-components
 10. [ ] (Henry) implementar gráfico da reta e da circunferência.
 
