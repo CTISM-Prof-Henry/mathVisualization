@@ -135,6 +135,7 @@ body{
   margin-top: 3rem;
 }
 /* ESCRITAS*/
+/*LABEL E P DA RETA*/
 P.name_reta{
   margin-left: 400px;
   font-size: 40px;
@@ -171,6 +172,11 @@ label.linear{
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
 }
+p.coeficientes{
+  margin-left: 150px;
+  font-size: 25px;
+  font-family: Rubik Dirt;
+}
 label.A{
   margin-left: 150px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -190,8 +196,40 @@ label.angulo{
   margin-left: 150px;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 20px;
+}/*LABEL E P DA CIRCUFERENCIA:*/
+P.name_circulo{
+  margin-left: 400px;
+  font-size: 40px;
+  font-family: Rubik Dirt;
+
+}
+label.circuferencia{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.centro{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.raio{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+label.interceptam{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+p.dica3{
+  margin-left: 150px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 14px;
 }
 /*CAIXAS DE INPUT*/
+/*INPUTS DA RETA: */
 input[id='input_angular']{
   padding:10px;
   padding-top: 4px;
@@ -215,7 +253,6 @@ input[id='input_reduzida']{
   size: 15px; 
 }
 input[id='input_geral']{
-  margin-left: 250px;
   padding:10px;
   padding-top: 4px;
   border: 1px solid #709CEE;
@@ -270,5 +307,73 @@ input[id='input_A']{
   border-radius: 7px 7px 7px 7px;
   size: 15px;
 }
+input[id='input_angulo']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+/*INPUTS DA CIRCUFERENCIA*/
+input[id='input_circuferencia']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+input[id='input_centro']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+input[id='input_raio']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+input[id='seletor_intersecao_reta_circunferencia']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+input[id='input_interceptam']{
+  padding:10px;
+  padding-top: 4px;
+  border: 1px solid #709CEE;
+  background-color:   #48D1CC;
+  font-family:'Acme', sans-serif;
+  font-size: 14px;
+  color: white;
+  border-radius: 7px 7px 7px 7px;
+  size: 15px;
+}
+
 
 
