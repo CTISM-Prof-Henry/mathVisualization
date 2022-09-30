@@ -2,12 +2,15 @@
 # coeficientes das equacoes da reta e da circunferencia
 
 def posicao_relativa(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
+    # pegando os coeficientes da formula de bhaskara
     aa = m**2+1
     bb = -2*a + 2*m*(n-b)
     cc = a**2 + (n-b)**2 - (r**2)
 
+    # obtendo o delta
     delta = bb**2 - 4*aa*cc
 
+    # determinando a relacao entre a reta e a circunferencia
     if delta > 0:
         relacao = 'secante'
     elif delta < 0:
@@ -16,9 +19,12 @@ def posicao_relativa(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[flo
     else:
         relacao = 'tangente'
 
+    # obtendo as raizes da equacao de segundo grau
+    # (abscissas dos pontos que interceptam a circunferencia)
     x1 = (-bb + delta**0.5) / (2 * aa)
     x2 = (-bb - delta**0.5) / (2 * aa)
 
+    # obtendo a ordenada dos pontos que interceptam a circunferencia
     y1 = m*x1 + n
     y2 = m*x2 + n
 
