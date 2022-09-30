@@ -1,28 +1,46 @@
-eq = '(x-a)**2 + (y - b)**2 = r**2'
+def coeficientes_circunferencia(eq: str) -> tuple[float, float, float]:
+    eq = eq.split('=')
+    r = float(eq[1])**0.5
+    eq = eq[0]
 
-eq = eq.split("=")
-#eq = ['(x - a)**2 + (y - b)**2', 'r**2']
-r = float(eq[1])**0.5
-eq = eq[0]
+    eq = eq.split('(')
 
-#eq = '(x - a)**2 + (y - b)**2'
-eq = eq.split("(")
+    for i in range(len(eq)):
+        eq[i] = eq[i].split(')')
 
-#eq = ['x - a)**2 +', 'y - b)**2'
-for parte in eq:
-    parte.split(')')
-    #eq = ['x- a', '**2+', 'y-b', '**2']
-    eq.pop(3)
-    eq.pop(1)
-    eq = ['x - a', 'y - b']
-    a = eq[0].strip('x')
-    if a == '':
+    if len(eq) == 3:
+        eq.pop(0)
+        a = eq[0][0].strip('x')
+        if a == '':
+            a = 0
+        else:
+            a = -float(a)
+
+        b = eq[1][0].strip('y')
+        if b == '':
+            b = 0
+        else:
+            b = -float(b)
+
+    elif len(eq) == 2:
+        if 'x' in eq[0][0]:
+            a = 0
+            b = eq[1][0].strip('y')
+            if b == '':
+                b = 0
+            else:
+                b = -float(b)
+        else:
+            eq.pop(0)
+            a = eq[0][0].strip('x')
+            if a == '':
+                a = 0
+            else:
+                a = -float(a)
+            b = 0
+
+    else:
         a = 0
-    else:
-        a= -float(a)
-    b= eq[1].strip('y')
-
-    if b == '':
         b = 0
-    else:
-        b = -float(b)
+
+    return a, b, r
