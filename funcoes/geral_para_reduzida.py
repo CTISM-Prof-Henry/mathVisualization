@@ -1,14 +1,11 @@
-import math
 def main(geral: str) -> str:
-    # tratamento
-    ca = float()
-    cb = float()
-
+    # TODO tratamento da string recebida (isso funciona)
     partes = list()
     geral = geral.lower()
     geral_tranformada = geral.split(" ")
     geral = str()
 
+    # Remove os espaços
     for numero in geral_tranformada:
         geral += numero
 
@@ -16,10 +13,9 @@ def main(geral: str) -> str:
     partes = geral.split('=')
     if partes[1] != "0":
         return Exception("A equacao geral deve ser igualada a zero")
-
     parteImportante = partes[0]
 
-    #Separação dos coeficientes
+    # TODO Separação dos coeficientes (isso funciona)
     if parteImportante[0] == "+":
         parteImportante = parteImportante[1:]
 
@@ -52,23 +48,28 @@ def main(geral: str) -> str:
             partes[parte] = "-"+partes[parte]
 
     else:
-        return Exception("Algo de errado não esta certo!!")
+        return Exception("Equação inserida errado, verifique! ")
 
-    #manipulação da strig para dar a forma da reduzida
+    # TODO parte problemática: arrumar a equação com os coef. que separamos
+
     reduzida = 'y='
+    #coeficiente que pode estar junto com o Y
     divisor = None
 
-    #ve se a primiera parte tem algum coeficente antes do y
+    #se a primeira parte tem coeficente antes do y
     if partes[0] != 'y':
         divisor = partes[1].split('y')
-        divisor.remove('')
         divisor = divisor[0]
 
+    #se tiver um divisor, joga para o outro lado
     if divisor != None:
+        reduzida = reduzida + '('
         partes.pop(0)
         for a in partes:
             reduzida = reduzida + a
-        reduzida + ')' + str(divisor)
+            reduzida + ')' + str(divisor)
+
+    #se não tiver, junta as partes e muda o sinal
     else:
         partes.pop(0)
         for a in partes:
@@ -78,4 +79,7 @@ def main(geral: str) -> str:
 
 
 if __name__ == "__main__":
-    print(main('y-3x+2=0'))
+    #com uma equação assim, funciona
+    print(main('y+2x+2=0'))
+
+# Desculpa sor!
