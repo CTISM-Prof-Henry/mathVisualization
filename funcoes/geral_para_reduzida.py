@@ -53,15 +53,16 @@ def main(geral: str) -> str:
     # TODO parte problemática: arrumar a equação com os coef. que separamos
 
     reduzida = 'y='
-    #coeficiente que pode estar junto com o Y
+    # coeficiente que pode estar junto com o Y
     divisor = None
 
-    #se a primeira parte tem coeficente antes do y
+    # verifica se a primeira parte tem numero antes do y
+    # Obs: "partes" é uma lista com os coeficientes
     if partes[0] != 'y':
         divisor = partes[1].split('y')
         divisor = divisor[0]
 
-    #se tiver um divisor, joga para o outro lado
+    # se tiver um divisor, joga para o outro lado
     if divisor != None:
         reduzida = reduzida + '('
         partes.pop(0)
@@ -69,7 +70,7 @@ def main(geral: str) -> str:
             reduzida = reduzida + a
             reduzida + ')' + str(divisor)
 
-    #se não tiver, junta as partes e muda o sinal
+    # se não tiver, junta as partes e muda o sinal
     else:
         partes.pop(0)
         for a in partes:
