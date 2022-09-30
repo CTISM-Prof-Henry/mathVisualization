@@ -1,7 +1,7 @@
 # TODO: implementar codigo com as funcoes que capturam os
 # coeficientes das equacoes da reta e da circunferencia
 
-def posicao_relativa(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
+def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
     aa = m**2+1
     bb = -2*a + 2*m*(n-b)
     cc = a**2 + (n-b)**2 - (r**2)

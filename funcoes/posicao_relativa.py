@@ -35,4 +35,5 @@ def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
 
 
 if __name__ == '__main__':
-    main()
+    pass
+    # main()

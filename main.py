@@ -2,6 +2,7 @@ import dash
 from dash import Dash, dcc, html, Input, Output
 import plotly.graph_objects as go
 import numpy as np
+from funcoes import *
 
 
 def define_layout() -> dash.Dash:
@@ -39,24 +40,24 @@ def define_layout() -> dash.Dash:
                 html.Br(),
                 html.Br(),
         html.Div([
-            html.Label(["Digite uma equacao reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
+            html.Label(["Digite a equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
                 dcc.Input(
                     id="input_reduzida",
                     placeholder='',
                     type='text',
                     value=''
                 ),
-                   html.P(["dica: equacao reduzida tem-se no formato: y = mx + n"],className="dica1"),
+                   html.P(["dica: equação reduzida tem-se no formato: y = mx + n"], className="dica1"),
             html.Br(),
             html.Br(),
-            html.Label(["Digite uma equacao geral de uma reta: "], htmlFor="input_geral", className="geral"),
+            html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral", className="geral"),
                 dcc.Input(
                     id="input_geral",
                     placeholder='',
                     type='text',
                     value=''
                 ), 
-                  html.P(["dica: equacao geral tem-se no formato: ax + by  + c = 0"],className="dica2"),
+                  html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"],className="dica2"),
             html.Br(),
             html.Br(),          
             html.Label(["Digite o coeficiente angular (m): "], htmlFor="input_angular", className="angular"),
@@ -212,24 +213,47 @@ def define_callbacks(app: dash.Dash):
     def atualiza_inputs_a_partir_da_reduzida(
             input_reduzida: str
     ) -> tuple:
-        # input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
-        return tuple([input_reduzida] * 7)
+        try:
+            input_geral = reduzida_para_geral_func(input_reduzida)
+        except:
+            input_geral = 'erro!'
 
-    @app.callback(
-        Output("input_reduzida", "value"),
-        Output("input_angular", "value"),
-        Output("input_linear", "value"),
-        Output("input_A", "value"),
-        Output("input_B", "value"),
-        Output("input_C", "value"),
-        Output("input_angulo", "value"),
-        Input("input_geral", "value")
-    )
-    def atualiza_inputs_a_partir_da_geral(
-            input_geral: str
-    ) -> tuple:
-        # input_reduzida, input_angular, input_linear, input_A, input_B, input_C, input_angulo
-        return tuple([input_geral] * 7)
+        try:
+            input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
+        except:
+            input_angular, input_linear = 'erro!', 'erro!'
+
+        try:
+            input_A, input_B, input_C = coeficiente_geral_func(input_geral)
+        except:
+            input_A, input_B, input_C = 'erro!', 'erro!', 'erro!'
+
+        try:
+            input_angulo = angulo_eixo_x_func(input_reduzida)
+        except:
+            input_angulo = 'erro!'
+
+        return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
+
+    # @app.callback(
+    #     Output("input_reduzida", "value"),
+    #     Output("input_angular", "value"),
+    #     Output("input_linear", "value"),
+    #     Output("input_A", "value"),
+    #     Output("input_B", "value"),
+    #     Output("input_C", "value"),
+    #     Output("input_angulo", "value"),
+    #     Input("input_geral", "value")
+    # )
+    # def atualiza_inputs_a_partir_da_geral(
+    #         input_geral: str
+    # ) -> tuple:
+    #     input_reduzida = geral_para_reduzida_func(input_geral)
+    #     input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
+    #     input_A, input_B, input_C = coeficiente_geral_func(input_geral)
+    #     input_angulo = angulo_eixo_x_func(input_reduzida)
+    #
+    #     return input_reduzida, input_angular, input_linear, input_A, input_B, input_C, input_angulo
 
 
 def main():
