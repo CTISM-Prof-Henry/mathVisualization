@@ -1,4 +1,4 @@
-def main(equacao: str) -> "tuple[float, float]":
+def main(equacao: str) -> tuple[float, float]:
     """
     Função que dada uma equacao de reta reduzida, retorna uma tupla em que, 
     na primeira posição encontra-se o coeficiente angular e na segunda o coeficiente linear
@@ -143,9 +143,10 @@ def testa(relacoes: 'dict[str : tuple[float,float]]') -> bool:
             pass
         else:
             final[equacao] = "deu ruim"
+            return False
     if final == dict():
-        return "Passou tudo"
-    return (final)
+        print("Passou tudo")
+    return True
 
 
 if __name__ == "__main__":

@@ -1,17 +1,17 @@
-def coeficientes_geral(geral:str)->"tuple[float,float,float]":
+def main(geral: str) -> tuple[float, float, float]:
     coeficientes = list()
     coeficienteA = 0
     coeficienteB = 0
     coeficienteC = 0
 
     partes = geral.split("=")
-    if not "0" in partes:
-        return Exception("Equação precisa ser igualada a zero")
+    if "0" not in partes:
+        raise Exception("Equação precisa ser igualada a zero")
 
     parteImportante = partes[0]
 
     if parteImportante[0] == "+":
-        parteImportante =  parteImportante[1:]
+        parteImportante = parteImportante[1:]
 
     if '+' in parteImportante:
         partes = parteImportante.split("+")
@@ -46,7 +46,7 @@ def coeficientes_geral(geral:str)->"tuple[float,float,float]":
             if coeficiente != "":
                 coeficientes.append(coeficiente)
     else:
-        return Exception("Problema")
+        raise Exception("Problema")
 
     for coeficiente in coeficientes:
         try:
@@ -63,5 +63,6 @@ def coeficientes_geral(geral:str)->"tuple[float,float,float]":
 
     return coeficienteA, coeficienteB, coeficienteC
 
+
 if __name__ == "__main__":
-    print(coeficientes_geral("-3x-8y-7=0"))
+    print(main("-3x-8y-7=0"))

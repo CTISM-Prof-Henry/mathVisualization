@@ -1,7 +1,7 @@
 # TODO: implementar codigo com as funcoes que capturam os
 # coeficientes das equacoes da reta e da circunferencia
 
-def posicao_relativa(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
+def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
     # pegando os coeficientes da formula de bhaskara
     aa = m**2+1
     bb = -2*a + 2*m*(n-b)
@@ -33,3 +33,6 @@ def posicao_relativa(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[flo
     else:
         return relacao, (x1, y1), (x2, y2)
 
+
+if __name__ == '__main__':
+    main()

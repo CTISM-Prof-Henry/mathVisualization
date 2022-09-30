@@ -1,4 +1,4 @@
-def reduzida_para_geral(red: str) -> str:
+def main(red: str) -> str:
     # tratamento
     a = float()
     b = float()
@@ -18,11 +18,8 @@ def reduzida_para_geral(red: str) -> str:
     partes6= partes5.replace('[', '')
     partes7 = partes6.replace(']', '')
     partes8 = partes7.replace(',', '')
-    return partes8.replace(' ','')
+    return partes8.replace(' ', '')
 
 
-def main():
-    reduzida= 'y = 3x+7'
-    print(reduzida_para_geral(reduzida))
 if __name__ == "__main__":
-    main()
+    print(main('y = 3x+7'))

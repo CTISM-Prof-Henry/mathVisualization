@@ -80,7 +80,7 @@ def main(geral: str) -> str:
 
 
 if __name__ == "__main__":
-    #com uma equação assim, funciona
+    # com uma equação assim, funciona
     print(main('y+2x+2=0'))
 
 # Desculpa sor!

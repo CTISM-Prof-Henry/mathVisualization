@@ -1,4 +1,4 @@
-def coeficientes_circunferencia(eq: str) -> tuple[float, float, float]:
+def main(eq: str) -> tuple[float, float, float]:
     eq = eq.split('=')
     r = float(eq[1])**0.5
     eq = eq[0]
@@ -44,3 +44,7 @@ def coeficientes_circunferencia(eq: str) -> tuple[float, float, float]:
         b = 0
 
     return a, b, r
+
+
+if __name__ == '__main__':
+    print(main('(x - a)**2 + (y - b)**2'))
