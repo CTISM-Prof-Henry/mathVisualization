@@ -14,8 +14,8 @@ def main(red: str) -> str:
     partes2.insert(1, '-')
     partes3 = str(partes2)
     partes4 = partes3+'=0'
-    partes5= partes4.replace("'", '')
-    partes6= partes5.replace('[', '')
+    partes5 = partes4.replace("'", '')
+    partes6 = partes5.replace('[', '')
     partes7 = partes6.replace(']', '')
     partes8 = partes7.replace(',', '')
     return partes8.replace(' ', '')

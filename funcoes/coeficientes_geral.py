@@ -65,4 +65,5 @@ def main(geral: str) -> tuple[float, float, float]:
 
 
 if __name__ == "__main__":
-    print(main("-3x-8y-7=0"))
+    print('primeiro teste:', main("-3x-8y-7=0"))
+    print('segundo teste:', main('-3x - 8y - 7 = 0'))
