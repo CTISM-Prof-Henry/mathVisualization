@@ -36,13 +36,13 @@ e troque de `[ ]` para `[x]`.
 aquela atividade.
 
 1. [ ] (Henry) Organizar tudo.
-2. [ ] (Bruno) Implementar função para converter da equação reduzida da reta para a equação geral.
+2. [x] (Bruno) Implementar função para converter da equação reduzida da reta para a equação geral.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 3. [ ] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
-4. [ ] (Tales) Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
+4. [x] (Tales) Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
 5. [ ] (Liza) Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
-6. [ ] (Henry) Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
+6. [x] (Henry) Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
 7. [ ] (Nicole) Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
 8. [ ] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)

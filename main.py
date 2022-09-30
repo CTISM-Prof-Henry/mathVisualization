@@ -235,26 +235,6 @@ def define_callbacks(app: dash.Dash):
 
         return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
 
-    # @app.callback(
-    #     Output("input_reduzida", "value"),
-    #     Output("input_angular", "value"),
-    #     Output("input_linear", "value"),
-    #     Output("input_A", "value"),
-    #     Output("input_B", "value"),
-    #     Output("input_C", "value"),
-    #     Output("input_angulo", "value"),
-    #     Input("input_geral", "value")
-    # )
-    # def atualiza_inputs_a_partir_da_geral(
-    #         input_geral: str
-    # ) -> tuple:
-    #     input_reduzida = geral_para_reduzida_func(input_geral)
-    #     input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
-    #     input_A, input_B, input_C = coeficiente_geral_func(input_geral)
-    #     input_angulo = angulo_eixo_x_func(input_reduzida)
-    #
-    #     return input_reduzida, input_angular, input_linear, input_A, input_B, input_C, input_angulo
-
 
 def main():
     app = define_layout()
