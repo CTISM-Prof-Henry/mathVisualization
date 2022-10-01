@@ -131,7 +131,7 @@ def define_layout() -> dash.Dash:
          html.Br(),
             html.Br(),
             html.Br(),
-            html.Label(["Digite uma equacao reduzida de uma circuferência: "], htmlFor="input_circuferencia", className="circuferencia"),
+            html.Label(["Digite uma equação reduzida de uma circuferência: "], htmlFor="input_circuferencia", className="circuferencia"),
                 dcc.Input(
                     id="input_circuferencia",
                     placeholder='',
@@ -185,55 +185,167 @@ def define_layout() -> dash.Dash:
 
 
 def define_callbacks(app: dash.Dash):
-    @app.callback(
-        Output("grafico", "figure"), Input("input_reduzida", "value")
-    )
-    def gera_grafico(input_reduzida):
-        x = np.arange(10)
-        y = np.arange(10)
+    old_reduzida = 'erro!'
+    new_reduzida = 'erro!'
 
-        fig = go.Figure(go.Scatter(
-            x=x,
-            y=y,
-            name='função linear',
-            showlegend=True
-        ))
+    @app.callback(
+        Output("grafico", "figure"),
+        Input("input_angular", "value"),
+        Input("input_linear", "value"),
+        Input("input_circuferencia", "value"),
+    )
+    def gera_grafico(input_angular, input_linear, input_circunferencia):
+        fig = go.Figure(
+            layout=go.Layout(
+                paper_bgcolor='#FFFFFF',
+                plot_bgcolor='#F08080'
+            )
+        )
+
+        try:
+            line_equation = lambda z: input_angular * z + input_linear
+
+            X = np.arange(-10, 10)
+            Y = [line_equation(x) for x in X]
+
+            fig = fig.add_scatter(
+                x=X,
+                y=Y,
+                name='reta',
+                # linecolor='#48D1CC',  # TODO não funciona por algum motivo...
+                showlegend=True
+            )
+        except:
+            pass
+
+        try:
+            xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
+
+            # Add circles
+            fig.add_shape(
+                type="circle",
+                xref="x", yref="y",
+                x0=xc, y0=yc, x1=xc + r, y1=yc + r,
+                # line_color="#48D1CC",  # TODO não funciona por algum motivo...
+                name='circunferência',
+                showlegend=True
+            )
+
+        except:
+            pass
+
         return fig
 
     @app.callback(
         Output("input_geral", "value"),
-        Output("input_angular", "value"),
-        Output("input_linear", "value"),
-        Output("input_A", "value"),
-        Output("input_B", "value"),
-        Output("input_C", "value"),
-        Output("input_angulo", "value"),
         Input("input_reduzida", "value")
     )
-    def atualiza_inputs_a_partir_da_reduzida(
+    def atualiza_geral_a_partir_da_reduzida(
             input_reduzida: str
-    ) -> tuple:
+    ) -> str:
         try:
             input_geral = reduzida_para_geral_func(input_reduzida)
         except:
             input_geral = 'erro!'
+
+        return input_geral
+
+    # @app.callback(
+    #     Output("input_reduzida", "value"),
+    #     Input("input_geral", "value")
+    # )
+    # def atualiza_reduzida_a_partir_da_geral(
+    #         input_geral: str
+    # ) -> str:
+    #     try:
+    #         input_reduzida = geral_para_reduzida_func(input_geral)
+    #     except:
+    #         input_reduzida = 'erro!'
+    #
+    #     return input_reduzida
+
+    @app.callback(
+        Output("input_angular", "value"),
+        Output("input_linear", "value"),
+        Input("input_reduzida", "value")
+    )
+    def atualiza_coefientes_reduzida(
+            input_reduzida: str
+    ) -> tuple:
 
         try:
             input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
         except:
             input_angular, input_linear = 'erro!', 'erro!'
 
+        return input_angular, input_linear
+
+    @app.callback(
+        Output("input_A", "value"),
+        Output("input_B", "value"),
+        Output("input_C", "value"),
+        Input("input_geral", "value")
+    )
+    def atualiza_coeficientes_geral(
+            input_geral: str
+    ) -> tuple:
         try:
             input_A, input_B, input_C = coeficiente_geral_func(input_geral)
         except:
             input_A, input_B, input_C = 'erro!', 'erro!', 'erro!'
 
+        return input_A, input_B, input_C
+
+    @app.callback(
+        Output("input_angulo", "value"),
+        Input("input_reduzida", "value")
+    )
+    def atualiza_angulo(
+            input_reduzida: str
+    ) -> str:
         try:
             input_angulo = angulo_eixo_x_func(input_reduzida)
         except:
             input_angulo = 'erro!'
 
-        return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
+        return input_angulo
+
+    @app.callback(
+        Output("input_centro", "value"),
+        Output("input_raio", "value"),
+        Input("input_circuferencia", "value")
+    )
+    def atualiza_centro_e_raio_circunferencia(
+            input_circuferencia: str
+    ) -> tuple:
+        try:
+            xc, yc, r = calculo_raio_e_centro_func(input_circuferencia)
+        except:
+            xc, yc, r = 'erro!', 'erro!', 'erro!'
+
+        return '({0}, {1})'.format(xc, yc), r
+
+    @app.callback(
+        Output("seletor_intersecao_reta_circunferencia", "value"),
+        Output("input_interceptam", "value"),
+        Input("input_reduzida", "value"),
+        Input("input_circuferencia", "value")
+    )
+    def atualiza_posicao_relativa(
+            input_reduzida: str, input_circuferencia: str
+    ) -> tuple:
+        try:
+            m, n = coeficientes_reduzida_func(input_reduzida)
+            xc, yc, r = calculo_raio_e_centro_func(input_circuferencia)
+
+            relacao, p1, p2 = posicao_relativa_func(xc, yc, r, m, n)
+
+        except:
+            relacao, p1, p2 = 'erro!', ('erro!', 'erro!'), ('erro!', 'erro!')
+
+        if p1 == p2:
+            return relacao, '({0},{1})'.format(*p1)
+        return relacao, '({0},{1}) e ({2}, {3})'.format(*p1, *p2)
 
 
 def main():

@@ -1,5 +1,5 @@
 # TODO: implementar codigo com as funcoes que capturam os
-# coeficientes das equacoes da reta e da circunferencia
+# TODO coeficientes das equacoes da reta e da circunferencia
 
 def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
     # pegando os coeficientes da formula de bhaskara
@@ -12,12 +12,11 @@ def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
 
     # determinando a relacao entre a reta e a circunferencia
     if delta > 0:
-        relacao = 'secante'
+        relacao = 'Secante'
     elif delta < 0:
-        relacao = 'externa'
-        return relacao
+        relacao = 'Disjuntas'
     else:
-        relacao = 'tangente'
+        relacao = 'Tangente'
 
     # obtendo as raizes da equacao de segundo grau
     # (abscissas dos pontos que interceptam a circunferencia)
@@ -29,7 +28,7 @@ def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
     y2 = m*x2 + n
 
     if x1 == x2:
-        return relacao, (x1, y1)
+        return relacao, (x1, y1), (x1, y1)
     else:
         return relacao, (x1, y1), (x2, y2)
 

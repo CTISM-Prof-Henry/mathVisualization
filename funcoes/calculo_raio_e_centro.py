@@ -47,4 +47,5 @@ def main(eq: str) -> tuple[float, float, float]:
 
 
 if __name__ == '__main__':
-    print(main('(x - a)**2 + (y - b)**2'))
+    print(main('(x - 3)**2 + (y - 3)**2 = 5**2'))
+

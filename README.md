@@ -35,13 +35,15 @@ e troque de `[ ]` para `[x]`.
 **Dica 2:** Escreva o seu nome entre parênteses para informar que vai fazer
 aquela atividade.
 
-1. [ ] (Henry) Organizar tudo.
+### Primeira rodada
+
+1. [x] (Henry) Organizar tudo.
 2. [x] (Bruno) Implementar função para converter da equação reduzida da reta para a equação geral.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 3. [ ] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 4. [x] (Tales) Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
-5. [ ] (Liza) Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
+5. [x] (Liza) Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
 6. [x] (Henry) Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
 7. [ ] (Nicole) Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
 8. [ ] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
@@ -50,6 +52,28 @@ aquela atividade.
 9. [x] (Luize) Implementar layout da página HTML utilizando dash.
       * Dica: https://dash.plotly.com/dash-core-components
 10. [ ] (Henry) implementar gráfico da reta e da circunferência.
+
+### Segunda rodada
+
+1. [ ] (Tales) Descobrir porque, para certas equações gerais da reta, a função [funcoes/coeficientes_geral/main.py]() 
+       não está gerando os coeficientes a, b, e c.
+2. [ ] (Guilherme) Descobrir porque, para certas equações reduzidas da circunferência, a função [funcoes/calculo_raio_e_centro/main.py]() 
+       não está gerando as coordenadas do centro e o raio.
+3. [ ] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
+       em rosa). 
+       Remover também a grade de background. Em outras palavras, deixar o gráfico esteticamente bonito
+   * Dica 1: consultar [documentação](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html) 
+            da função que gera o gráfico, e procurar por **color** ou **background color**
+   * Dica 2: Pode ser que seja preciso consultar a documentação do 
+               [layout](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html) ou da 
+               [Figure](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html)
+4. [ ] (Luize) Capturar o movimento do mouse que o usuário fizer enquanto mexer na ferramenta, e salvar em um arquivo.
+       Usar o exemplo que está na pasta [tracking](tracking)
+5. [ ] (Luize) Colocar o texto da introdução da ferramenta em um modal, logo que o usuário abrir a página. O modal é 
+       importante porque ele define em que momento a ferramenta vai começar a capturar os dados do mouse e entradas de 
+       texto 
+6. [ ] (Suzi) Escrever o texto de introdução do modal.
+7. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva. 
 
 ## API
 
