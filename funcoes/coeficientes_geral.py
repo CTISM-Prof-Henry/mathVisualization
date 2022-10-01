@@ -1,69 +1,77 @@
 def main(geral: str) -> tuple[float, float, float]:
     coeficientes = list()
+    parteImportante = str()
+    divisor = "/1"
     coeficienteA = 0
     coeficienteB = 0
     coeficienteC = 0
 
+    if " " in geral:
+        tiraEspaço = geral.split(" ")
+        geral = str()
+        for a in tiraEspaço:
+            geral+=a
+
     partes = geral.split("=")
-    if "0" not in partes:
+    if not "0" in partes:
         raise Exception("Equação precisa ser igualada a zero")
 
-    parteImportante = partes[0]
+    for a in partes:
+        if a != "0":
+            parteImportante = a
 
-    if parteImportante[0] == "+":
-        parteImportante = parteImportante[1:]
-
-    if '+' in parteImportante:
-        partes = parteImportante.split("+")
-        partesTemporarias = list()
-        if "" in partes:
-            partes.remove("")
-        for parte in range(len(partes)):
-            if "-" in partes[parte]:
-                partesMenos = partes[parte].split("-")
-                if "" in partesMenos:
-                    partesMenos.remove("")
-                    partesMenos[0] = "-" + partesMenos[0]
-                partesMenos[-1] = "-" + partesMenos[-1]
-                if "--" in partesMenos[0]:
-                    partesMenos[0] = partesMenos[0][1:]
-                partesTemporarias+=partesMenos
+    if "(" in parteImportante and ")" in parteImportante:
+        divisor = parteImportante.split(")")[1]
+        parteImportante = parteImportante.split(")")[0]
+        parteImportante = parteImportante.split("(")[1]
+    
+    if "-" in parteImportante:
+        coeficientes = parteImportante.split("-")
+        if "" in coeficientes:
+            coeficientes.remove("")
+            coeficientes[0] = "-"+coeficientes[0]
+        for a in range(len(coeficientes)):
+            if a == 0:
+                continue
             else:
-                partesTemporarias.append(partes[parte])
-        partes = partesTemporarias
-        for coeficiente in partes:
-            if coeficiente != "":
-                coeficientes.append(coeficiente)
-    elif '-' in parteImportante:
-        partes = parteImportante.split("-")
-        partesTemporarias = list()
-        if "" in partes:
-            partes.remove("")
-            partes[0] = "-"+partes[0]
-        for parte in range(len(partes))[1:]:
-            partes[parte] = "-"+partes[parte]
-        for coeficiente in partes:
-            if coeficiente != "":
-                coeficientes.append(coeficiente)
+                coeficientes[a] = "-"+coeficientes[a]
     else:
-        raise Exception("Problema")
+        coeficientes = parteImportante.split("+")
+        try:
+            b.remove("")
+        except:
+            pass
 
+    momentaneo = list()
+    for a in coeficientes:
+        if "+" in a:
+            b = a.split("+")
+            try:
+                b.remove("")
+            except:
+                pass
+            for c in b:
+                momentaneo.append(c)
+            coeficientes.remove(a)
+    coeficientes += momentaneo
+    
     for coeficiente in coeficientes:
         try:
-            coeficienteC = float(coeficiente)
+            coeficienteC = float(eval(coeficiente+divisor))
         except:
             if "x" in coeficiente:
-                divide = str(coeficiente).split("x")
-                divide.remove("")
-                coeficienteA = float(divide[0])      
-            if "y" in coeficiente:
-                divide = str(coeficiente).split("y")
-                divide.remove("")
-                coeficienteB = float(divide[0])                  
+                a = coeficiente.split("x")
+                a.remove("")
+                coeficienteA = float(eval(a[0]+divisor))
+            elif "y" in coeficiente:
+                b = coeficiente.split("y")
+                b.remove("")
+                coeficienteB = float(eval(b[0]+divisor))
+            else:
+                return Exception("Deve utilizar x e y na equação geral")
 
     return coeficienteA, coeficienteB, coeficienteC
 
 
 if __name__ == "__main__":
-    print('primeiro teste:', main("-3x-8y-7=0"))
-    print('segundo teste:', main('-3x - 8y - 7 = 0'))
+    print('segundo teste:', main('(-3x - 8y - 7)/2 = 0'))
