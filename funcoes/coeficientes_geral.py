@@ -19,6 +19,8 @@ def main(geral: str) -> tuple[float, float, float]:
     for a in partes:
         if a != "0":
             parteImportante = a
+    if "+" in parteImportante[0]:
+        parteImportante = parteImportante[1:]
 
     if "(" in parteImportante and ")" in parteImportante:
         divisor = parteImportante.split(")")[1]
@@ -61,17 +63,62 @@ def main(geral: str) -> tuple[float, float, float]:
         except:
             if "x" in coeficiente:
                 a = coeficiente.split("x")
-                a.remove("")
+                try:
+                    b.remove("")
+                except:
+                    pass
                 coeficienteA = float(eval(a[0]+divisor))
             elif "y" in coeficiente:
                 b = coeficiente.split("y")
-                b.remove("")
+                try:
+                    b.remove("")
+                except:
+                    pass
                 coeficienteB = float(eval(b[0]+divisor))
             else:
                 return Exception("Deve utilizar x e y na equação geral")
 
     return coeficienteA, coeficienteB, coeficienteC
 
+def testa(relacoes: dict[str : tuple[float,float,float]]) -> bool:
+    """
+    Só um testadorzinho de cria ;)
+    """
+    final = dict()
+    for k, v in relacoes.items():
+        equacao = k
+        resultado = v
+
+        if main(equacao) == resultado:
+            pass
+        else:
+            final[equacao] = "deu ruim"
+            print(equacao+" deu ruim\n")
+            return False
+    if final == dict():
+        print("Passou tudo")
+    return True
 
 if __name__ == "__main__":
-    print('segundo teste:', main('(-3x - 8y - 7)/2 = 0'))
+    print(testa({
+        " 3x + 2y + 5 = 0": (3, 2, 5),
+        " -3x + 2y + 5 = 0": (-3, 2, 5),
+        " +3x - 2y + 5 = 0": (3, -2, 5),
+        " +3x + 2y - 5 = 0": (3, 2, -5),
+        " +3x - 2y - 5 = 0": (3, -2, -5),
+        " -3x + 2y - 5 = 0": (-3, 2, -5),
+        " -3x - 2y + 5 = 0": (-3, -2, 5),
+        " -3x - 2y - 5 = 0": (-3, -2, -5),
+
+        " -3x - 2y= 0": (-3, -2, 0),
+        " -3x - 2= 0": (-3, 0, -2),
+        " -3y - 2= 0": (0, -3, -2),
+        " +3y= 0": (0, 3, 0),
+        " 3x= 0": (3, 0, 0),
+
+        " 3/2x= 0": (1.5, 0, 0),
+        " (3x)/2= 0": (1.5, 0, 0),
+
+        " (-3x - 2y - 5) / 2 = 0": (-1.5, -1, -2.5),
+        " (-3x - 2y - 5) * 2 = 0": (-6, -4, -10),
+    }))

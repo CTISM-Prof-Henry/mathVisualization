@@ -55,7 +55,7 @@ aquela atividade.
 
 ### Segunda rodada
 
-1. [ ] (Tales) Descobrir porque, para certas equações gerais da reta, a função [funcoes/coeficientes_geral/main.py]() 
+1. [x] (Tales) Descobrir porque, para certas equações gerais da reta, a função [funcoes/coeficientes_geral/main.py]() 
        não está gerando os coeficientes a, b, e c.
 2. [ ] (Guilherme) Descobrir porque, para certas equações reduzidas da circunferência, a função [funcoes/calculo_raio_e_centro/main.py]() 
        não está gerando as coordenadas do centro e o raio.
