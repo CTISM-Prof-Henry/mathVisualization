@@ -40,18 +40,18 @@ aquela atividade.
 1. [x] (Henry) Organizar tudo.
 2. [x] (Bruno) Implementar função para converter da equação reduzida da reta para a equação geral.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
-3. [ ] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
+3. [x] (aline) Implementar função para converter da equação geral da reta para a equação reduzida.
       * Dica: pesquise a função `eval` para validar expressões matemáticas
 4. [x] (Tales) Implementar função que, dada uma equação reduzida da reta, informa os coeficientes angular e linear.
 5. [x] (Liza) Implementar função que, dada uma equação geral da reta, informa os coeficientes a, b e c.
 6. [x] (Henry) Implementar função que, dada uma equação de reta (geral ou reduzida), informa o ângulo formado com o eixo x.
-7. [ ] (Nicole) Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
-8. [ ] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
+7. [x] (Nicole) Implementar uma função que, dada uma equação da circunferência, informa o centro, e o raio da mesma.
+8. [x] (Gui) Implementar função que, dadas duas equações, uma de reta e uma de circunferência, informa se ambas são
        secantes, tangentes ou não se interceptam. Caso sejam secantes e tangentes, informar em qual(quais) ponto(s)
        isto ocorre.
 9. [x] (Luize) Implementar layout da página HTML utilizando dash.
       * Dica: https://dash.plotly.com/dash-core-components
-10. [ ] (Henry) implementar gráfico da reta e da circunferência.
+10. [x] (Henry) implementar gráfico da reta e da circunferência.
 
 ### Segunda rodada
 
@@ -79,7 +79,10 @@ aquela atividade.
        como exemplo). Caso, para algum tipo de entrada de texto, a função não funcione, avisar os colegas responsáveis 
        para que eles façam a correção.
 8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
-9. [ ] (aluno1, aluno2, aluno3, aluno4) Apresentar a ferramenta na feira de Ciências. 
+9. [ ] Apresentar a ferramenta na feira de Ciências. 
+   * Sexta-feira de manhã: aluno1, aluno2, aluno3
+   * Sexta-feira de tarde: aluno4, aluno5
+   * Sábado: aluno6, aluno7
 10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
 
 ## API
