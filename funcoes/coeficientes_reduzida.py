@@ -99,7 +99,10 @@ def main(equacao: str) -> tuple[float, float]:
             if "" in partes:
                 partes.remove("")
                 partes[0] = "-" + partes[0]
-            partes[1] = "-" + partes[1]
+            try:
+                partes[1] = "-" + partes[1]
+            except:
+                pass
         else:
             partes.append(segundaParte)
 
@@ -124,6 +127,8 @@ def main(equacao: str) -> tuple[float, float]:
                     coeficienteAngular = 1.0
                 elif len(parte) == 0:
                     coeficienteAngular = 0.0
+                elif coeficiente == "-":
+                    coeficienteAngular = -1.0
                 else:
                     coeficienteAngular = float(eval(coeficiente))
 
@@ -165,6 +170,8 @@ if __name__ == "__main__":
         " y = (x+2)/2 ": (0.5, 1),
 
         " y = x ": (1, 0),
+        "y=-x":(-1,0),
+        " y = -3x ": (-3, 0),
         " y = x/2 ": (0.5, 0),
         " y = (x)/2 ": (0.5, 0),
 

@@ -1,25 +1,85 @@
-def main(red: str) -> str:
-    # tratamento
-    a = float()
-    b = float()
-    c = float()
-    partes = list()
-    red = red.lower()
-    red_tranformada = red.split(" ")
-    red = str()
-    for numero in red_tranformada:
-        red += numero
-    partes = red.split('=')[:2]
-    partes2 = partes[::-1]
-    partes2.insert(1, '-')
-    partes3 = str(partes2)
-    partes4 = partes3+'=0'
-    partes5 = partes4.replace("'", '')
-    partes6 = partes5.replace('[', '')
-    partes7 = partes6.replace(']', '')
-    partes8 = partes7.replace(',', '')
-    return partes8.replace(' ', '')
+from coeficientes_reduzida import main as coeficientes_reduzida
 
+def torna_inteiro(numeros:list, base = 1)->int:
+    for numero in numeros:
+        if int(numero*base) == numero*base:
+            pass
+        else:
+            base+=1
+            base = torna_inteiro(numeros=numeros, base=base)
+    return base
+
+def main(red: str) -> str:
+    geral = str()
+    m, n = coeficientes_reduzida(red)
+    coeficienteB = torna_inteiro([m, n])
+    coeficienteA = int(m*coeficienteB)
+    coeficienteC = int(n*coeficienteB)
+
+    if coeficienteA <= 0:
+        coeficienteA*=-1
+        coeficienteC*=-1
+    else:
+        coeficienteB*=-1
+
+    coeficientes = {"x":coeficienteA, "y":coeficienteB, None:coeficienteC}
+
+    for letra, coeficiente in coeficientes.items():
+        if coeficiente > 0:
+                coeficiente = "+"+str(coeficiente)
+        elif coeficiente < 0:
+            coeficiente = str(coeficiente)
+        else:
+            coeficiente = None
+        if coeficiente!=None:
+            if letra==None:
+                geral+=coeficiente
+            else:
+                if coeficiente == "+1":
+                    coeficiente = "+"
+                elif coeficiente == "-1":
+                    coeficiente = "-"
+                geral += coeficiente+letra
+    geral+="=0"
+    if geral[0] == "+":
+        geral = geral[1:]
+
+    return geral
+
+def testa(relacoes: dict[str : str]) -> bool:
+    """
+    Só um testadorzinho de cria ;)
+    """
+    final = dict()
+    for k, v in relacoes.items():
+        equacao = k
+        resultado = v
+
+        if main(equacao) == resultado:
+            pass
+        else:
+            final[equacao] = "deu ruim"
+            print(equacao+" deu ruim\n")
+            return False
+    if final == dict():
+        print("Passou tudo")
+    return True
 
 if __name__ == "__main__":
-    print(main('y = 3x+7'))
+    print(testa({
+        "y=3x+1" : "3x-y+1=0",
+        "y=3x-1" : "3x-y-1=0",
+        "y=-3x-1" : "3x+y+1=0",
+
+        "y=-3x" : "3x+y=0",
+        "y=+3x" : "3x-y=0",
+        "y=x" : "x-y=0",
+        "y=-x" : "x+y=0",
+
+        "y=-1" : "y+1=0",
+        "y=1" : "y-1=0",
+        "y=0" : "y=0",
+
+        "y=(2x+2)/2" : "x-y+1=0",
+        "y=(3x+2)/2" : "3x-2y+2=0",
+    }))
