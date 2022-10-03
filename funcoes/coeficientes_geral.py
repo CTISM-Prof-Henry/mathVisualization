@@ -64,7 +64,11 @@ def main(geral: str) -> tuple[float, float, float]:
             if "x" in coeficiente:
                 a = coeficiente.split("x")
                 try:
-                    b.remove("")
+                    a.remove("")
+                    if a[0] == "":
+                        a[0] = '+1'
+                    elif a[0] == "-":
+                        a[0] = '-1'
                 except:
                     pass
                 coeficienteA = float(eval(a[0]+divisor))
@@ -72,6 +76,10 @@ def main(geral: str) -> tuple[float, float, float]:
                 b = coeficiente.split("y")
                 try:
                     b.remove("")
+                    if b[0] == "":
+                        b[0] = '+1'
+                    elif b[0] == "-":
+                        b[0] = '-1'
                 except:
                     pass
                 coeficienteB = float(eval(b[0]+divisor))

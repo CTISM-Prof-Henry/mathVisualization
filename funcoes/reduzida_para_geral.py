@@ -1,13 +1,5 @@
 from coeficientes_reduzida import main as coeficientes_reduzida
-
-def torna_inteiro(numeros:list, base = 1)->int:
-    for numero in numeros:
-        if int(numero*base) == numero*base:
-            pass
-        else:
-            base+=1
-            base = torna_inteiro(numeros=numeros, base=base)
-    return base
+from torna_inteiro import main as torna_inteiro
 
 def main(red: str) -> str:
     geral = str()
