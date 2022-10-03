@@ -25,4 +25,10 @@ def main(equacao: str) -> float:
 
 
 if __name__ == '__main__':
-    print(main(' y = -5x + 3 '))
+    print(main(' y = -7x + 3 '))
+    print(main(' y = 9x + 3 '))
+    print(main(' y = -1x - 3 '))
+    print(main(' y = x- 3 '))
+    print(main(' Y = -15X+2 '))
+    print(main(' y =2+8x'))
+    print(main(' y =-4x/2 +15'))
