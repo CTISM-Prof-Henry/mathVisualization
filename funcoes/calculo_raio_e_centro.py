@@ -1,6 +1,13 @@
 def main(eq: str) -> tuple[float, float, float]:
     eq = eq.split('=')
-    r = float(eq[1])**0.5
+    try:
+        r = float(eq[1])**0.5
+    except:
+        try:
+            r = eval(eq[1])**0.5
+        except:
+            r = eq[1].split('^')
+            r = float(r[0])
     eq = eq[0]
 
     eq = eq.split('(')
@@ -11,12 +18,14 @@ def main(eq: str) -> tuple[float, float, float]:
     if len(eq) == 3:
         eq.pop(0)
         a = eq[0][0].strip('x')
+        a = a.replace(' ', '')
         if a == '':
             a = 0
         else:
             a = -float(a)
 
         b = eq[1][0].strip('y')
+        b = b.replace(' ', '')
         if b == '':
             b = 0
         else:
@@ -26,6 +35,7 @@ def main(eq: str) -> tuple[float, float, float]:
         if 'x' in eq[0][0]:
             a = 0
             b = eq[1][0].strip('y')
+            b = b.replace(' ', '')
             if b == '':
                 b = 0
             else:
@@ -33,6 +43,7 @@ def main(eq: str) -> tuple[float, float, float]:
         else:
             eq.pop(0)
             a = eq[0][0].strip('x')
+            a = a.replace(' ', '')
             if a == '':
                 a = 0
             else:
