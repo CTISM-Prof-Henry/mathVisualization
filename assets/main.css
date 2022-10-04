@@ -1,379 +1,384 @@
-div.body{
-  background-color: #F08080;
-}
-p{
-  color: white;
-}
-header{
-  font: sans-serif;
-  background-image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
-  height: 100vh;
-  background-attachment: fixed;
-  background-size: 100%;
-  background-position: center;
-}
-.container{
-  display: flex;
-  align-items: center;
-  margin: auto;
-  justify-content: center;
-  height: 100%;
-}
-section{
-  height: 120px;
-  background-color: #F08080;
-}
- @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 * {
-margin: 0;
-padding: 0;
--webkit-box-sizing: border-box;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
-label{
-  color: white;
+
+div.body {
+    background-color: #F08080;
+    font-family: "Montserrat", sans-serif;
 }
-div.body{
-background:#F08080;
-font-family: "Montserrat", sans-serif;
+
+a {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+header {
+    /* font: sans-serif; */
+    background-image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+    height: 100%;
+}
+
+section {
+    height: 120px;
+    background-color: #F08080;
+}
+
+label {
+    color: white;
 }
 
 /*Menu horizontal*/
 
-.r-link{
-  display: var(--rLinkDisplay, inline-flex) !important;
+.r-link {
+    display: var(--rLinkDisplay, inline-flex) !important;
 }
-.r-link[href]{
-  color: var(--rLinkColor) !important;
-  text-decoration: var(--rLinkTextDecoration, none) !important;
-}
-.r-list{
-  padding-left: var(--rListPaddingLeft, 0) !important;
-  margin-top: var(--rListMarginTop, 0) !important;
-  margin-bottom: var(--rListMarginBottom, 0) !important;
-  list-style: var(--rListListStyle, none) !important;
-}
-.menu{
-  --rLinkColor: var(--menuLinkColor, currentColor);
-}
-.menu__link{
-  display: var(--menuLinkDisplay, block);
-}
-.menu__link:focus{
-  outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
-  outline-offset: var(--menuLinkOutlineOffset);
-}
-.menu:hover .menu__link:not(:hover){
-  --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
-}
-.menu{
-  background-color: var(--menuBackgroundColor, #F08080);
-  box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
-}
-.menu__list{
-  display: flex;  
-}
-.menu__link{
-  padding: var(--menuLinkPadding, 1.5rem 2.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.text-underlined{
-  position: relative;
-  overflow: hidden;
 
-  will-change: color;
-  transition: color .25s ease-out;  
+.r-link[href] {
+    color: var(--rLinkColor) !important;
+    text-decoration: var(--rLinkTextDecoration, none) !important;
 }
-.text-underlined::before, 
-.text-underlined::after{
-  content: "";
-  width: 0;
-  height: 3px;
-  background-color: var(--textUnderlinedLineColor, currentColor);
 
-  will-change: width;
-  transition: width .1s ease-out;
+.r-list {
+    padding-left: var(--rListPaddingLeft, 0) !important;
+    margin-top: var(--rListMarginTop, 0) !important;
+    margin-bottom: var(--rListMarginBottom, 0) !important;
+    list-style: var(--rListListStyle, none) !important;
+}
 
-  position: absolute;
-  bottom: 0;
+.menu {
+    --rLinkColor: var(--menuLinkColor, currentColor);
 }
-.text-underlined::before{
-  left: 50%;
-  transform: translateX(-50%); 
+
+.menu__link {
+    display: var(--menuLinkDisplay, block);
 }
-.text-underlined::after{
-  right: 50%;
-  transform: translateX(50%); 
+
+.menu__link:focus {
+    outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
+    outline-offset: var(--menuLinkOutlineOffset);
 }
-.text-underlined:hover::before, 
-.text-underlined:hover::after{
-  width: 100%;
-  transition-duration: .2s;
+
+.menu:hover .menu__link:not(:hover) {
+    --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
 }
-.page__custom-settings{
-  --menuBackgroundColor: #000000b6;
-  --menuLinkColor: #fff;
-  --menuLinkColorUnactive: #1c4669;
-  --menuLinkOutlineOffset: -.5rem; 
+
+.menu {
+    background-color: var(--menuBackgroundColor, #F08080);
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
 }
-body{
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
-  margin: 0;
-  min-height: 100vh;
-  display: flex;  
-  flex-direction: column;
+
+.menu__list {
+    display: flex;
 }
-.page{
-  box-sizing: border-box;
-  float:top;
-  max-width: 1900px;
-  padding-left: .0rem;
-  padding-right: .0rem;
+
+.menu__link {
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
 }
-.page__menu:nth-child(n+2){
-  margin-top: 3rem;
+
+.text-underlined {
+    position: relative;
+    overflow: hidden;
+
+    will-change: color;
+    transition: color .25s ease-out;
 }
+
+.text-underlined::before,
+.text-underlined::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: var(--textUnderlinedLineColor, currentColor);
+
+    will-change: width;
+    transition: width .1s ease-out;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.text-underlined::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-underlined::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.text-underlined:hover::before,
+.text-underlined:hover::after {
+    width: 100%;
+    transition-duration: .2s;
+}
+
+.page__custom-settings {
+    --menuBackgroundColor: #000000b6;
+    --menuLinkColor: #fff;
+    --menuLinkColorUnactive: #1c4669;
+    --menuLinkOutlineOffset: -.5rem;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page {
+    box-sizing: border-box;
+    float: top;
+    max-width: 1900px;
+    padding-left: .0rem;
+    padding-right: .0rem;
+}
+
+.page__menu:nth-child(n+2) {
+    margin-top: 3rem;
+}
+
 /* ESCRITAS*/
 /*LABEL E P DA RETA*/
-P.name_reta{
-  margin-left: 400px;
-  font-size: 40px;
-  font-family: Rubik Dirt;
+P.name_reta {
+    margin-left: 400px;
+    font-size: 40px;
+    font-family: Rubik Dirt;
 
 }
-label.reduzida{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
+
+p.dica1 {
+    margin-left: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
 }
-p.dica1{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 14px;
+
+p.dica2 {
+    margin-left: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
 }
-p.dica2{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 14px;
+
+p.coeficientes {
+    margin-left: 150px;
+    font-size: 25px;
+    font-family: Rubik Dirt;
 }
-label.geral{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.angular{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.linear{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-p.coeficientes{
-  margin-left: 150px;
-  font-size: 25px;
-  font-family: Rubik Dirt;
-}
-label.A{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.B{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.C{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.angulo{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}/*LABEL E P DA CIRCUFERENCIA:*/
-P.name_circulo{
-  margin-left: 400px;
-  font-size: 40px;
-  font-family: Rubik Dirt;
+
+/*LABEL E P DA CIRCUFERENCIA:*/
+P.name_circulo {
+    margin-left: 400px;
+    font-size: 40px;
+    font-family: Rubik Dirt;
 
 }
-label.circuferencia{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
+
+.label_esquerda {
+    margin-left: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
-label.centro{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
+
+p.dica3 {
+    margin-left: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
 }
-label.raio{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-label.interceptam{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 20px;
-}
-p.dica3{
-  margin-left: 150px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 14px;
-}
+
 /*CAIXAS DE INPUT*/
 /*INPUTS DA RETA: */
-input[id='input_angular']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
+input.inputs {
+    padding: 10px;
+    padding-top: 4px;
+    border: 1px solid #709CEE;
+    background-color: #48D1CC;
+    font-family: 'Acme', sans-serif;
+    font-size: 14px;
+    color: white;
+    border-radius: 7px 7px 7px 7px;
+    size: 15px;
 }
-input[id='input_reduzida']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px; 
-}
-input[id='input_geral']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
+/*input[id='input_angular'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
 
-}
-input[id='input_linear']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
+/*input[id='input_reduzida'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
 
-}
-input[id='input_A']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}input[id='input_B']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}input[id='input_C']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-input[id='input_angulo']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-/*INPUTS DA CIRCUFERENCIA*/
-input[id='input_circuferencia']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-input[id='input_centro']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-input[id='input_raio']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-input[id='seletor_intersecao_reta_circunferencia']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
-input[id='input_interceptam']{
-  padding:10px;
-  padding-top: 4px;
-  border: 1px solid #709CEE;
-  background-color:   #48D1CC;
-  font-family:'Acme', sans-serif;
-  font-size: 14px;
-  color: white;
-  border-radius: 7px 7px 7px 7px;
-  size: 15px;
-}
+/*input[id='input_geral'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+
+/*}*/
+
+/*input[id='input_linear'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+
+/*}*/
+
+/*input[id='input_A'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_B'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_C'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_angulo'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*!*INPUTS DA CIRCUFERENCIA*!*/
+/*input[id='input_circuferencia'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_centro'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_raio'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='seletor_intersecao_reta_circunferencia'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
+
+/*input[id='input_interceptam'] {*/
+/*    padding: 10px;*/
+/*    padding-top: 4px;*/
+/*    border: 1px solid #709CEE;*/
+/*    background-color: #48D1CC;*/
+/*    font-family: 'Acme', sans-serif;*/
+/*    font-size: 14px;*/
+/*    color: white;*/
+/*    border-radius: 7px 7px 7px 7px;*/
+/*    size: 15px;*/
+/*}*/
 
 
 

@@ -67,7 +67,7 @@ def main(eq: str) -> tuple[float, float, float]:
         a = 0
         b = 0
 
-    return a, b, r
+    return round(a, 2), round(b, 2), round(r, 2)
 
 
 if __name__ == '__main__':

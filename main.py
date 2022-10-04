@@ -41,87 +41,87 @@ def define_layout() -> dash.Dash:
         html.Br(),
         html.Br(),
         html.Div([
-            html.Label(["Digite a equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
+            html.Label(["Digite a equação reduzida de uma reta: "], htmlFor="input_reduzida", className="label_esquerda"),
             dcc.Input(
                 id="input_reduzida",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.P(["dica: equação reduzida tem-se no formato: y = mx + n"], className="dica1"),
             html.Br(),
             html.Br(),
-            html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral", className="geral"),
+            html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral", className="label_esquerda"),
             dcc.Input(
                 id="input_geral",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"], className="dica2"),
             html.Br(),
             html.Br(),
-            html.Label(["Digite o coeficiente angular (m): "], htmlFor="input_angular", className="angular"),
+            html.Label(["Digite o coeficiente angular (m): "], htmlFor="input_angular", className="label_esquerda"),
             dcc.Input(
                 id="input_angular",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
             html.Br(),
-            html.Label(["Digite o coeficiente linear (n): "], htmlFor="input_linear", className="linear"),
+            html.Label(["Digite o coeficiente linear (n): "], htmlFor="input_linear", className="label_esquerda"),
             dcc.Input(
                 id="input_linear",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
             html.Br(),
             html.P(["Coeficientes: "], className="coeficientes"),
             html.Br(),
-            html.Label(["A: "], htmlFor="input_A", className="A"),
-
+            html.Label(["A: "], htmlFor="input_A", className="label_esquerda"),
             dcc.Input(
                 id="input_A",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
-            html.Br(),
-            html.Br(),
-            html.Label(["B: "], htmlFor="input_B", className="B"),
-
+            html.Label(["B: "], htmlFor="input_B", className="label_esquerda"),
             dcc.Input(
                 id="input_B",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
-            html.Br(),
-            html.Br(),
-            html.Label(["C: "], htmlFor="input_C", className="C"),
-
+            html.Label(["C: "], htmlFor="input_C", className="label_esquerda"),
             dcc.Input(
                 id="input_C",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
-            html.Label(["Ângulo formado pela equação da reta e o eixo X: "], htmlFor="input_angulo",
-                       className="angulo"),
+            html.Label(["Ângulo formado pela equação da reta e o eixo X: "], htmlFor="input_angulo", className="label_esquerda"),
             dcc.Input(
                 id="input_angulo",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
@@ -133,49 +133,54 @@ def define_layout() -> dash.Dash:
             html.Br(),
             html.Br(),
             html.Br(),
-            html.Label(["Digite uma equação reduzida de uma circuferência: "], htmlFor="input_circuferencia",
-                       className="circuferencia"),
+            html.Label(["Digite uma equação reduzida de uma circuferência: "], htmlFor="label_esquerda", className="label_esquerda"),
             dcc.Input(
-                id="input_circuferencia",
+                id="input_circunferencia",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.P(["dica: equação reduzida da circuferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],
                    className="dica3"),
             html.Br(),
             html.Br(),
-            html.Label(["Centro: (a, b):  "], htmlFor="input_centro", className="centro"),
+            html.Label(["Centro: (a, b):  "], htmlFor="input_centro", className="label_esquerda"),
             dcc.Input(
                 id="input_centro",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
-            html.Label(["Raio (r):  "], htmlFor="input_raio", className="raio"),
+            html.Label(["Raio (r):  "], htmlFor="input_raio", className="label_esquerda"),
             dcc.Input(
                 id="input_raio",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                className='inputs'
             ),
             html.Br(),
             html.Br(),
-
+            html.P('A reta e a circunferência são', className='label_esquerda'),
             dcc.RadioItems(
                 id="seletor_intersecao_reta_circunferencia",
-                options=["Secante", "Tangente", "Disjuntas"],
-                value="Secante",
+                options=["Secantes", "Tangentes", "Disjuntas"],
+                value="Secantes",
+                className='label_esquerda'
             ),
-            html.Br(),
-            html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam", className="interceptam"),
+            # html.Br(),
+            html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam", className="label_esquerda"),
             dcc.Input(
                 id="input_interceptam",
                 placeholder='',
                 type='text',
-                value=''
+                value='',
+                size='30',
+                className='inputs'
             ),
         ], className="circuferencia"),
         html.Br(),
@@ -196,14 +201,14 @@ def define_callbacks(app: dash.Dash):
         Output("grafico", "figure"),
         Input("input_angular", "value"),
         Input("input_linear", "value"),
-        Input("input_circuferencia", "value"),
+        Input("input_circunferencia", "value"),
     )
     def gera_grafico(input_angular, input_linear, input_circunferencia):
         fig = go.Figure(
             layout=go.Layout(
                 paper_bgcolor='#F08080',
                 plot_bgcolor='#F08080',
-                bordercolor='#709CEE',
+                # bordercolor='#709CEE',
             )
         )
 
@@ -321,13 +326,13 @@ def define_callbacks(app: dash.Dash):
     @app.callback(
         Output("input_centro", "value"),
         Output("input_raio", "value"),
-        Input("input_circuferencia", "value")
+        Input("input_circunferencia", "value")
     )
     def atualiza_centro_e_raio_circunferencia(
-            input_circuferencia: str
+            input_circunferencia: str
     ) -> tuple:
         try:
-            xc, yc, r = calculo_raio_e_centro_func(input_circuferencia)
+            xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
         except:
             xc, yc, r = 'erro!', 'erro!', 'erro!'
 
@@ -337,14 +342,14 @@ def define_callbacks(app: dash.Dash):
         Output("seletor_intersecao_reta_circunferencia", "value"),
         Output("input_interceptam", "value"),
         Input("input_reduzida", "value"),
-        Input("input_circuferencia", "value")
+        Input("input_circunferencia", "value")
     )
     def atualiza_posicao_relativa(
-            input_reduzida: str, input_circuferencia: str
+            input_reduzida: str, input_circunferencia: str
     ) -> tuple:
         try:
             m, n = coeficientes_reduzida_func(input_reduzida)
-            xc, yc, r = calculo_raio_e_centro_func(input_circuferencia)
+            xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
 
             relacao, p1, p2 = posicao_relativa_func(xc, yc, r, m, n)
 
@@ -355,10 +360,12 @@ def define_callbacks(app: dash.Dash):
             return relacao, '({0},{1})'.format(*p1)
         return relacao, '({0},{1}) e ({2}, {3})'.format(*p1, *p2)
 
+    return app
+
 
 def main():
     app = define_layout()
-    define_callbacks(app)
+    app = define_callbacks(app)
 
     app.run_server(debug=True)
 

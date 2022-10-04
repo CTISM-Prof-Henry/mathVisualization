@@ -12,20 +12,20 @@ def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
 
     # determinando a relacao entre a reta e a circunferencia
     if delta > 0:
-        relacao = 'Secante'
+        relacao = 'Secantes'
     elif delta < 0:
         relacao = 'Disjuntas'
     else:
-        relacao = 'Tangente'
+        relacao = 'Tangentes'
 
     # obtendo as raizes da equacao de segundo grau
     # (abscissas dos pontos que interceptam a circunferencia)
-    x1 = (-bb + delta**0.5) / (2 * aa)
-    x2 = (-bb - delta**0.5) / (2 * aa)
+    x1 = round((-bb + delta**0.5) / (2 * aa), 2)
+    x2 = round((-bb - delta**0.5) / (2 * aa), 2)
 
     # obtendo a ordenada dos pontos que interceptam a circunferencia
-    y1 = m*x1 + n
-    y2 = m*x2 + n
+    y1 = round(m*x1 + n, 2)
+    y2 = round(m*x2 + n, 2)
 
     if x1 == x2:
         return relacao, (x1, y1), (x1, y1)
