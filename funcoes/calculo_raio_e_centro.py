@@ -71,5 +71,11 @@ def main(eq: str) -> tuple[float, float, float]:
 
 
 if __name__ == '__main__':
-    print(main('(x - 3)**2 + (y - 3)**2 = 5**2'))
+    print(main('(x - 3)**2 + (y - 1)**2 = 4'))
+    print(main('(x - 5)**2 + (y - 12)**2 = 5**2'))
+    print(main('(x - 8)**2 + (y - 9)**2 = 0')) #averiguar
+    print(main('(x - 2)**2 + (y - 2)**2 = 2**2'))
+    print(main('(x - 2)**2 + (y - 3)**2 = 1'))
+
+
 
