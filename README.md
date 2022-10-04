@@ -81,7 +81,7 @@ aquela atividade.
 8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
 9. [ ] Apresentar a ferramenta na feira de Ciências. 
    * Sexta-feira de manhã: aluno1, aluno2, aluno3
-   * Sexta-feira de tarde: aluno4, aluno5
+   * Sexta-feira de tarde: Liza, Aline
    * Sábado: aluno6, aluno7
 10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
 
