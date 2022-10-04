@@ -9,177 +9,181 @@ def define_layout() -> dash.Dash:
     app = Dash(__name__)
 
     app.layout = html.Div([
-        html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'), 
-        html.Header([ 
+        html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'),
+        html.Header([
             html.Div(
                 className="app-main",
                 children=[
                     html.Div(className="app-main--title")
                 ]
             ),
-        html.Div([
-            html.Nav(className="page__menu page__custom-settings menu"),
-            html.Ul([
-                # INSERINDO O MENU HORIZONTAL SUPERIOR 
-                html.Li(className="group_menu"),
-                html.A(["Equação de uma reta"], href="main.py#Reta", className="menu__link r-link text-underlined"),
-                html.A(["Equação de uma Circuferência"], href="main.py#Circuferencia",  className="menu__link r-link text-underlined"),
-                html.A(["Gráfico"], href="main.py#Gráfico",  className="menu__link r-link text-underlined"),
-            ], className="menu"),
-        ], className="page"),
-        html.Div([
-            # DIV PARA O TITULO COMO CONTAINER PARA ESTILIZAR MELHOR
-            html.Section(),
-         ], className="container"), 
-         ]),
-          html.Br(),
-           html.Br(),
+            html.Div([
+                html.Nav(className="page__menu page__custom-settings menu"),
+                html.Ul([
+                    # INSERINDO O MENU HORIZONTAL SUPERIOR
+                    html.Li(className="group_menu"),
+                    html.A(["Equação de uma reta"], href="main.py#Reta", className="menu__link r-link text-underlined"),
+                    html.A(["Equação de uma Circuferência"], href="main.py#Circuferencia",
+                           className="menu__link r-link text-underlined"),
+                    html.A(["Gráfico"], href="main.py#Gráfico", className="menu__link r-link text-underlined"),
+                ], className="menu"),
+            ], className="page"),
+            html.Div([
+                # DIV PARA O TITULO COMO CONTAINER PARA ESTILIZAR MELHOR
+                html.Section(),
+            ], className="container"),
+        ]),
+        html.Br(),
+        html.Br(),
         # RETA:
-        html.P(["EQUAÇÃO DE UMA RETA"], className = "name_reta", id="Reta"),  
-         html.Br(),
-                html.Br(),
-                html.Br(),
+        html.P(["EQUAÇÃO DE UMA RETA"], className="name_reta", id="Reta"),
+        html.Br(),
+        html.Br(),
+        html.Br(),
         html.Div([
             html.Label(["Digite a equação reduzida de uma reta: "], htmlFor="input_reduzida", className="reduzida"),
-                dcc.Input(
-                    id="input_reduzida",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
-                   html.P(["dica: equação reduzida tem-se no formato: y = mx + n"], className="dica1"),
+            dcc.Input(
+                id="input_reduzida",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.P(["dica: equação reduzida tem-se no formato: y = mx + n"], className="dica1"),
             html.Br(),
             html.Br(),
             html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral", className="geral"),
-                dcc.Input(
-                    id="input_geral",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ), 
-                  html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"],className="dica2"),
+            dcc.Input(
+                id="input_geral",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"], className="dica2"),
             html.Br(),
-            html.Br(),          
+            html.Br(),
             html.Label(["Digite o coeficiente angular (m): "], htmlFor="input_angular", className="angular"),
-                dcc.Input(
-                    id="input_angular",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ), 
-                html.Br(),
-                html.Br(),
-                html.Br(),
+            dcc.Input(
+                id="input_angular",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.Br(),
+            html.Br(),
+            html.Br(),
             html.Label(["Digite o coeficiente linear (n): "], htmlFor="input_linear", className="linear"),
-                dcc.Input(
-                    id="input_linear",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-              html.P(["Coeficientes: "], className = "coeficientes"), 
-            html.Br(), 
+            dcc.Input(
+                id="input_linear",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.Br(),
+            html.Br(),
+            html.Br(),
+            html.P(["Coeficientes: "], className="coeficientes"),
+            html.Br(),
             html.Label(["A: "], htmlFor="input_A", className="A"),
-            
-                dcc.Input(
-                    id="input_A",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
-                html.Br(),
-                html.Br(),
-                html.Br(),
+
+            dcc.Input(
+                id="input_A",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.Br(),
+            html.Br(),
+            html.Br(),
             html.Label(["B: "], htmlFor="input_B", className="B"),
-            
-                dcc.Input(
-                    id="input_B",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
-                html.Br(),
-                html.Br(),
-                html.Br(),
+
+            dcc.Input(
+                id="input_B",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.Br(),
+            html.Br(),
+            html.Br(),
             html.Label(["C: "], htmlFor="input_C", className="C"),
-            
-                dcc.Input(
-                    id="input_C",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
+
+            dcc.Input(
+                id="input_C",
+                placeholder='',
+                type='text',
+                value=''
+            ),
             html.Br(),
             html.Br(),
-            html.Label(["Ângulo formado pela equação da reta e o eixo X: "], htmlFor="input_angulo", className="angulo"),
-                dcc.Input(
-                    id="input_angulo",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
+            html.Label(["Ângulo formado pela equação da reta e o eixo X: "], htmlFor="input_angulo",
+                       className="angulo"),
+            dcc.Input(
+                id="input_angulo",
+                placeholder='',
+                type='text',
+                value=''
+            ),
             html.Br(),
             html.Br(),
             html.Br(),
         ], className="inputs_reta"),
         # CIRCUFERENCIA:
-        html.P(["EQUAÇÃO DA CIRCUFERÊNCIA"], className = "name_circulo"),
+        html.P(["EQUAÇÃO DA CIRCUFERÊNCIA"], className="name_circulo"),
         html.Div([
-         html.Br(),
             html.Br(),
             html.Br(),
-            html.Label(["Digite uma equação reduzida de uma circuferência: "], htmlFor="input_circuferencia", className="circuferencia"),
-                dcc.Input(
-                    id="input_circuferencia",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
-                html.P(["dica: equação reduzida da circuferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],className="dica3"),
+            html.Br(),
+            html.Label(["Digite uma equação reduzida de uma circuferência: "], htmlFor="input_circuferencia",
+                       className="circuferencia"),
+            dcc.Input(
+                id="input_circuferencia",
+                placeholder='',
+                type='text',
+                value=''
+            ),
+            html.P(["dica: equação reduzida da circuferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],
+                   className="dica3"),
             html.Br(),
             html.Br(),
             html.Label(["Centro: (a, b):  "], htmlFor="input_centro", className="centro"),
-                dcc.Input(
-                    id="input_centro",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
+            dcc.Input(
+                id="input_centro",
+                placeholder='',
+                type='text',
+                value=''
+            ),
             html.Br(),
             html.Br(),
             html.Label(["Raio (r):  "], htmlFor="input_raio", className="raio"),
-                dcc.Input(
-                    id="input_raio",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
+            dcc.Input(
+                id="input_raio",
+                placeholder='',
+                type='text',
+                value=''
+            ),
             html.Br(),
             html.Br(),
-        
-        dcc.RadioItems(
-            id="seletor_intersecao_reta_circunferencia",
-            options=["Secante", "Tangente", "Disjuntas"],
-            value="Secante",
-        ),
-        html.Br(),
-         html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam", className="interceptam"),
-                dcc.Input(
-                    id="input_interceptam",
-                    placeholder='',
-                    type='text',
-                    value=''
-                ),
+
+            dcc.RadioItems(
+                id="seletor_intersecao_reta_circunferencia",
+                options=["Secante", "Tangente", "Disjuntas"],
+                value="Secante",
+            ),
+            html.Br(),
+            html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam", className="interceptam"),
+            dcc.Input(
+                id="input_interceptam",
+                placeholder='',
+                type='text',
+                value=''
+            ),
         ], className="circuferencia"),
         html.Br(),
         html.Br(),
         html.Br(),
         # GRAFICO:
         dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
-          ], className="body")
+    ], className="body")
 
     return app
 
@@ -199,7 +203,7 @@ def define_callbacks(app: dash.Dash):
             layout=go.Layout(
                 paper_bgcolor='#F08080',
                 plot_bgcolor='#F08080',
-                bordercolor =  '#709CEE',
+                bordercolor='#709CEE',
             )
         )
 
@@ -214,7 +218,7 @@ def define_callbacks(app: dash.Dash):
                 y=Y,
                 name='reta',
                 color='#48D1CC',
-                thickness= '5px',
+                thickness='5px',
                 showlegend=True
             )
         except:
