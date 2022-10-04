@@ -1,4 +1,5 @@
 def main(eq: str) -> tuple[float, float, float]:
+    # divide a equacao em duas partes: ['(x-a)**2 + (y-b)**2', 'r**2']
     eq = eq.split('=')
     try:
         r = float(eq[1])**0.5
@@ -8,13 +9,21 @@ def main(eq: str) -> tuple[float, float, float]:
         except:
             r = eq[1].split('^')
             r = float(r[0])
+
+    # nao existe circunferencia de raio 0
+    if r == 0:
+        raise ValueError('Raio 0')
+
+    #faz com que a equacao trabalhada seja apenas a primeira parte
     eq = eq[0]
 
+    # dividir os parenteses
     eq = eq.split('(')
 
     for i in range(len(eq)):
         eq[i] = eq[i].split(')')
 
+    # caso a lista tenha 3 itens, ou seja, se tanto o x quanto o y estiverem entre parenteses
     if len(eq) == 3:
         eq.pop(0)
         a = eq[0][0].strip('x')
@@ -31,7 +40,9 @@ def main(eq: str) -> tuple[float, float, float]:
         else:
             b = -float(b)
 
+    # caso somente o x ou somente o y esteja em parenteses
     elif len(eq) == 2:
+        # se o y estiver em parenteses
         if 'x' in eq[0][0]:
             a = 0
             b = eq[1][0].strip('y')
@@ -40,6 +51,7 @@ def main(eq: str) -> tuple[float, float, float]:
                 b = 0
             else:
                 b = -float(b)
+        #se o x estiver em parenteses
         else:
             eq.pop(0)
             a = eq[0][0].strip('x')
@@ -50,6 +62,7 @@ def main(eq: str) -> tuple[float, float, float]:
                 a = -float(a)
             b = 0
 
+    # se nenhum dos dois estiver em parenteses
     else:
         a = 0
         b = 0
