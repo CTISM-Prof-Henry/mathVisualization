@@ -34,5 +34,6 @@ def main(a, b, r, m, n) -> tuple[str, tuple[float, float], tuple[float, float]]:
 
 
 if __name__ == '__main__':
-    pass
-    # main()
+    print(main(2, 2, -3, 1, -1))
+    print(main(6, -8, 0, 2, -1))
+    print(main(2, -6, -27, 8, -3))
