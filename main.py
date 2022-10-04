@@ -24,7 +24,7 @@ def define_layout() -> dash.Dash:
                 html.Li(className="group_menu"),
                 html.A(["Equação de uma reta"], href="main.py#Reta", className="menu__link r-link text-underlined"),
                 html.A(["Equação de uma Circuferência"], href="main.py#Circuferencia",  className="menu__link r-link text-underlined"),
-                html.A(["Grafico"], href="main.py#Grafico",  className="menu__link r-link text-underlined"),
+                html.A(["Gráfico"], href="main.py#Gráfico",  className="menu__link r-link text-underlined"),
             ], className="menu"),
         ], className="page"),
         html.Div([
