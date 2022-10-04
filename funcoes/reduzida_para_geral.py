@@ -1,5 +1,5 @@
-from coeficientes_reduzida import main as coeficientes_reduzida
-from torna_inteiro import main as torna_inteiro
+from funcoes.coeficientes_reduzida import main as coeficientes_reduzida
+from funcoes.torna_inteiro import main as torna_inteiro
 
 def main(red: str) -> str:
     geral = str()

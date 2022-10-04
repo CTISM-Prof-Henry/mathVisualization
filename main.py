@@ -197,8 +197,9 @@ def define_callbacks(app: dash.Dash):
     def gera_grafico(input_angular, input_linear, input_circunferencia):
         fig = go.Figure(
             layout=go.Layout(
-                paper_bgcolor='#FFFFFF',
-                plot_bgcolor='#F08080'
+                paper_bgcolor='#F08080',
+                plot_bgcolor='#F08080',
+                bordercolor =  '#709CEE',
             )
         )
 
@@ -212,7 +213,8 @@ def define_callbacks(app: dash.Dash):
                 x=X,
                 y=Y,
                 name='reta',
-                # linecolor='#48D1CC',  # TODO não funciona por algum motivo...
+                color='#48D1CC',
+                thickness= '5px',
                 showlegend=True
             )
         except:
@@ -228,6 +230,8 @@ def define_callbacks(app: dash.Dash):
                 x0=xc, y0=yc, x1=xc + r, y1=yc + r,
                 # line_color="#48D1CC",  # TODO não funciona por algum motivo...
                 name='circunferência',
+                color='#48D1CC',
+                thickness='5px',
                 showlegend=True
             )
 
