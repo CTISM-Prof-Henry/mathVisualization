@@ -49,7 +49,7 @@ def define_layout() -> dash.Dash:
                 value='',
                 className='inputs'
             ),
-            html.P(["dica: equação reduzida tem-se no formato: y = mx + n"], className="dica1"),
+            html.P(["Dica: equação reduzida tem-se no formato: y = mx + n"], className="dica"),
             html.Br(),
             html.Br(),
             html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral", className="label_esquerda"),
@@ -60,7 +60,7 @@ def define_layout() -> dash.Dash:
                 value='',
                 className='inputs'
             ),
-            html.P(["dica: equação geral tem-se no formato: ax + by  + c = 0"], className="dica2"),
+            html.P(["Dica: equação geral tem-se no formato: ax + by  + c = 0"], className="dica"),
             html.Br(),
             html.Br(),
             html.Label(["Digite o coeficiente angular (m): "], htmlFor="input_angular", className="label_esquerda"),
@@ -141,8 +141,8 @@ def define_layout() -> dash.Dash:
                 value='',
                 className='inputs'
             ),
-            html.P(["dica: equação reduzida da circuferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],
-                   className="dica3"),
+            html.P(["Dica: equação reduzida da circuferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],
+                   className="dica"),
             html.Br(),
             html.Br(),
             html.Label(["Centro: (a, b):  "], htmlFor="input_centro", className="label_esquerda"),

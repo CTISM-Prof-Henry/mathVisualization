@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+:root {
+    --bg_image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
+    --menuBackgroundColor: #F08080;
+    --menuLinkColor: #ffffff;
+    --menuLinkColorUnactive: #1c4669;
+    --menuLinkOutlineOffset: -.5rem;
+}
+
+/*.page__custom-settings {*/
+/*    */
+/*}*/
+
 * {
     margin: 0;
     padding: 0;
@@ -22,11 +34,19 @@ p {
 
 header {
     /* font: sans-serif; */
-    background-image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
+    background-image: var(--bg_image);
     height: 100vh;
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -134,21 +154,6 @@ label {
     transition-duration: .2s;
 }
 
-.page__custom-settings {
-    --menuBackgroundColor: #000000b6;
-    --menuLinkColor: #fff;
-    --menuLinkColorUnactive: #1c4669;
-    --menuLinkOutlineOffset: -.5rem;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Open Sans, Ubuntu, Fira Sans, Helvetica Neue, sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
 .page {
     box-sizing: border-box;
     float: top;
@@ -170,18 +175,6 @@ P.name_reta {
 
 }
 
-p.dica1 {
-    margin-left: 150px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
-}
-
-p.dica2 {
-    margin-left: 150px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
-}
-
 p.coeficientes {
     margin-left: 150px;
     font-size: 25px;
@@ -196,16 +189,16 @@ P.name_circulo {
 
 }
 
+.dica {
+    margin-left: 150px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+}
+
 .label_esquerda {
     margin-left: 150px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
-}
-
-p.dica3 {
-    margin-left: 150px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
 }
 
 /*CAIXAS DE INPUT*/
