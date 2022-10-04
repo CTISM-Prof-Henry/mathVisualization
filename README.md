@@ -74,7 +74,7 @@ aquela atividade.
 6. [ ] (Luize) Colocar o texto da introdução da ferramenta em um modal, logo que o usuário abrir a página. O modal é 
        importante porque ele define em que momento a ferramenta vai começar a capturar os dados do mouse e entradas de 
        texto. A captura deve se encerrar depois de x minutos (por exemplo, 5 minutos)
-7. [ ] (Aline) Para cada um dos arquivos dentro da pasta [funcoes](funcoes), colocar exemplos de caso de uso na função
+7. [x] (Aline) Para cada um dos arquivos dentro da pasta [funcoes](funcoes), colocar exemplos de caso de uso na função
        main, para testar se a função está funcionando corretamente (usar o arquivo [angulo_eixo_x](funcoes/angulo_eixo_x.py)
        como exemplo). Caso, para algum tipo de entrada de texto, a função não funcione, avisar os colegas responsáveis 
        para que eles façam a correção.
