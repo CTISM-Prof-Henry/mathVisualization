@@ -6,11 +6,8 @@
     --menuLinkColor: #ffffff;
     --menuLinkColorUnactive: #1c4669;
     --menuLinkOutlineOffset: -.5rem;
+    --margin_left_text: 25px;
 }
-
-/*.page__custom-settings {*/
-/*    */
-/*}*/
 
 * {
     margin: 0;
@@ -24,11 +21,12 @@ div.body {
     font-family: "Montserrat", sans-serif;
 }
 
-a {
-    color: white;
+section {
+    height: 120px;
+    background-color: #F08080;
 }
 
-p {
+a, p, label {
     color: white;
 }
 
@@ -49,6 +47,21 @@ body {
     flex-direction: column;
 }
 
+/* divs lado a lado */
+
+div.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+
+}
+
+div.float-child {
+    width: 50%;
+    float: left;
+    /* padding: 20px; */
+    border: 2px solid red;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -57,16 +70,58 @@ body {
     height: 100%;
 }
 
-section {
-    height: 120px;
-    background-color: #F08080;
+.center {
+  margin: auto;
+  width: 75%;
+  /*border: 3px solid green;*/
+  padding: 10px;
 }
 
-label {
+/* ***************************************************** */
+/* PARTE TEXTUAL: RÓTULOS, TÍTULOS, CAIXAS DE TEXTO, ETC */
+/* ***************************************************** */
+
+.title {
+    /*margin-left: 400px;*/
+    font-size: 40px;
+    font-family: Rubik Dirt, sans-serif;
     color: white;
 }
 
-/*Menu horizontal*/
+.coeficientes {
+    /*margin-left: 150px;*/
+    font-size: 25px;
+    width: 50%;
+    font-family: Rubik Dirt, sans-serif;
+}
+
+.dica {
+    margin-left: var(--margin_left_text);
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    font-size: 14px;
+}
+
+.label_esquerda {
+    margin-left: var(--margin_left_text);
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    font-size: 20px;
+}
+
+input.inputs {
+    padding: 10px;
+    padding-top: 4px;
+    border: 1px solid #709CEE;
+    background-color: #48D1CC;
+    font-family: 'Acme', sans-serif;
+    font-size: 14px;
+    color: white;
+    border-radius: 7px 7px 7px 7px;
+    size: 15px;
+}
+
+/* *************** */
+/* MENU HORIZONTAL */
+/* *************** */
 
 .r-link {
     display: var(--rLinkDisplay, inline-flex) !important;
@@ -165,213 +220,3 @@ label {
 .page__menu:nth-child(n+2) {
     margin-top: 3rem;
 }
-
-/* ESCRITAS*/
-/*LABEL E P DA RETA*/
-P.name_reta {
-    margin-left: 400px;
-    font-size: 40px;
-    font-family: Rubik Dirt;
-
-}
-
-p.coeficientes {
-    margin-left: 150px;
-    font-size: 25px;
-    font-family: Rubik Dirt;
-}
-
-/*LABEL E P DA CIRCUFERENCIA:*/
-P.name_circulo {
-    margin-left: 400px;
-    font-size: 40px;
-    font-family: Rubik Dirt;
-
-}
-
-.dica {
-    margin-left: 150px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 14px;
-}
-
-.label_esquerda {
-    margin-left: 150px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
-}
-
-/*CAIXAS DE INPUT*/
-/*INPUTS DA RETA: */
-input.inputs {
-    padding: 10px;
-    padding-top: 4px;
-    border: 1px solid #709CEE;
-    background-color: #48D1CC;
-    font-family: 'Acme', sans-serif;
-    font-size: 14px;
-    color: white;
-    border-radius: 7px 7px 7px 7px;
-    size: 15px;
-}
-/*input[id='input_angular'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_reduzida'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_geral'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-
-/*}*/
-
-/*input[id='input_linear'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-
-/*}*/
-
-/*input[id='input_A'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_B'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_C'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_angulo'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*!*INPUTS DA CIRCUFERENCIA*!*/
-/*input[id='input_circuferencia'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_centro'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_raio'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='seletor_intersecao_reta_circunferencia'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-/*input[id='input_interceptam'] {*/
-/*    padding: 10px;*/
-/*    padding-top: 4px;*/
-/*    border: 1px solid #709CEE;*/
-/*    background-color: #48D1CC;*/
-/*    font-family: 'Acme', sans-serif;*/
-/*    font-size: 14px;*/
-/*    color: white;*/
-/*    border-radius: 7px 7px 7px 7px;*/
-/*    size: 15px;*/
-/*}*/
-
-
-
