@@ -4,45 +4,13 @@ let timer = 300000; // 5 minutos (em milisegundos)
 let start = new Date().getTime();
 let running = false;
 
-let collected_data = Array('miliseconds,mouse_position,mouse_click\n');
-
-function handleMouseMovement(event) {
-    let eventDoc, doc, body;
-
-    event = event || window.event; // IE-ism
-
-    // If pageX/Y aren't available and clientX/Y are,
-    // calculate pageX/Y - logic taken from jQuery.
-    // (This is to support old IE)
-    if (event.pageX == null && event.clientX != null) {
-        eventDoc = (event.target && event.target.ownerDocument) || document;
-        doc = eventDoc.documentElement;
-        body = eventDoc.body;
-
-        event.pageX = event.clientX +
-          (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
-          (doc && doc.clientLeft || body && body.clientLeft || 0);
-        event.pageY = event.clientY +
-          (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-          (doc && doc.clientTop  || body && body.clientTop  || 0 );
-    }
-
-    document.getElementById("mouse_position_value").textContent = "(" + event.pageX + ", " + event.pageY + ")";
-}
-
-function handleMouseDown(event) {
-    document.getElementById("mouse_click_value").textContent = "true";
-}
-
-function handleMouseUp(event) {
-    document.getElementById("mouse_click_value").textContent = "false";
-}
+let collected_data;
 
 function record_mouse_movement() {
     if(running) {
         let data = '"' + new Date().getTime() + '","' +
             document.getElementById("mouse_position_value").textContent + '","' +
-            document.getElementById("mouse_click_value").textContent + '"\n';
+            document.getElementById("mouse_click_value").textContent + '"';
 
         collected_data.push(data);
     }
@@ -74,30 +42,26 @@ function format_time(time) {
         time.getDay() + '-' + time.getMonth() + '-' + time.getFullYear()
 }
 
+// TODO revisar
 function finish_session_func_show() {
     running = false;
 
     let now = new Date();
     let filename = 'tracking_' + format_time(now) + ".csv";
 
-    document.getElementById('p_collected_data').textContent = collected_data;
-
-    // let myFile = new File(collected_data, filename, {type: "text/plain;charset=utf-8"});
-    // saveAs(myFile);
+    let myFile = new File(collected_data, filename, {type: "text/plain;charset=utf-8"});
+    saveAs(myFile);
+    console.log('arquivo com informações do mouse salvo com sucesso!');
 }
 
+// TODO revisar
 function start_session_func_close() {
     start = new Date().getTime();
     running = true;
+    collected_data = Array('miliseconds,mouse_position,mouse_click');
 
     setTimeout(finish_session_func_show, timer);
 }
-
-document.onmousemove = handleMouseMovement;
-document.onmousedown = handleMouseDown;
-document.onmouseup = handleMouseUp;
-window.setInterval(update_countdown_timer, 1000);  // a cada segundo
-window.setInterval(record_mouse_movement, 50);  // a cada 50 milisegundos
 
 let registered_callbacks = false;
 
@@ -109,10 +73,14 @@ function registerCallbacks() {
             document.getElementById('button_finish_session').onclick = finish_session_func_show;
 
             registered_callbacks = true;
+
+            console.log('callbacks registradas com sucesso!');
         } catch (error) {
             // does nothing
         }
     }
 }
 
-window.setInterval(registerCallbacks, 1000);
+window.setInterval(registerCallbacks, 10);  // a cada segundo
+window.setInterval(update_countdown_timer, 1000);  // a cada segundo
+window.setInterval(record_mouse_movement, 50);  // a cada 50 milisegundos
