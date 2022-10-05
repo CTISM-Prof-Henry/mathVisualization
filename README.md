@@ -60,7 +60,11 @@ aquela atividade.
        não está gerando os coeficientes a, b, e c.
 2. [x] (Guilherme) Descobrir porque, para certas equações reduzidas da circunferência, a função [funcoes/calculo_raio_e_centro/main.py]() 
        não está gerando as coordenadas do centro e o raio.
+<<<<<<< HEAD
 3. [x] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
+=======
+3. [X] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
+>>>>>>> 559809dbdd191a3e265d99a4c6f2dd0a89fc1aab
        em rosa). 
        Remover também a grade de background. Em outras palavras, deixar o gráfico esteticamente bonito
    * Dica 1: consultar [documentação](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html) 
@@ -81,7 +85,7 @@ aquela atividade.
        para que eles façam a correção.
 8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
 9. [ ] Apresentar a ferramenta na feira de Ciências. 
-   * Sexta-feira de manhã: Tales, aluno2, aluno3
+   * Sexta-feira de manhã: Tales, Guilherme, aluno3
    * Sexta-feira de tarde: Liza, Aline
    * Sábado: aluno6, aluno7
 10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
