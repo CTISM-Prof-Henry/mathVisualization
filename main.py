@@ -230,9 +230,13 @@ def define_callbacks(app: dash.Dash):
     def gera_grafico(input_angular, input_linear, input_circunferencia):
         fig = go.Figure(
             layout=go.Layout(
-                paper_bgcolor='#F08080',
-                plot_bgcolor='#F08080',
-                # bordercolor='#709CEE',
+                paper_bgcolor='#48D1CC',
+                plot_bgcolor='#48D1CC',
+                font= {'color' : 'white', 'family': 'Montserrat'},
+                xaxis={'zerolinecolor': '#F08080', 'griddash' : 'dot', },
+                yaxis = {'zerolinecolor': '#F08080', 'griddash': 'dot'},
+                height= 600,
+                margin= {'pad': 20}
             )
         )
 
@@ -246,9 +250,8 @@ def define_callbacks(app: dash.Dash):
                 x=X,
                 y=Y,
                 name='reta',
-                color='#48D1CC',
-                thickness='5px',
-                showlegend=True
+                thickness='5',
+                showlegend=True,
             )
         except:
             pass
@@ -263,8 +266,6 @@ def define_callbacks(app: dash.Dash):
                 x0=xc, y0=yc, x1=xc + r, y1=yc + r,
                 # line_color="#48D1CC",  # TODO não funciona por algum motivo...
                 name='circunferência',
-                color='#48D1CC',
-                thickness='5px',
                 showlegend=True
             )
 
