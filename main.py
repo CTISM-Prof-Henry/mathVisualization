@@ -10,17 +10,17 @@ def define_layout() -> dash.Dash:
     app = Dash(
         __name__,
         external_stylesheets=[dbc.themes.BOOTSTRAP],
-        # assets_external_path='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js'
+        external_scripts=['https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js']
     )
     # app.scripts.config.serve_locally = False
 
     # parte interativa
     interactive = html.Div([
             html.P(['Tempo restante: 00:00'], id='countdown_timer'),
-            html.P(['Posição do mouse: '], id='mouse_position'),
-            html.P([''], id='mouse_position_value'),
-            html.P(['Mouse click?'], id='mouse_click'),
-            html.P([''], id='mouse_click_value'),
+            html.P(['Posição do mouse: '], id='mouse_position', hidden=True),
+            html.P([''], id='mouse_position_value', hidden=True),
+            html.P(['Mouse click?'], id='mouse_click', hidden=True),
+            html.P([''], id='mouse_click_value', hidden=True),
             dbc.Button("Finalizar sessão", id="button_finish_session", n_clicks=0),
         ], id="div_interactive"
     )
@@ -29,9 +29,23 @@ def define_layout() -> dash.Dash:
     start_session_modal = dbc.Modal([
         # html.Span(['x'], id='span_start_session_modal', className='close'),
         dbc.ModalHeader(dbc.ModalTitle("MathVisualization")),
-        dbc.ModalBody(
-            ["Aperte o botão abaixo para começar uma sessão do desafio. ",
-             "Você terá até 5 minutos para mexer na ferramenta."]),
+        dbc.ModalBody([
+            'Bem-vindo à turma dos caras legais! Aqueles que gostam de estudar matemática. ',
+            'Mas se você não gosta de estudá-la, você também pode fazer parte da turma. Basta ter iniciativa! ',
+            'Convidamos você a testar esta ferramenta, desenvolvida com muita dedicação, para você fixar ou aprender '
+            'sobre o básico da geometria analítica: reconhecer e compreender as características de uma reta por meio '
+            'de suas equações.'
+        ]),
+        dbc.ModalBody([
+            'Bom trabalho! ',
+            'Ficamos felizes por você querer fazer parte da nossa turma!'
+        ]),
+        dbc.ModalBody([
+            "Aperte o botão abaixo para começar uma sessão do desafio. ",
+            "Você terá até 5 minutos para mexer na ferramenta."]),
+        dbc.ModalBody([
+            "Você pode tentar quantas vezes quiser, mas cada sessão dura no máximo 5 minutos!"
+        ]),
         dbc.ModalFooter(
             dbc.Button(
                 "Começar!", id="button_start_session", className="ms-auto", n_clicks=0
@@ -43,7 +57,9 @@ def define_layout() -> dash.Dash:
     finish_session_modal = dbc.Modal([
         # html.Span(['x'], id='span_finish_session_modal', className='close'),
         dbc.ModalHeader(dbc.ModalTitle("Sessão finalizada")),
-        dbc.ModalBody('Você concluiu sua sessão!'),
+        dbc.ModalBody(['Você concluiu sua sessão! ',
+                       'Nós salvamos alguns dados de movimento do mouse para aprimorar essa ferramenta no futuro.']),
+        dbc.ModalBody(['Muito obrigado!']),
         dbc.ModalFooter(
             dbc.Button('Fechar', id='close_finish_session_modal', className='ms-auto', n_clicks=0)
         )
@@ -255,9 +271,6 @@ def define_layout() -> dash.Dash:
             html.Div([
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
             ], className='body float-graph'),
-            html.Div([
-                html.P([''], id='p_collected_data')
-            ], className='hidden-class')
         ], className='body float-container'),
     ], className="body")
 
@@ -281,14 +294,12 @@ def define_callbacks(app: dash.Dash):
     @app.callback(
         Output("finish_session_modal", "is_open"),
         [Input("button_finish_session", "n_clicks"),
-        Input("close_finish_session_modal", "n_clicks")],
+         Input("close_finish_session_modal", "n_clicks")],
         [State("finish_session_modal", "is_open")],
     )
-    def toggle_finish_session_modal(n1, n2, is_open):
+    def toggle_finish_session_modal(n1, n2, is_open: bool):
         if n1 or n2:
             return not is_open
-
-        # TODO salvar dados!
 
         return is_open
 
@@ -357,20 +368,6 @@ def define_callbacks(app: dash.Dash):
             input_geral = 'erro!'
 
         return input_geral
-
-    # @app.callback(
-    #     Output("input_reduzida", "value"),
-    #     Input("input_geral", "value")
-    # )
-    # def atualiza_reduzida_a_partir_da_geral(
-    #         input_geral: str
-    # ) -> str:
-    #     try:
-    #         input_reduzida = geral_para_reduzida_func(input_geral)
-    #     except:
-    #         input_reduzida = 'erro!'
-    #
-    #     return input_reduzida
 
     @app.callback(
         Output("input_angular", "value"),
