@@ -255,6 +255,9 @@ def define_layout() -> dash.Dash:
             html.Div([
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
             ], className='body float-graph'),
+            html.Div([
+                html.P([''], id='p_collected_data')
+            ], className='hidden-class')
         ], className='body float-container'),
     ], className="body")
 
@@ -262,6 +265,7 @@ def define_layout() -> dash.Dash:
 
 
 def define_callbacks(app: dash.Dash):
+
     # parte do modal
     @app.callback(
         Output("start_session_modal", "is_open"),
@@ -283,6 +287,9 @@ def define_callbacks(app: dash.Dash):
     def toggle_finish_session_modal(n1, n2, is_open):
         if n1 or n2:
             return not is_open
+
+        # TODO salvar dados!
+
         return is_open
 
     @app.callback(
