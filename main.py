@@ -314,7 +314,7 @@ def define_callbacks(app: dash.Dash):
             layout=go.Layout(
                 paper_bgcolor='#48D1CC',
                 plot_bgcolor='#48D1CC',
-                font= {'color' : 'white', 'family': 'Montserrat'},
+                font= {'color' : 'white', 'family': 'Montserrat', 'size' : 17.5},
                 xaxis={'zerolinecolor': '#F08080', 'griddash' : 'dot', },
                 yaxis = {'zerolinecolor': '#F08080', 'griddash': 'dot'},
                 height= 600,
@@ -332,7 +332,7 @@ def define_callbacks(app: dash.Dash):
                 x=X,
                 y=Y,
                 name='reta',
-                #thickness='5',
+                line={'color' : '#c92222'},
                 showlegend=True,
             )
         except:
@@ -348,6 +348,7 @@ def define_callbacks(app: dash.Dash):
                 x0=xc, y0=yc, x1=xc + r, y1=yc + r,
                 # line_color="#48D1CC",  # TODO não funciona por algum motivo...
                 name='circunferência',
+                line={'color': '##c92222'},
                 showlegend=True
             )
 

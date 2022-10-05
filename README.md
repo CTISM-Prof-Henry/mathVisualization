@@ -60,7 +60,7 @@ aquela atividade.
        não está gerando os coeficientes a, b, e c.
 2. [x] (Guilherme) Descobrir porque, para certas equações reduzidas da circunferência, a função [funcoes/calculo_raio_e_centro/main.py]() 
        não está gerando as coordenadas do centro e o raio.
-3. [ ] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
+3. [x] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
        em rosa). 
        Remover também a grade de background. Em outras palavras, deixar o gráfico esteticamente bonito
    * Dica 1: consultar [documentação](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html) 
