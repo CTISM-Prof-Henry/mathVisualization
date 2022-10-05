@@ -20,9 +20,10 @@ em HTML.
 
 3. Ative o ambiente virtual com `conda activate math`
 4. Instale a biblioteca dash usando pip: `pip install dash==2.6.*`
-5. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. 
+5. Instale a biblioteca dash-bootstrap-components: `dash-bootstrap-components 1.2.*`
+6. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. 
    `python teste_plotly.py`
-6. **Nota:** o `teste_dash.py` não abre uma janela ou página Web, mas sim
+7. **Nota:** o `teste_dash.py` não abre uma janela ou página Web, mas sim
    informa um link na linha de comando (por exemplo, `http://127.0.0.1:8050/`) que você precisa copiar-e-colar no 
    seu navegador para abrir a página. Não se esqueça de, depois de rodar o código, pressionar `CTRL + C` para parar
    a execução do script `teste_dash.py`.
@@ -80,7 +81,7 @@ aquela atividade.
        para que eles façam a correção.
 8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
 9. [ ] Apresentar a ferramenta na feira de Ciências. 
-   * Sexta-feira de manhã: aluno1, aluno2, aluno3
+   * Sexta-feira de manhã: Tales, aluno2, aluno3
    * Sexta-feira de tarde: Liza, Aline
    * Sábado: aluno6, aluno7
 10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.

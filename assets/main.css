@@ -66,6 +66,10 @@ div.float-graph {
     /*border: 2px solid cyan;*/
 }
 
+div.hidden-class {
+    visibility: hidden;
+}
+
 .container {
     display: flex;
     align-items: center;

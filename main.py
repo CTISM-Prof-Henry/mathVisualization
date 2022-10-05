@@ -1,14 +1,57 @@
 import dash
-from dash import Dash, dcc, html, Input, Output
+from dash import Dash, dcc, html, Input, Output, State
+import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import numpy as np
 from funcoes import *
 
 
 def define_layout() -> dash.Dash:
-    app = Dash(__name__)
+    app = Dash(
+        __name__,
+        external_stylesheets=[dbc.themes.BOOTSTRAP],
+        # assets_external_path='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js'
+    )
+    # app.scripts.config.serve_locally = False
+
+    # parte interativa
+    interactive = html.Div([
+            html.P(['Tempo restante: 00:00'], id='countdown_timer'),
+            html.P(['Posição do mouse: '], id='mouse_position'),
+            html.P([''], id='mouse_position_value'),
+            html.P(['Mouse click?'], id='mouse_click'),
+            html.P([''], id='mouse_click_value'),
+            dbc.Button("Finalizar sessão", id="button_finish_session", n_clicks=0),
+        ], id="div_interactive"
+    )
+
+    # modal com introdução
+    start_session_modal = dbc.Modal([
+        # html.Span(['x'], id='span_start_session_modal', className='close'),
+        dbc.ModalHeader(dbc.ModalTitle("MathVisualization")),
+        dbc.ModalBody(
+            ["Aperte o botão abaixo para começar uma sessão do desafio. ",
+             "Você terá até 5 minutos para mexer na ferramenta."]),
+        dbc.ModalFooter(
+            dbc.Button(
+                "Começar!", id="button_start_session", className="ms-auto", n_clicks=0
+            )
+        ),
+    ], id="start_session_modal", is_open=True)
+
+    # modal de finalização
+    finish_session_modal = dbc.Modal([
+        # html.Span(['x'], id='span_finish_session_modal', className='close'),
+        dbc.ModalHeader(dbc.ModalTitle("Sessão finalizada")),
+        dbc.ModalBody('Você concluiu sua sessão!'),
+        dbc.ModalFooter(
+            dbc.Button('Fechar', id='close_finish_session_modal', className='ms-auto', n_clicks=0)
+        )
+    ], id='finish_session_modal', is_open=False)
 
     app.layout = html.Div([
+        start_session_modal,
+        finish_session_modal,
         html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'),
         html.Header([
             html.Div(
@@ -33,6 +76,7 @@ def define_layout() -> dash.Dash:
                 html.Section(),
             ], className="container"),
         ]),
+        interactive,
         html.Br(),
         html.Br(),
         html.Div([
@@ -211,6 +255,9 @@ def define_layout() -> dash.Dash:
             html.Div([
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
             ], className='body float-graph'),
+            html.Div([
+                html.P([''], id='p_collected_data')
+            ], className='hidden-class')
         ], className='body float-container'),
     ], className="body")
 
@@ -218,8 +265,32 @@ def define_layout() -> dash.Dash:
 
 
 def define_callbacks(app: dash.Dash):
-    old_reduzida = 'erro!'
-    new_reduzida = 'erro!'
+
+    # parte do modal
+    @app.callback(
+        Output("start_session_modal", "is_open"),
+        [Input("button_start_session", "n_clicks"),
+         Input("close_finish_session_modal", "n_clicks")],
+        [State("start_session_modal", "is_open")],
+    )
+    def toggle_start_session_modal(n1, n2, is_open):
+        if n1 or n2:
+            return not is_open
+        return is_open
+
+    @app.callback(
+        Output("finish_session_modal", "is_open"),
+        [Input("button_finish_session", "n_clicks"),
+        Input("close_finish_session_modal", "n_clicks")],
+        [State("finish_session_modal", "is_open")],
+    )
+    def toggle_finish_session_modal(n1, n2, is_open):
+        if n1 or n2:
+            return not is_open
+
+        # TODO salvar dados!
+
+        return is_open
 
     @app.callback(
         Output("grafico", "figure"),
