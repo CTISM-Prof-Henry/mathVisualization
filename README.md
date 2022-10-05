@@ -20,7 +20,7 @@ em HTML.
 
 3. Ative o ambiente virtual com `conda activate math`
 4. Instale a biblioteca dash usando pip: `pip install dash==2.6.*`
-5. Instale a biblioteca dash-bootstrap-components usando pip: `pip install dash-bootstrap-components 1.2.*`
+5. Instale a biblioteca dash-bootstrap-components usando pip: `pip install dash-bootstrap-components==1.2.*`
 6. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. 
    `python teste_plotly.py`
 7. **Nota:** o `teste_dash.py` não abre uma janela ou página Web, mas sim
