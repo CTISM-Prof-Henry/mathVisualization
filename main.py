@@ -321,7 +321,7 @@ def define_callbacks(app: dash.Dash):
                 x=X,
                 y=Y,
                 name='reta',
-                thickness='5',
+                #thickness='5',
                 showlegend=True,
             )
         except:
