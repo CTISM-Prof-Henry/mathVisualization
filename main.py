@@ -332,7 +332,7 @@ def define_callbacks(app: dash.Dash):
                 x=X,
                 y=Y,
                 name='reta',
-                line={'color' : '#c92222'},
+                line={'color': '#c92222'},
                 showlegend=True,
             )
         except:
@@ -341,19 +341,17 @@ def define_callbacks(app: dash.Dash):
         try:
             xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
 
-            # Add circles
             fig.add_shape(
                 type="circle",
                 xref="x", yref="y",
-                x0=xc, y0=yc, x1=xc + r, y1=yc + r,
-                # line_color="#48D1CC",  # TODO não funciona por algum motivo...
+                x0=xc - r, y0=yc - r, x1=xc + r, y1=yc + r,
                 name='circunferência',
-                line={'color': '##c92222'},
-                showlegend=True
+                line={'color': '#c92222'},
+                # showlegend=True
             )
 
-        except:
-            pass
+        except Exception as e:
+            z = 0  # pass
 
         return fig
 
@@ -376,7 +374,7 @@ def define_callbacks(app: dash.Dash):
         Output("input_linear", "value"),
         Input("input_reduzida", "value")
     )
-    def atualiza_coefientes_reduzida(
+    def atualiza_coeficientes_reduzida(
             input_reduzida: str
     ) -> tuple:
 
