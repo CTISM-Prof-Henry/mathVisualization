@@ -60,11 +60,7 @@ aquela atividade.
        não está gerando os coeficientes a, b, e c.
 2. [x] (Guilherme) Descobrir porque, para certas equações reduzidas da circunferência, a função [funcoes/calculo_raio_e_centro/main.py]() 
        não está gerando as coordenadas do centro e o raio.
-<<<<<<< HEAD
-3. [x] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
-=======
-3. [X] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background 
->>>>>>> 559809dbdd191a3e265d99a4c6f2dd0a89fc1aab
+3. [x] (Bruno) Fazer com que o gráfico fique estilizado da mesma maneira que o site (linhas e pontos em azul, background
        em rosa). 
        Remover também a grade de background. Em outras palavras, deixar o gráfico esteticamente bonito
    * Dica 1: consultar [documentação](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Scatter.html) 
@@ -72,11 +68,11 @@ aquela atividade.
    * Dica 2: Pode ser que seja preciso consultar a documentação do 
                [layout](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Layout.html) ou da 
                [Figure](https://plotly.com/python-api-reference/generated/plotly.graph_objects.Figure.html)
-4. [ ] (Luize) Capturar o movimento do mouse que o usuário fizer enquanto mexer na ferramenta, e salvar em um arquivo.
+4. [x] (Luize) Capturar o movimento do mouse que o usuário fizer enquanto mexer na ferramenta, e salvar em um arquivo.
        Usar o exemplo que está na pasta [tracking](tracking)
-   * Bônus: capturar a entrada de texto dos inputs também
-5. [ ] (Suzi) Escrever o texto de introdução da ferramenta.
-6. [ ] (Luize) Colocar o texto da introdução da ferramenta em um modal, logo que o usuário abrir a página. O modal é 
+   * (**ainda não feito**) Bônus: capturar a entrada de texto dos inputs também
+5. [x] (Suzi) Escrever o texto de introdução da ferramenta.
+6. [x] (Luize) Colocar o texto da introdução da ferramenta em um modal, logo que o usuário abrir a página. O modal é 
        importante porque ele define em que momento a ferramenta vai começar a capturar os dados do mouse e entradas de 
        texto. A captura deve se encerrar depois de x minutos (por exemplo, 5 minutos)
 7. [x] (Aline) Para cada um dos arquivos dentro da pasta [funcoes](funcoes), colocar exemplos de caso de uso na função
@@ -84,10 +80,10 @@ aquela atividade.
        como exemplo). Caso, para algum tipo de entrada de texto, a função não funcione, avisar os colegas responsáveis 
        para que eles façam a correção.
 8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
-9. [ ] Apresentar a ferramenta na feira de Ciências. 
-   * Sexta-feira de manhã: Tales, Guilherme, aluno3
+9. [x] Apresentar a ferramenta na feira de Ciências. 
+   * Sexta-feira de manhã: Tales, Guilherme
    * Sexta-feira de tarde: Liza, Aline
-   * Sábado: aluno6, aluno7
+   * Sábado: Luize, Liza
 10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
 
 ## API
