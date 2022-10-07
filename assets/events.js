@@ -11,9 +11,10 @@ let collected_data;
 
 function record_mouse_movement() {
     if(running) {
-        let data = '"' + new Date().getTime() + '","' +
-            document.getElementById("mouse_position_value").textContent + '","' +
-            document.getElementById("mouse_click_value").textContent + '"';
+        let data =
+            '"' + new Date().getTime() + '",' +
+            '"' + document.getElementById("mouse_position_value").textContent + '",' +
+            '"' + document.getElementById("mouse_click_value").textContent + '"\n';
 
         collected_data.push(data);
     }
@@ -73,7 +74,7 @@ function finish_session_func_show() {
 function start_session_func_close() {
     start = new Date().getTime();
     running = true;
-    collected_data = Array('miliseconds,mouse_position,mouse_click');
+    collected_data = Array('"miliseconds","mouse_position","mouse_click"\n');
 
     finish_collecting_data_timeout = setTimeout(finish_collecting_data, timer);
 }

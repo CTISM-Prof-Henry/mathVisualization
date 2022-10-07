@@ -314,11 +314,11 @@ def define_callbacks(app: dash.Dash):
             layout=go.Layout(
                 paper_bgcolor='#48D1CC',
                 plot_bgcolor='#48D1CC',
-                font= {'color' : 'white', 'family': 'Montserrat', 'size' : 17.5},
-                xaxis={'zerolinecolor': '#F08080', 'griddash' : 'dot', },
-                yaxis = {'zerolinecolor': '#F08080', 'griddash': 'dot'},
-                height= 600,
-                margin= {'pad': 20}
+                font={'color': 'white', 'family': 'Montserrat', 'size': 17.5},
+                xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot', },
+                yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
+                height=600,
+                margin={'pad': 20}
             )
         )
 
@@ -347,11 +347,10 @@ def define_callbacks(app: dash.Dash):
                 x0=xc - r, y0=yc - r, x1=xc + r, y1=yc + r,
                 name='circunferência',
                 line={'color': '#c92222'},
-                # showlegend=True
             )
 
         except Exception as e:
-            z = 0  # pass
+            pass
 
         return fig
 
@@ -459,7 +458,7 @@ def main():
     app = define_layout()
     app = define_callbacks(app)
 
-    app.run_server(debug=True)
+    app.run_server(debug=False)
 
 
 if __name__ == "__main__":
