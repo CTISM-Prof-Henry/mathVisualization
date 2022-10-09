@@ -105,7 +105,7 @@ def define_layout() -> dash.Dash:
                     html.Br(),
                     html.Div([
                         html.Label(["Digite a equação reduzida de uma reta: "], htmlFor="input_reduzida",
-                                   className="label_esquerda"),
+                                   className="label-esquerda"),
                         dcc.Input(
                             id="input_reduzida",
                             placeholder='',
@@ -116,7 +116,7 @@ def define_layout() -> dash.Dash:
                         html.P(["Dica: equação reduzida tem-se no formato: y = mx + n"], className="dica"),
                         html.Br(),
                         html.Label(["Digite a equação geral de uma reta: "], htmlFor="input_geral",
-                                   className="label_esquerda"),
+                                   className="label-esquerda"),
                         dcc.Input(
                             id="input_geral",
                             placeholder='',
@@ -133,7 +133,7 @@ def define_layout() -> dash.Dash:
                             html.Div([
                                 html.Br(),
                                 html.Label(["angular (m): "], htmlFor="input_angular",
-                                           className="label_esquerda"),
+                                           className="label-esquerda"),
                                 dcc.Input(
                                     id="input_angular",
                                     placeholder='',
@@ -144,7 +144,7 @@ def define_layout() -> dash.Dash:
                                 html.Br(),
                                 html.Br(),
                                 html.Label(["linear (n): "], htmlFor="input_linear",
-                                           className="label_esquerda"),
+                                           className="label-esquerda"),
                                 dcc.Input(
                                     id="input_linear",
                                     placeholder='',
@@ -157,7 +157,7 @@ def define_layout() -> dash.Dash:
                             ], className='body float-child'),
                             html.Div([
                                 html.Br(),
-                                html.Label(["A: "], htmlFor="input_A", className="label_esquerda"),
+                                html.Label(["A: "], htmlFor="input_A", className="label-esquerda"),
                                 dcc.Input(
                                     id="input_A",
                                     placeholder='',
@@ -166,7 +166,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                                 html.Br(),
-                                html.Label(["B: "], htmlFor="input_B", className="label_esquerda"),
+                                html.Label(["B: "], htmlFor="input_B", className="label-esquerda"),
                                 dcc.Input(
                                     id="input_B",
                                     placeholder='',
@@ -175,7 +175,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                                 html.Br(),
-                                html.Label(["C: "], htmlFor="input_C", className="label_esquerda"),
+                                html.Label(["C: "], htmlFor="input_C", className="label-esquerda"),
                                 dcc.Input(
                                     id="input_C",
                                     placeholder='',
@@ -189,7 +189,7 @@ def define_layout() -> dash.Dash:
                         ], className='body center float-container'),
                         html.Br(),
                         html.Label(["Ângulo formado pela reta e o eixo X: "], htmlFor="input_angulo",
-                                   className="label_esquerda"),
+                                   className="label-esquerda"),
                         dcc.Input(
                             id="input_angulo",
                             placeholder='',
@@ -209,8 +209,8 @@ def define_layout() -> dash.Dash:
                 html.Br(),
                 html.Br(),
                 html.Br(),
-                html.Label(["Digite a equação reduzida da circunferência: "], htmlFor="label_esquerda",
-                           className="label_esquerda"),
+                html.Label(["Digite a equação reduzida da circunferência: "], htmlFor="label-esquerda",
+                           className="label-esquerda"),
                 dcc.Input(
                     id="input_circunferencia",
                     placeholder='',
@@ -222,7 +222,7 @@ def define_layout() -> dash.Dash:
                        className="dica"),
                 html.Br(),
                 html.Br(),
-                html.Label(["Centro (a, b):  "], htmlFor="input_centro", className="label_esquerda"),
+                html.Label(["Centro (a, b):  "], htmlFor="input_centro", className="label-esquerda"),
                 dcc.Input(
                     id="input_centro",
                     placeholder='',
@@ -232,7 +232,7 @@ def define_layout() -> dash.Dash:
                 ),
                 html.Br(),
                 html.Br(),
-                html.Label(["Raio (r):  "], htmlFor="input_raio", className="label_esquerda"),
+                html.Label(["Raio (r):  "], htmlFor="input_raio", className="label-esquerda"),
                 dcc.Input(
                     id="input_raio",
                     placeholder='',
@@ -242,16 +242,16 @@ def define_layout() -> dash.Dash:
                 ),
                 html.Br(),
                 html.Br(),
-                html.P('A reta e a circunferência são', className='label_esquerda'),
+                html.P('A reta e a circunferência são', className='label-esquerda'),
                 dcc.RadioItems(
                     id="seletor_intersecao_reta_circunferencia",
                     options=["Secantes", "Tangentes", "Disjuntas"],
                     value="Secantes",
-                    className='label_esquerda'
+                    className='label-esquerda'
                 ),
                 # html.Br(),
                 html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam",
-                           className="label_esquerda"),
+                           className="label-esquerda"),
                 dcc.Input(
                     id="input_interceptam",
                     placeholder='',
@@ -447,9 +447,11 @@ def define_callbacks(app: dash.Dash):
         except:
             relacao, p1, p2 = 'erro!', ('erro!', 'erro!'), ('erro!', 'erro!')
 
-        if p1 == p2:
-            return relacao, '({0},{1})'.format(*p1)
-        return relacao, '({0},{1}) e ({2}, {3})'.format(*p1, *p2)
+        if relacao == 'Disjuntas':
+            return relacao, 'não se interceptam'
+        if relacao == 'Secantes':
+            return relacao, '({0}, {1})'.format(*p1)
+        return relacao, '({0}, {1}) e ({2}, {3})'.format(*p1, *p2)
 
     return app
 
@@ -458,7 +460,7 @@ def main():
     app = define_layout()
     app = define_callbacks(app)
 
-    app.run_server(debug=False)
+    app.run_server(debug=True)
 
 
 if __name__ == "__main__":

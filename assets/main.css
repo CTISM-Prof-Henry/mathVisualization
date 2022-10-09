@@ -105,7 +105,7 @@ div.float-graph {
     font-size: 14px;
 }
 
-.label_esquerda {
+.label-esquerda {
     margin-left: var(--margin_left_text);
     font-family: 'Franklin Gothic Medium', sans-serif;
     font-size: 20px;
