@@ -1,8 +1,10 @@
 import argparse
+import os
+
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
-from scipy.sparse import csr_matrix
+from scipy.sparse import lil_matrix, csr_matrix
 
 
 def main(path):
@@ -10,8 +12,8 @@ def main(path):
     all_coords = []
     max_x = -np.inf
     max_y = -np.inf
-    for file in path:
-        df = pd.read_csv(file)
+    for file in os.listdir(path):
+        df = pd.read_csv(os.path.join(path, file))
         coordinates = df['mouse_position'].apply(lambda z: z.replace('(', '').replace(')', '').split(',')).tolist()
         coords = []
 
@@ -30,8 +32,12 @@ def main(path):
         for x, y in coords:
             matrix[x, y] += 1
 
+    matrix = matrix.toarray()
+    matrix = (matrix - matrix.min()) / (matrix.max() - matrix.min())
+
     fig, ax = plt.subplots()
-    im = ax.imshow(matrix.toarray())
+    ax.hist2d(matrix[:, 0], matrix[:, 1], bins=(50, 50), cmap=plt.cm.viridis)
+    # im = ax.imshow(matrix, interpolation='nearest')
 
     plt.show()
 
@@ -47,4 +53,4 @@ if __name__ == '__main__':
     )
 
     args = parser.parse_args()
-    main(file=args.path)
+    main(path=args.path)

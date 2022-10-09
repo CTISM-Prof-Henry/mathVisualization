@@ -50,20 +50,20 @@ body {
 /* divs lado a lado */
 
 div.float-container {
-    /*border: 3px solid #ff00ff;*/
+    border: 3px solid #ff00ff;
     position: absolute;
 }
 
 div.float-child {
     width: 50%;
     float: left;
-    /*border: 2px solid red;*/
+    border: 2px solid red;
 }
 
 div.float-graph {
     width: 100%;
     float: right;
-    /*border: 2px solid cyan;*/
+    border: 2px solid cyan;
 }
 
 .container {
