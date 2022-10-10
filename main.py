@@ -66,8 +66,8 @@ def define_layout() -> dash.Dash:
     ], id='finish_session_modal', is_open=False)
 
     app.layout = html.Div([
-        start_session_modal,
-        finish_session_modal,
+        # start_session_modal,
+        # finish_session_modal,
         html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'),
         html.Header([
             html.Div(
@@ -80,7 +80,7 @@ def define_layout() -> dash.Dash:
                 html.Nav(className="page__menu page__custom-settings menu"),
                 html.Ul([
                     # INSERINDO O MENU HORIZONTAL SUPERIOR
-                    html.Li(className="group_menu"),
+                    html.Li(className="group_menu", hidden=True),
                     html.A(["Equação da reta"], href="main.py#h1_reta", className="menu__link r-link text-underlined"),
                     html.A(["Equação da Circunferência"], href="main.py#h1_circunferencia",
                            className="menu__link r-link text-underlined"),
@@ -280,28 +280,28 @@ def define_layout() -> dash.Dash:
 def define_callbacks(app: dash.Dash):
 
     # parte do modal
-    @app.callback(
-        Output("start_session_modal", "is_open"),
-        [Input("button_start_session", "n_clicks"),
-         Input("close_finish_session_modal", "n_clicks")],
-        [State("start_session_modal", "is_open")],
-    )
-    def toggle_start_session_modal(n1, n2, is_open):
-        if n1 or n2:
-            return not is_open
-        return is_open
-
-    @app.callback(
-        Output("finish_session_modal", "is_open"),
-        [Input("button_finish_session", "n_clicks"),
-         Input("close_finish_session_modal", "n_clicks")],
-        [State("finish_session_modal", "is_open")],
-    )
-    def toggle_finish_session_modal(n1, n2, is_open: bool):
-        if n1 or n2:
-            return not is_open
-
-        return is_open
+    # @app.callback(
+    #     Output("start_session_modal", "is_open"),
+    #     [Input("button_start_session", "n_clicks"),
+    #      Input("close_finish_session_modal", "n_clicks")],
+    #     [State("start_session_modal", "is_open")],
+    # )
+    # def toggle_start_session_modal(n1, n2, is_open):
+    #     if n1 or n2:
+    #         return not is_open
+    #     return is_open
+    #
+    # @app.callback(
+    #     Output("finish_session_modal", "is_open"),
+    #     [Input("button_finish_session", "n_clicks"),
+    #      Input("close_finish_session_modal", "n_clicks")],
+    #     [State("finish_session_modal", "is_open")],
+    # )
+    # def toggle_finish_session_modal(n1, n2, is_open: bool):
+    #     if n1 or n2:
+    #         return not is_open
+    #
+    #     return is_open
 
     @app.callback(
         Output("grafico", "figure"),
