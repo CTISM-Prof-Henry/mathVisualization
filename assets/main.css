@@ -60,6 +60,12 @@ div.side-by-side-child {
     border: 1px solid red;
 }
 
+div.side-by-side-child-top {
+    display: inline-block;
+    vertical-align: text-top;
+    border: 1px solid red;
+}
+
 .container {
     display: flex;
     align-items: center;
@@ -80,11 +86,15 @@ div.side-by-side-child {
 }
 
 .width-reta-coeficientes {
-    width: 300px;
+    width: 330px;
 }
 
 .width-reta-angulo {
-    width: 500px;
+    width: 550px;
+}
+
+.width-circunferencia-relacao {
+    width: 650px;
 }
 
 /* ***************************************************** */
@@ -107,13 +117,15 @@ div.side-by-side-child {
 }
 
 .dica {
-    margin-left: var(--margin_left_text);
+    /*margin-left: var(--margin_left_text);*/
+    margin-right: 10px;
     font-family: 'Franklin Gothic Medium', sans-serif;
     font-size: 14px;
 }
 
-.label-esquerda {
-    margin-left: var(--margin_left_text);
+.label-inputs {
+    /*margin-left: var(--margin_left_text);*/
+    margin-right: 10px;
     font-family: 'Franklin Gothic Medium', sans-serif;
     font-size: 20px;
 }
