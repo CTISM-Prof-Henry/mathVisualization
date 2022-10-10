@@ -44,8 +44,13 @@ body {
 
 /* divs lado a lado */
 
-div.side-by-side-parent {
+div.side-by-side-parent-right {
     border: 1px solid cyan;
+    text-align: right;
+}
+
+div.side-by-side-parent-center {
+    border: 1px solid blue;
     text-align: center;
 }
 
@@ -79,13 +84,14 @@ div.side-by-side-child {
     font-size: 40px;
     font-family: Rubik Dirt, sans-serif;
     color: white;
+    text-align: center;
 }
 
 .coeficientes {
-    /*margin-left: 150px;*/
     font-size: 25px;
-    width: 50%;
+    /*width: 50%;*/
     font-family: Rubik Dirt, sans-serif;
+    text-align: center;
 }
 
 .dica {
@@ -102,7 +108,6 @@ div.side-by-side-child {
 
 input.inputs {
     padding: 10px;
-    padding-top: 4px;
     border: 1px solid #709CEE;
     background-color: #48D1CC;
     font-family: 'Acme', sans-serif;
@@ -110,4 +115,9 @@ input.inputs {
     color: white;
     border-radius: 7px 7px 7px 7px;
     size: 15px;
+}
+
+.selector-label {
+    padding-left: 5px;
+    padding-right: 5px;
 }

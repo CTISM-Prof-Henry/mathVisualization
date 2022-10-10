@@ -105,70 +105,76 @@ def define_layout() -> dash.Dash:
                 html.Div([
                     # div equação reduzida
                     html.Div([
-                        # div rótulo
                         html.Div([
-                            html.Label(
-                                ["Digite a equação reduzida de uma reta: "],
-                                htmlFor="input_reduzida", className=""
-                            ),
-                            html.P(["Dica: equação reduzida tem-se no formato: y = mx + n"], className=""),
-                        ], className='side-by-side-child'),
-                        # div entrada
-                        html.Div([
-                            dcc.Input(
-                                id="input_reduzida",
-                                placeholder='',
-                                type='text',
-                                value='',
-                                className='inputs'
-                            ),
-                        ], className='side-by-side-child'),
-                    ], className='side-by-side-parent'),
-                    # div equação geral
-                    html.Div([
-                        # div rótulo
-                        html.Div([
-                            html.Label(
-                                ["Digite a equação geral de uma reta: "],
-                                htmlFor="input_geral", className=""
-                            ),
-                            html.P(["Dica: equação geral tem-se no formato: ax + by  + c = 0"], className=""),
-                        ], className='side-by-side-child'),
-                        # div entrada
-                        html.Div([
-                            dcc.Input(
-                                id="input_geral",
-                                placeholder='',
-                                type='text',
-                                value='',
-                                className='inputs'
-                            ),
-                        ], className='side-by-side-child'),
-                    ], className='side-by-side-parent')
-                ]),  # div equações: reduzida, geral
-                # div coeficientes
-                html.Div([
-                    html.Div([
-                        html.H2(["Coeficientes: "], className="title coeficientes center"),
-                    ], className='center'),
-                    html.Div([
-                        # div coeficiente angular
-                        html.Div([
+                            # div rótulo
                             html.Div([
                                 html.Label(
-                                    ["angular (m): "], htmlFor="input_angular", className=""
+                                    ["Digite a equação reduzida de uma reta: "],
+                                    htmlFor="input_reduzida", className=""
                                 ),
+                                html.P(["Dica: equação reduzida tem-se no formato y = mx + n"], className=""),
                             ], className='side-by-side-child'),
+                            # div entrada
                             html.Div([
                                 dcc.Input(
-                                    id="input_angular",
+                                    id="input_reduzida",
                                     placeholder='',
                                     type='text',
                                     value='',
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
-                        ], className='side-by-side-parent'),
+                        ], className='side-by-side-parent-center'),
+                    ], className='side-by-side-parent-right'),
+                    # div equação geral
+                    html.Div([
+                        html.Div([
+                            # div rótulo
+                            html.Div([
+                                html.Label(
+                                    ["Digite a equação geral de uma reta: "],
+                                    htmlFor="input_geral", className=""
+                                ),
+                                html.P(["Dica: equação geral tem-se no formato ax + by  + c = 0"], className=""),
+                            ], className='side-by-side-child'),
+                            # div entrada
+                            html.Div([
+                                dcc.Input(
+                                    id="input_geral",
+                                    placeholder='',
+                                    type='text',
+                                    value='',
+                                    className='inputs'
+                                ),
+                            ], className='side-by-side-child'),
+                        ], className='side-by-side-parent-center'),
+                    ], className='side-by-side-parent-right')
+                ]),  # div equações: reduzida, geral
+                # div coeficientes
+                html.Div([
+                    html.Div([
+                        html.H2(["Coeficientes"], className="title coeficientes center"),
+                    ], className='center'),
+                    html.Div([
+                        # div coeficiente angular
+                        html.Div([
+                            html.Div([
+                                html.Div([
+                                    html.Label(
+                                        ["angular (m): "], htmlFor="input_angular", className=""
+                                    ),
+                                ], className='side-by-side-child'),
+                                html.Div([
+                                    dcc.Input(
+                                        id="input_angular",
+                                        placeholder='',
+                                        type='text',
+                                        value='',
+                                        className='inputs'
+                                    ),
+                                ], className='side-by-side-child'),
+                            ], className='side-by-side-parent-center'),
+                        ], className='side-by-side-parent-right'),
                         # div coeficiente linear
                         html.Div([
                             html.Div([
@@ -183,7 +189,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
-                        ], className='side-by-side-parent'),
+                        ], className='side-by-side-parent-right'),
                         # div coeficiente A
                         html.Div([
                             html.Div([
@@ -198,7 +204,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
-                        ], className='side-by-side-parent'),
+                        ], className='side-by-side-parent-right'),
                         # div coeficiente B
                         html.Div([
                             html.Div([
@@ -213,7 +219,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
-                        ], className='side-by-side-parent'),
+                        ], className='side-by-side-parent-right'),
                         # div coeficiente C
                         html.Div([
                             html.Div([
@@ -228,7 +234,7 @@ def define_layout() -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
-                        ], className='side-by-side-parent'),
+                        ], className='side-by-side-parent-right'),
                     ]),
                 ]),  # div coeficientes
                 # div ângulo reta / eixo x
@@ -248,72 +254,103 @@ def define_layout() -> dash.Dash:
                             className='inputs'
                         ),
                     ], className='side-by-side-child')
-                ], className='side-by-side-parent'),  # div ângulo reta / eixo x
+                ], className='side-by-side-parent-right'),  # div ângulo reta / eixo x
             ], className='body'),  # div reta
+            # div circunferência
             html.Div([
-                # CIRCUFERENCIA:
-                html.H1(["EQUAÇÃO DA CIRCUNFERÊNCIA"], className="title center", id='h1_circunferencia'),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Label(["Digite a equação reduzida da circunferência: "], htmlFor="",
-                           className=""),
-                dcc.Input(
-                    id="input_circunferencia",
-                    placeholder='',
-                    type='text',
-                    value='',
-                    className='inputs'
-                ),
-                html.P(["Dica: equação reduzida da circunferência tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"],
-                       className=""),
-                html.Br(),
-                html.Br(),
-                html.Label(["Centro (a, b):  "], htmlFor="input_centro", className=""),
-                dcc.Input(
-                    id="input_centro",
-                    placeholder='',
-                    type='text',
-                    value='',
-                    className='inputs'
-                ),
-                html.Br(),
-                html.Br(),
-                html.Label(["Raio (r):  "], htmlFor="input_raio", className=""),
-                dcc.Input(
-                    id="input_raio",
-                    placeholder='',
-                    type='text',
-                    value='',
-                    className='inputs'
-                ),
-                html.Br(),
-                html.Br(),
-                html.P('A reta e a circunferência são', className=''),
-                dcc.RadioItems(
-                    id="seletor_intersecao_reta_circunferencia",
-                    options=["Secantes", "Tangentes", "Disjuntas"],
-                    value="Secantes",
-                    className=''
-                ),
-                # html.Br(),
-                html.Label(["entre si e se interceptam no ponto: "], htmlFor="input_interceptam",
-                           className=""),
-                dcc.Input(
-                    id="input_interceptam",
-                    placeholder='',
-                    type='text',
-                    value='',
-                    size='30',
-                    className='inputs'
-                ),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-                html.Br(),
-            ], className='body'),
+                html.Div([
+                    html.H1(["EQUAÇÃO DA CIRCUNFERÊNCIA"], className="title", id='h1_circunferencia'),
+                ], className='center'),
+                # div equação circunferência, centro e raio
+                html.Div([
+                    # div equação circunferência
+                    html.Div([
+                        html.Div([
+                            html.Label(
+                                ["Digite a equação reduzida da circunferência: "],
+                                htmlFor='input_circunferencia', className=''
+                            ),
+                            html.P(["Dica: equação reduzida da circunferência "
+                                    "tem-se na forma: (x - a)**2 + (y - b)**2 = r**2"], className=""),
+                        ], className='side-by-side-child'),
+                        html.Div([
+                            dcc.Input(
+                                id="input_circunferencia",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child'),
+                    ], className='side-by-side-parent-right'),  # div equação circunferência
+                    # div centro
+                    html.Div([
+                        html.Div([
+                            html.Label(["Centro (a, b):  "], htmlFor="input_centro", className=""),
+                        ], className='side-by-side-child'),
+                        html.Div([
+                            dcc.Input(
+                                id="input_centro",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child')
+                    ], className='side-by-side-parent-right'),  # div centro
+                    html.Div([
+                        html.Div([
+                            html.Label(["Raio (r):  "], htmlFor="input_raio", className=""),
+                        ], className='side-by-side-child'),
+                        html.Div([
+                            dcc.Input(
+                                id="input_raio",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child'),
+                    ], className='side-by-side-parent-right'),
+                    # div relação reta / circunferência
+                    html.Div([
+                        html.Div([
+                            html.Div([
+                                html.Label(
+                                    'A reta e a circunferência são',
+                                    htmlFor='seletor_intersecao_reta_circunferencia', className=''
+                                ),
+                            ], className='side-by-side-child'),
+                            html.Div([
+                                dcc.RadioItems(
+                                    id="seletor_intersecao_reta_circunferencia",
+                                    options=["Secantes", "Tangentes", "Disjuntas"],
+                                    value="Secantes",
+                                    labelClassName='selector-label'
+                                ),
+                            ], className='side-by-side-child'),
+                        ], className='side-by-side-parent-right'),
+                        html.Div([
+                            html.Div([
+                                html.Label(
+                                    ["entre si e se interceptam no ponto: "],
+                                    htmlFor="input_interceptam", className=''
+                                ),
+                            ], className='side-by-side-child'),
+                            html.Div([
+                                dcc.Input(
+                                    id="input_interceptam",
+                                    placeholder='',
+                                    type='text',
+                                    value='',
+                                    size='30',
+                                    className='inputs'
+                                ),
+                            ], className='side-by-side-child'),
+                        ], className='side-by-side-parent-right'),
+                    ]),
+                ]),
+            ], className='body'),  # div circunferência
             # div gráfico
             html.Div([
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
