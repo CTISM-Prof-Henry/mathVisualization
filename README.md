@@ -11,7 +11,7 @@ em HTML.
 ## Instalação
 
 1. Clone este repositório na sua máquina
-2. Crie um ambiente virtual e instale as dependências:
+2. Crie um ambiente virtual e instale as dependências do conda:
 
    `conda create --name math --file requirements.txt --yes`
 
@@ -19,14 +19,12 @@ em HTML.
    https://github.com/CTISM-Prof-Henry/pythonEssentials/blob/main/chapters/venvs.md#criando-pela-linha-de-comando))
 
 3. Ative o ambiente virtual com `conda activate math`
-4. Instale a biblioteca dash usando pip: `pip install dash==2.6.*`
-5. Instale a biblioteca dash-bootstrap-components usando pip: `pip install dash-bootstrap-components==1.2.*`
-6. Rode os scripts de teste pela linha de comando para verificar se tudo foi instalado corretamente, e.g. 
-   `python teste_plotly.py`
-7. **Nota:** o `teste_dash.py` não abre uma janela ou página Web, mas sim
-   informa um link na linha de comando (por exemplo, `http://127.0.0.1:8050/`) que você precisa copiar-e-colar no 
-   seu navegador para abrir a página. Não se esqueça de, depois de rodar o código, pressionar `CTRL + C` para parar
-   a execução do script `teste_dash.py`.
+4. Instale as dependências do pip (dash e dash-boostrap-components):
+   
+   `pip install --requirement pip_requirements.txt`
+5. Rode o script `main.py`. **Nota:** o dash informa um link na linha de comando (por exemplo, `http://127.0.0.1:8050/`) 
+   que você precisará copiar-e-colar no seu navegador para abrir a página. Não se esqueça de, depois de rodar o código, 
+   pressionar `CTRL + C` para parar a execução do script.
 
 ## Checklist de atividades
 
