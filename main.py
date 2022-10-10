@@ -265,23 +265,25 @@ def define_layout() -> dash.Dash:
                         # div equação circunferência
                         html.Div([
                             html.Div([
-                                html.Label(
-                                    ["Digite a equação reduzida da circunferência: "],
-                                    htmlFor='input_circunferencia', className='label-inputs'
-                                ),
-                                html.P(["Dica: equação reduzida da circunferência "
-                                        "tem-se na forma (x - a)**2 + (y - b)**2 = r**2"], className="dica"),
-                            ], className='side-by-side-child'),
-                            html.Div([
-                                dcc.Input(
-                                    id="input_circunferencia",
-                                    placeholder='',
-                                    type='text',
-                                    value='',
-                                    className='inputs'
-                                ),
-                            ], className='side-by-side-child'),
-                        ], className='side-by-side-parent-right'),  # div equação circunferência
+                                html.Div([
+                                    html.Label(
+                                        ["Digite a equação reduzida da circunferência: "],
+                                        htmlFor='input_circunferencia', className='label-inputs'
+                                    ),
+                                    html.P(["Dica: equação reduzida da circunferência "
+                                            "tem-se na forma (x - a)**2 + (y - b)**2 = r**2"], className="dica"),
+                                ], className='side-by-side-child'),
+                                html.Div([
+                                    dcc.Input(
+                                        id="input_circunferencia",
+                                        placeholder='',
+                                        type='text',
+                                        value='',
+                                        className='inputs'
+                                    ),
+                                ], className='side-by-side-child'),
+                            ], className='side-by-side-parent-right'),  # div equação circunferência
+                        ], className='center width-circunferencia-equacao'),
                         # div centro e raio da circunferência
                         html.Div([
                             # div centro da circunferência
@@ -313,7 +315,7 @@ def define_layout() -> dash.Dash:
                                     ),
                                 ], className='side-by-side-child'),
                             ], className='side-by-side-parent-right'),
-                        ], className='center'),
+                        ], className='center width-circunferencia-centro-raio'),
                         # div relação reta, circunferência, coordenadas de interseção
                         html.Div([
                             # div relação reta / circunferência
@@ -359,9 +361,9 @@ def define_layout() -> dash.Dash:
             # div gráfico
             html.Div([
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
-            ], className='body'),  # div gráfico
+            ], className='body graph'),  # div gráfico
         ], className='body'),  # div central: contém reta, circunferência e gráfico
-    ], className="body")
+    ], className="body")  # layout geral
 
     return app
 
@@ -408,25 +410,13 @@ def define_callbacks(app: dash.Dash):
                 yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
                 # width=800,
                 # height=300,
-                margin={'pad': 20}
+                # margin={'pad': 20}
             )
         )
 
-        try:
-            line_equation = lambda z: input_angular * z + input_linear
-
-            X = np.arange(-10, 10)
-            Y = [line_equation(x) for x in X]
-
-            fig = fig.add_scatter(
-                x=X,
-                y=Y,
-                name='reta',
-                line={'color': '#c92222'},
-                showlegend=True,
-            )
-        except:
-            pass
+        xc = 0  # centro da circunferência e do gráfico no eixo x
+        yc = 0  # centro da circunferência e do gráfico no eixo y
+        r = 10  # raio da circunferência
 
         try:
             xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
@@ -438,13 +428,28 @@ def define_callbacks(app: dash.Dash):
                 name='circunferência',
                 line={'color': '#c92222'},
             )
-
         except Exception as e:
             pass
 
+        try:
+            line_equation = lambda z: input_angular * z + input_linear
+
+            X = np.arange(xc - 2*r, xc + 2*r)
+            Y = [line_equation(x) for x in X]
+
+            fig = fig.add_scatter(
+                x=X,
+                y=Y,
+                name='reta',
+                line={'color': '#c92222'},
+                showlegend=True
+            )
+        except:
+            pass
+
         # TODO ajeitar proporção!
-        # fig.update_layout(width=600, height=600, yaxis_range=[-10, 10])
-        fig.update_layout(width=600, height=600)
+        # fig.update_layout(width=800, height=600, yaxis_range=[yc - r, yc + r])
+        # fig.update_layout(width=800, height=600)
 
         return fig
 
