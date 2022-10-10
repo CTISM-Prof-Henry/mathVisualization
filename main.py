@@ -408,14 +408,10 @@ def define_callbacks(app: dash.Dash):
                 font={'color': 'white', 'family': 'Montserrat', 'size': 17.5},
                 xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
                 yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
-                # width=800,
-                # height=300,
-                # margin={'pad': 20}
             )
         )
 
         xc = 0  # centro da circunferência e do gráfico no eixo x
-        yc = 0  # centro da circunferência e do gráfico no eixo y
         r = 10  # raio da circunferência
 
         try:
@@ -432,7 +428,7 @@ def define_callbacks(app: dash.Dash):
             pass
 
         try:
-            line_equation = lambda z: input_angular * z + input_linear
+            line_equation = lambda z: float(input_angular) * z + float(input_linear)
 
             X = np.arange(xc - 2*r, xc + 2*r)
             Y = [line_equation(x) for x in X]
@@ -446,10 +442,6 @@ def define_callbacks(app: dash.Dash):
             )
         except:
             pass
-
-        # TODO ajeitar proporção!
-        # fig.update_layout(width=800, height=600, yaxis_range=[yc - r, yc + r])
-        # fig.update_layout(width=800, height=600)
 
         return fig
 

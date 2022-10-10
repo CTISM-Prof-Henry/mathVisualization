@@ -28,7 +28,8 @@ a, p, label {
 header {
     /* font: sans-serif; */
     background-image: var(--bg_image);
-    height: 100vh;
+    /*height: 100vh;*/
+    height: 600px;
     background-attachment: fixed;
     background-size: 100%;
     background-position: center;
