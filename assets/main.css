@@ -44,25 +44,15 @@ body {
 
 /* divs lado a lado */
 
-/*div.float-container {*/
-/*    !*border: 3px solid #ff00ff;*!*/
-/*    position: absolute;*/
-/*}*/
+div.side-by-side-parent {
+    border: 1px solid cyan;
+    text-align: center;
+}
 
-/*div.float-child {*/
-/*    width: 50%;*/
-/*    float: left;*/
-/*    !*border: 2px solid red;*!*/
-/*}*/
-
-/*div.float-graph {*/
-/*    width: 100%;*/
-/*    float: right;*/
-/*    !*border: 2px solid cyan;*!*/
-/*}*/
-
-div {
-    /*border: 2px solid cyan;*/
+div.side-by-side-child {
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid red;
 }
 
 .container {
