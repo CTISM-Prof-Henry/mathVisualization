@@ -1,0 +1,109 @@
+:root {
+    --bg_image: url('https://media.discordapp.net/attachments/690312693483307008/1024690384116404326/Sem_titulo3.png?width=953&height=393');
+    --menuBackgroundColor: #F08080;
+    --menuLinkColor: #ffffff;
+    --menuLinkColorUnactive: #1c4669;
+    --menuLinkOutlineOffset: -.5rem;
+}
+
+/* *************** */
+/* MENU HORIZONTAL */
+/* *************** */
+
+.r-link {
+    display: var(--rLinkDisplay, inline-flex) !important;
+}
+
+.r-link[href] {
+    color: var(--rLinkColor) !important;
+    text-decoration: var(--rLinkTextDecoration, none) !important;
+}
+
+.r-list {
+    padding-left: var(--rListPaddingLeft, 0) !important;
+    margin-top: var(--rListMarginTop, 0) !important;
+    margin-bottom: var(--rListMarginBottom, 0) !important;
+    list-style: var(--rListListStyle, none) !important;
+}
+
+.menu {
+    --rLinkColor: var(--menuLinkColor, currentColor);
+}
+
+.menu__link {
+    display: var(--menuLinkDisplay, block);
+}
+
+.menu__link:focus {
+    outline: var(--menuLinkOutlineWidth, 2px) solid var(--menuLinkOutlineColor, currentColor);
+    outline-offset: var(--menuLinkOutlineOffset);
+}
+
+.menu:hover .menu__link:not(:hover) {
+    --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, .35));
+}
+
+.menu {
+    background-color: var(--menuBackgroundColor, #F08080);
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+}
+
+.menu__list {
+    display: flex;
+}
+
+.menu__link {
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.text-underlined {
+    position: relative;
+    overflow: hidden;
+
+    will-change: color;
+    transition: color .25s ease-out;
+}
+
+.text-underlined::before,
+.text-underlined::after {
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: var(--textUnderlinedLineColor, currentColor);
+
+    will-change: width;
+    transition: width .1s ease-out;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.text-underlined::before {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-underlined::after {
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.text-underlined:hover::before,
+.text-underlined:hover::after {
+    width: 100%;
+    transition-duration: .2s;
+}
+
+.page {
+    box-sizing: border-box;
+    float: top;
+    max-width: 1900px;
+    padding-left: .0rem;
+    padding-right: .0rem;
+}
+
+.page__menu:nth-child(n+2) {
+    margin-top: 3rem;
+}
