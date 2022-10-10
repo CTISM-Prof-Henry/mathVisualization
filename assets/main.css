@@ -75,6 +75,18 @@ div.side-by-side-child {
   padding: 10px;
 }
 
+.width-reta-equacoes {
+    width: 650px;
+}
+
+.width-reta-coeficientes {
+    width: 300px;
+}
+
+.width-reta-angulo {
+    width: 500px;
+}
+
 /* ***************************************************** */
 /* PARTE TEXTUAL: RÓTULOS, TÍTULOS, CAIXAS DE TEXTO, ETC */
 /* ***************************************************** */

@@ -105,75 +105,70 @@ def define_layout() -> dash.Dash:
                 html.Div([
                     # div equação reduzida
                     html.Div([
+                        # div rótulo
                         html.Div([
-                            # div rótulo
-                            html.Div([
-                                html.Label(
-                                    ["Digite a equação reduzida de uma reta: "],
-                                    htmlFor="input_reduzida", className=""
-                                ),
-                                html.P(["Dica: equação reduzida tem-se no formato y = mx + n"], className=""),
-                            ], className='side-by-side-child'),
-                            # div entrada
-                            html.Div([
-                                dcc.Input(
-                                    id="input_reduzida",
-                                    placeholder='',
-                                    type='text',
-                                    value='',
-                                    className='inputs'
-                                ),
-                            ], className='side-by-side-child'),
-                        ], className='side-by-side-parent-center'),
+                            html.Label(
+                                ["Digite a equação reduzida de uma reta: "],
+                                htmlFor="input_reduzida", className=""
+                            ),
+                            html.P(["Dica: equação reduzida tem-se no formato y = mx + n"], className=""),
+                        ], className='side-by-side-child'),
+                        # div entrada
+                        html.Div([
+                            dcc.Input(
+                                id="input_reduzida",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child'),
                     ], className='side-by-side-parent-right'),
                     # div equação geral
                     html.Div([
+                        # div rótulo
                         html.Div([
-                            # div rótulo
-                            html.Div([
-                                html.Label(
-                                    ["Digite a equação geral de uma reta: "],
-                                    htmlFor="input_geral", className=""
-                                ),
-                                html.P(["Dica: equação geral tem-se no formato ax + by  + c = 0"], className=""),
-                            ], className='side-by-side-child'),
-                            # div entrada
-                            html.Div([
-                                dcc.Input(
-                                    id="input_geral",
-                                    placeholder='',
-                                    type='text',
-                                    value='',
-                                    className='inputs'
-                                ),
-                            ], className='side-by-side-child'),
-                        ], className='side-by-side-parent-center'),
-                    ], className='side-by-side-parent-right')
-                ]),  # div equações: reduzida, geral
-                # div coeficientes
+                            html.Label(
+                                ["Digite a equação geral de uma reta: "],
+                                htmlFor="input_geral", className=""
+                            ),
+                            html.P(["Dica: equação geral tem-se no formato ax + by  + c = 0"], className=""),
+                        ], className='side-by-side-child'),
+                        # div entrada
+                        html.Div([
+                            dcc.Input(
+                                id="input_geral",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child'),
+                    ], className='side-by-side-parent-right'),
+                ], className='center width-reta-equacoes'),  # div equações: reduzida, geral
+                # div coeficientes + título
                 html.Div([
                     html.Div([
                         html.H2(["Coeficientes"], className="title coeficientes center"),
                     ], className='center'),
+                    # div coeficientes
                     html.Div([
                         # div coeficiente angular
                         html.Div([
                             html.Div([
-                                html.Div([
-                                    html.Label(
-                                        ["angular (m): "], htmlFor="input_angular", className=""
-                                    ),
-                                ], className='side-by-side-child'),
-                                html.Div([
-                                    dcc.Input(
-                                        id="input_angular",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-center'),
+                                html.Label(
+                                    ["angular (m): "], htmlFor="input_angular", className=""
+                                ),
+                            ], className='side-by-side-child'),
+                            html.Div([
+                                dcc.Input(
+                                    id="input_angular",
+                                    placeholder='',
+                                    type='text',
+                                    value='',
+                                    className='inputs'
+                                ),
+                            ], className='side-by-side-child'),
                         ], className='side-by-side-parent-right'),
                         # div coeficiente linear
                         html.Div([
@@ -235,26 +230,28 @@ def define_layout() -> dash.Dash:
                                 ),
                             ], className='side-by-side-child'),
                         ], className='side-by-side-parent-right'),
-                    ]),
-                ]),  # div coeficientes
+                    ], className='center width-reta-coeficientes'),  # div coeficientes
+                ]),  # div coeficientes + título
                 # div ângulo reta / eixo x
                 html.Div([
                     html.Div([
-                        html.Label(
-                            ["Ângulo formado pela reta e o eixo X: "],
-                            htmlFor="input_angulo", className=""
-                        ),
-                    ], className='side-by-side-child'),
-                    html.Div([
-                        dcc.Input(
-                            id="input_angulo",
-                            placeholder='',
-                            type='text',
-                            value='',
-                            className='inputs'
-                        ),
-                    ], className='side-by-side-child')
-                ], className='side-by-side-parent-right'),  # div ângulo reta / eixo x
+                        html.Div([
+                            html.Label(
+                                ["Ângulo formado pela reta e o eixo X: "],
+                                htmlFor="input_angulo", className=""
+                            ),
+                        ], className='side-by-side-child'),
+                        html.Div([
+                            dcc.Input(
+                                id="input_angulo",
+                                placeholder='',
+                                type='text',
+                                value='',
+                                className='inputs'
+                            ),
+                        ], className='side-by-side-child')
+                    ], className='side-by-side-parent-right'),  # div ângulo reta / eixo x
+                ], className='center width-reta-angulo'),
             ], className='body'),  # div reta
             # div circunferência
             html.Div([
@@ -283,7 +280,7 @@ def define_layout() -> dash.Dash:
                             ),
                         ], className='side-by-side-child'),
                     ], className='side-by-side-parent-right'),  # div equação circunferência
-                    # div centro
+                    # div centro da circunferencia
                     html.Div([
                         html.Div([
                             html.Label(["Centro (a, b):  "], htmlFor="input_centro", className=""),
@@ -349,7 +346,7 @@ def define_layout() -> dash.Dash:
                             ], className='side-by-side-child'),
                         ], className='side-by-side-parent-right'),
                     ]),
-                ]),
+                ], className='center'),
             ], className='body'),  # div circunferência
             # div gráfico
             html.Div([
@@ -399,9 +396,10 @@ def define_callbacks(app: dash.Dash):
                 paper_bgcolor='#48D1CC',
                 plot_bgcolor='#48D1CC',
                 font={'color': 'white', 'family': 'Montserrat', 'size': 17.5},
-                xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot', },
+                xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
                 yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
-                height=600,
+                # width=800,
+                # height=300,
                 margin={'pad': 20}
             )
         )
@@ -435,6 +433,10 @@ def define_callbacks(app: dash.Dash):
 
         except Exception as e:
             pass
+
+        # TODO ajeitar proporção!
+        # fig.update_layout(width=600, height=600, yaxis_range=[-10, 10])
+        fig.update_layout(width=600, height=600)
 
         return fig
 
