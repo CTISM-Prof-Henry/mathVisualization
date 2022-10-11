@@ -1,7 +1,7 @@
 import math
 
-from funcoes.coeficientes_reduzida import main as extrai_coeficientes_reduzida
-from funcoes.geral_para_reduzida import main as transforma_geral_para_reduzida
+from app.funcoes.coeficientes_reduzida import main as extrai_coeficientes_reduzida
+from app.funcoes.geral_para_reduzida import main as transforma_geral_para_reduzida
 
 # try:
 #     from .coeficientes_reduzida import main as extrai_coeficientes_reduzida

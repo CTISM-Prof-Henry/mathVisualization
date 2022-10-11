@@ -6,14 +6,7 @@ import numpy as np
 from funcoes import *
 
 
-def define_layout() -> dash.Dash:
-    app = Dash(
-        __name__,
-        external_stylesheets=[dbc.themes.BOOTSTRAP],
-        external_scripts=['https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js']
-    )
-    # app.scripts.config.serve_locally = False
-
+def define_layout(app: dash.Dash) -> dash.Dash:
     # parte interativa
     interactive = html.Div([
             html.P(['Tempo restante: 00:00'], id='countdown_timer'),
@@ -370,6 +363,7 @@ def define_layout() -> dash.Dash:
 
 def define_callbacks(app: dash.Dash):
 
+    # TODO reativar
     # parte do modal
     # @app.callback(
     #     Output("start_session_modal", "is_open"),
@@ -548,7 +542,13 @@ def define_callbacks(app: dash.Dash):
 
 
 def main():
-    app = define_layout()
+    app = Dash(
+        __name__,
+        external_stylesheets=[dbc.themes.BOOTSTRAP],
+        external_scripts=['https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js']
+    )
+
+    app = define_layout(app)
     app = define_callbacks(app)
 
     app.run_server(debug=True)

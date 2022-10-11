@@ -1,5 +1,5 @@
-from funcoes.coeficientes_geral import main as coeficientes_geral
-from funcoes.torna_inteiro import main as torna_inteiro
+from app.funcoes.coeficientes_geral import main as coeficientes_geral
+from app.funcoes.torna_inteiro import main as torna_inteiro
 
 def main(geral: str) -> str:
     reduzida = "y="
