@@ -4,17 +4,6 @@ from dash import html, dcc
 
 
 def define_layout(app: dash.Dash) -> dash.Dash:
-    # parte interativa
-    interactive = html.Div([
-            html.P(['Tempo restante: 00:00'], id='countdown_timer'),
-            html.P(['Posição do mouse: '], id='mouse_position', hidden=True),
-            html.P([''], id='mouse_position_value', hidden=True),
-            html.P(['Mouse click?'], id='mouse_click', hidden=True),
-            html.P([''], id='mouse_click_value', hidden=True),
-            dbc.Button("Finalizar sessão", id="button_finish_session", n_clicks=0),
-        ], id="div_interactive"
-    )
-
     # modal com introdução
     start_session_modal = dbc.Modal([
         # html.Span(['x'], id='span_start_session_modal', className='close'),
@@ -78,12 +67,11 @@ def define_layout(app: dash.Dash) -> dash.Dash:
         ], className="container"),
     ])
 
-    app.layout = html.Div([
+    main_content = html.Div([
         # start_session_modal,  # TODO reativar
         # finish_session_modal,  # TODO reativar
         html.Link(href='https://fonts.googleapis.com/css?family=Rubik Dirt', rel='stylesheet'),
         header_menus,
-        interactive,
         # div central: contém reta, circunferência e gráfico
         html.Div([
             # div reta, circunferência
@@ -353,6 +341,23 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                 dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
             ], className='body graph'),  # div gráfico
         ], className='body'),  # div central: contém reta, circunferência e gráfico
-    ], className="body")  # layout geral
+    ], className='body', id='content')  # layout geral
+
+    # parte interativa
+    sidebar = html.Nav([
+        html.Div([
+            html.P(['Tempo restante: 00:00'], id='countdown_timer'),
+            html.P(['Posição do mouse: '], id='mouse_position', hidden=True),
+            html.P([''], id='mouse_position_value', hidden=True),
+            html.P(['Mouse click?'], id='mouse_click', hidden=True),
+            html.P([''], id='mouse_click_value', hidden=True),
+            dbc.Button("Finalizar sessão", id="button_finish_session", n_clicks=0),
+        ], className='')
+    ], id='sidebar')
+
+    app.layout = html.Div([
+        sidebar,
+        main_content
+    ], className='wrapper body')
 
     return app

@@ -91,7 +91,7 @@ div.graph {
 }
 
 .width-reta-equacoes {
-    width: 650px;
+    width: 80%;
 }
 
 .width-reta-coeficientes {
@@ -103,15 +103,15 @@ div.graph {
 }
 
 .width-circunferencia-centro-raio {
-    width: 330px;
+    width: 66%;
 }
 
 .width-circunferencia-relacao {
-    width: 650px;
+    width: 90%;
 }
 
 .width-circunferencia-equacao {
-    width: 750px;
+    width: 90%;
 }
 
 /* ***************************************************** */

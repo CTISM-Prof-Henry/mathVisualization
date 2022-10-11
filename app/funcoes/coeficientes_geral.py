@@ -88,6 +88,7 @@ def main(geral: str) -> tuple[float, float, float]:
 
     return coeficienteA, coeficienteB, coeficienteC
 
+
 def testa(relacoes: dict[str : tuple[float,float,float]]) -> bool:
     """
     Só um testadorzinho de cria ;)
