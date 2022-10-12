@@ -10,6 +10,8 @@ from app.funcoes.coeficientes_geral import main as coeficientes_geral_func
 from app.funcoes.coeficientes_reduzida import main as coeficientes_reduzida_func
 from app.funcoes.posicao_relativa import main as posicao_relativa_func
 from app.funcoes.reduzida_para_geral import main as reduzida_para_geral_func
+from app.funcoes.geral_para_reduzida import main as geral_para_reduzida_func
+import numpy as np
 
 
 def define_callbacks(app: dash.Dash):
@@ -97,42 +99,108 @@ def define_callbacks(app: dash.Dash):
         Output('input_B', 'value'),
         Output('input_C', 'value'),
         Output('input_angulo', 'value'),
-        [Input('button_submit_reduzida', 'n_clicks')],
-        [State('input_reduzida', 'value')]
+        [Input('button_submit_reduzida', 'n_clicks'),
+         Input('button_submit_geral', 'n_clicks'),
+         Input('button_submit_coeficientes_reduzida', 'n_clicks'),
+         Input('button_submit_coeficientes_geral', 'n_clicks')],
+        [State('button_submit_reduzida', 'n_clicks_timestamp'),
+         State('button_submit_geral', 'n_clicks_timestamp'),
+         State('button_submit_coeficientes_reduzida', 'n_clicks_timestamp'),
+         State('button_submit_coeficientes_geral', 'n_clicks_timestamp'),
+         State('input_reduzida', 'value'),
+         State('input_geral', 'value'),
+         State('input_angular', 'value'),
+         State('input_linear', 'value'),
+         State('input_A', 'value'),
+         State('input_B', 'value'),
+         State('input_C', 'value')]
         # State("start_session_modal", "is_open"),
         # State("finish_session_modal", "is_open")
     )
     def on_button_submit_input_reduzida_pressed(
-        button_submit_reduzida: int, input_reduzida: str  # , start_session_modal: bool, finish_session_modal: bool
+            button_submit_reduzida: int, button_submit_geral: int,
+            button_submit_coeficientes_reduzida: int, button_submit_coeficientes_geral: int,
+            button_submit_reduzida_timestamp: int, button_submit_geral_timestamp: int,
+            button_submit_coeficientes_reduzida_timestamp: int, button_submit_coeficientes_geral_timestamp: int,
+            input_reduzida: str, input_geral: str,
+            input_angular: str, input_linear: str,
+            input_A: str, input_B: str, input_C: str
+            # start_session_modal: bool, finish_session_modal: bool
     ):
+        if button_submit_reduzida or button_submit_geral or button_submit_coeficientes_reduzida or button_submit_coeficientes_geral:
+            try:
+                dict_buttons = {
+                    'button_submit_reduzida': button_submit_reduzida_timestamp,
+                    'button_submit_geral': button_submit_geral_timestamp,
+                    'button_submit_coeficientes_reduzida': button_submit_coeficientes_reduzida_timestamp,
+                    'button_submit_coeficientes_geral': button_submit_coeficientes_geral_timestamp
+                }
+                last_clicked_time = -np.inf
+                last_clicked = None
+                for k, v in dict_buttons.items():
+                    try:
+                        if v > last_clicked_time:
+                            last_clicked_time = v
+                            last_clicked = k
+                    except TypeError:
+                        pass
+            except:
+                raise PreventUpdate()
+        else:
+            raise PreventUpdate()
 
-        if button_submit_reduzida:
+        # if button_submit_reduzida and not start_session_modal and not finish_session_modal:  # TODO reativar
+        if last_clicked == 'button_submit_reduzida':
+            print('button_submit_reduzida')
             try:
                 input_geral = reduzida_para_geral_func(input_reduzida)
             except:
                 input_geral = 'erro!'
 
+        elif last_clicked == 'button_submit_geral':
+            print('button_submit_geral')
             try:
-                print('go!')
+                input_reduzida = geral_para_reduzida_func(input_geral)
+            except:
+                input_reduzida = 'erro!'
+
+        elif last_clicked == 'button_submit_coeficientes_reduzida':
+            print('button_submit_coeficientes_reduzida')
+            try:
+                input_reduzida = 'y = {0}x {1:+}'.format(float(input_angular), float(input_linear))
+                input_geral = reduzida_para_geral_func(input_reduzida)
+            except:
+                input_reduzida = 'erro!'
+                input_geral = 'erro!'
+        elif last_clicked == 'button_submit_coeficientes_geral':
+            print('button_submit_coeficientes_geral')
+            try:
+                input_geral = '{0}x {1:+}y {2:+} = 0'.format(float(input_A), float(input_B), float(input_C))
+                input_reduzida = geral_para_reduzida_func(input_geral)
+            except:
+                input_geral = 'erro!'
+                input_reduzida = 'erro!'
+        else:
+            raise PreventUpdate('')
+
+        if last_clicked != 'button_submit_coeficientes_reduzida':
+            try:
                 input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
             except:
                 input_angular, input_linear = 'erro!', 'erro!'
 
+        if last_clicked != 'button_submit_coeficientes_geral':
             try:
                 input_A, input_B, input_C = coeficientes_geral_func(input_geral)
             except:
                 input_A, input_B, input_C = 'erro!', 'erro!', 'erro!'
 
-            try:
-                input_angulo = angulo_eixo_x_func(input_reduzida)
-            except:
-                input_angulo = 'erro!'
+        try:
+            input_angulo = angulo_eixo_x_func(input_reduzida)
+        except:
+            input_angulo = 'erro!'
 
-            return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
-        else:
-            print('not')
-            raise PreventUpdate('')
-
+        return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
 
     # @app.callback(
     #     Output("input_geral", "value"),

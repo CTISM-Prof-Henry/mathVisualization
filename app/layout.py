@@ -296,7 +296,7 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                 html.Div([
                                     dbc.Button(
                                         "Enviar",
-                                        className='buttons', id="button_submit_input_circunferencia", n_clicks=0
+                                        className='buttons', id="button_submit_circunferencia", n_clicks=0
                                     )
                                 ], className='side-by-side-child'),
                             ], className='side-by-side-parent-right'),
@@ -339,7 +339,7 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                 html.Div([
                                     dbc.Button(
                                         "Enviar",
-                                        className='buttons', id="button_submit_input_centro_raio", n_clicks=0
+                                        className='buttons', id="button_submit_centro_raio", n_clicks=0
                                     )
                                 ], className='side-by-side-child')
                             ], className='side-by-side-parent-right')
