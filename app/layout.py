@@ -343,10 +343,10 @@ def define_layout(app: dash.Dash) -> dash.Dash:
         ], className='body'),  # div central: contém reta, circunferência e gráfico
     ], className='body', id='content')  # layout geral
 
-    # parte interativa
+    # sidebar
     sidebar = html.Nav([
         html.Div([
-            html.P(['Tempo restante: 00:00'], id='countdown_timer'),
+            html.P(['Tempo restante: 00:00'], id='countdown_timer', className='label-inputs'),
             html.P(['Posição do mouse: '], id='mouse_position', hidden=True),
             html.P([''], id='mouse_position_value', hidden=True),
             html.P(['Mouse click?'], id='mouse_click', hidden=True),

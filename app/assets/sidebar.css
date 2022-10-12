@@ -1,25 +1,32 @@
+:root {
+    --sidebar-width: 200px;
+}
+
 .wrapper {
     display: flex;
     width: 100%;
-    align-items: stretch;
+    /*align-items: stretch;*/
 }
 
 #sidebar {
-    min-width: 200px;
-    max-width: 200px;
-    width: 200px;
+    width: var(--sidebar-width);
+    position: fixed;
     text-align: center;
     align-content: center;
-    position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100vh; /* 100% da altura do viewport */
     z-index: 999;
     background: #F08080;
     color: #fff;
-    /*transition: all 0.3s;*/
+    transition: all 0.3s;
 }
 
-#sidebar.active {
-    margin-left: -200px;
+/*#sidebar.active {*/
+/*    margin-left: -200px;*/
+/*}*/
+
+#content {
+    margin-left: var(--sidebar-width);
+    width: 100vw;
 }
