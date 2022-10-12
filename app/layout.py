@@ -103,6 +103,9 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
+                            html.Div([
+                                dbc.Button("Enviar", className='buttons', id="button_submit_reduzida", n_clicks=0)
+                            ], className='side-by-side-child')
                         ], className='side-by-side-parent-right'),
                         # div equação geral
                         html.Div([
@@ -124,90 +127,115 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                     className='inputs'
                                 ),
                             ], className='side-by-side-child'),
+                            html.Div([
+                                dbc.Button("Enviar", className='buttons', id="button_submit_geral", n_clicks=0)
+                            ], className='side-by-side-child')
                         ], className='side-by-side-parent-right'),
                     ], className='center width-reta-equacoes'),  # div equações: reduzida, geral
-                    # div coeficientes + título
+                    # div título + coeficientes
                     html.Div([
                         html.Div([
                             html.H2(["Coeficientes"], className="title coeficientes center"),
                         ], className='center'),
                         # div coeficientes
                         html.Div([
-                            # div coeficiente angular
+                            # div coeficiente angular + linear + botão
                             html.Div([
                                 html.Div([
-                                    html.Label(
-                                        ["angular (m): "], htmlFor="input_angular", className="label-inputs"
-                                    ),
+                                    # div coeficiente angular
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(
+                                                ["angular (m): "], htmlFor="input_angular", className="label-inputs"
+                                            ),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_angular",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
+                                    # div coeficiente linear
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["linear (n): "], htmlFor="input_linear",
+                                                       className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_linear",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
                                 ], className='side-by-side-child'),
                                 html.Div([
-                                    dcc.Input(
-                                        id="input_angular",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-right'),
-                            # div coeficiente linear
-                            html.Div([
-                                html.Div([
-                                    html.Label(["linear (n): "], htmlFor="input_linear", className="label-inputs"),
-                                ], className='side-by-side-child'),
-                                html.Div([
-                                    dcc.Input(
-                                        id="input_linear",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
+                                    dbc.Button(
+                                        "Enviar",
+                                        className='buttons', id="button_submit_coeficientes_reduzida", n_clicks=0
+                                    )
+                                ], className='side-by-side-child')
                             ], className='side-by-side-parent-right'),
                             # div coeficiente A
                             html.Div([
                                 html.Div([
-                                    html.Label(["A: "], htmlFor="input_A", className="label-inputs"),
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["A: "], htmlFor="input_A", className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_A",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
+                                    # div coeficiente B
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["B: "], htmlFor="input_B", className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_B",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
+                                    # div coeficiente C
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["C: "], htmlFor="input_C", className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_C",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
                                 ], className='side-by-side-child'),
                                 html.Div([
-                                    dcc.Input(
-                                        id="input_A",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-right'),
-                            # div coeficiente B
-                            html.Div([
-                                html.Div([
-                                    html.Label(["B: "], htmlFor="input_B", className="label-inputs"),
-                                ], className='side-by-side-child'),
-                                html.Div([
-                                    dcc.Input(
-                                        id="input_B",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-right'),
-                            # div coeficiente C
-                            html.Div([
-                                html.Div([
-                                    html.Label(["C: "], htmlFor="input_C", className="label-inputs"),
-                                ], className='side-by-side-child'),
-                                html.Div([
-                                    dcc.Input(
-                                        id="input_C",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
+                                    dbc.Button(
+                                        "Enviar",
+                                        className='buttons', id="button_submit_coeficientes_geral", n_clicks=0
+                                    )
                                 ], className='side-by-side-child'),
                             ], className='side-by-side-parent-right'),
                         ], className='center width-reta-coeficientes'),  # div coeficientes
@@ -244,55 +272,77 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                         html.Div([
                             html.Div([
                                 html.Div([
-                                    html.Label(
-                                        ["Digite a equação reduzida da circunferência: "],
-                                        htmlFor='input_circunferencia', className='label-inputs'
-                                    ),
-                                    html.P(["Dica: equação reduzida da circunferência "
-                                            "tem-se na forma (x - a)**2 + (y - b)**2 = r**2"], className="dica"),
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(
+                                                ["Digite a equação reduzida da circunferência: "],
+                                                htmlFor='input_circunferencia', className='label-inputs'
+                                            ),
+                                            html.P(["Dica: equação reduzida da circunferência "
+                                                    "tem-se na forma"], className="dica"),
+                                            html.P([" (x - a)**2 + (y - b)**2 = r**2"], className="dica-2"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_circunferencia",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),  # div equação circunferência
                                 ], className='side-by-side-child'),
                                 html.Div([
-                                    dcc.Input(
-                                        id="input_circunferencia",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
+                                    dbc.Button(
+                                        "Enviar",
+                                        className='buttons', id="button_submit_input_circunferencia", n_clicks=0
+                                    )
                                 ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-right'),  # div equação circunferência
+                            ], className='side-by-side-parent-right'),
                         ], className='center width-circunferencia-equacao'),
                         # div centro e raio da circunferência
                         html.Div([
-                            # div centro da circunferência
                             html.Div([
                                 html.Div([
-                                    html.Label(["Centro (a, b):  "], htmlFor="input_centro", className="label-inputs"),
+                                    # div centro da circunferência
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["Centro (a, b):  "], htmlFor="input_centro",
+                                                       className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_centro",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child')
+                                    ], className='side-by-side-parent-right'),  # div centro
+                                    html.Div([
+                                        html.Div([
+                                            html.Label(["Raio (r):  "], htmlFor="input_raio", className="label-inputs"),
+                                        ], className='side-by-side-child'),
+                                        html.Div([
+                                            dcc.Input(
+                                                id="input_raio",
+                                                placeholder='',
+                                                type='text',
+                                                value='',
+                                                className='inputs'
+                                            ),
+                                        ], className='side-by-side-child'),
+                                    ], className='side-by-side-parent-right'),
                                 ], className='side-by-side-child'),
                                 html.Div([
-                                    dcc.Input(
-                                        id="input_centro",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
+                                    dbc.Button(
+                                        "Enviar",
+                                        className='buttons', id="button_submit_input_centro_raio", n_clicks=0
+                                    )
                                 ], className='side-by-side-child')
-                            ], className='side-by-side-parent-right'),  # div centro
-                            html.Div([
-                                html.Div([
-                                    html.Label(["Raio (r):  "], htmlFor="input_raio", className="label-inputs"),
-                                ], className='side-by-side-child'),
-                                html.Div([
-                                    dcc.Input(
-                                        id="input_raio",
-                                        placeholder='',
-                                        type='text',
-                                        value='',
-                                        className='inputs'
-                                    ),
-                                ], className='side-by-side-child'),
-                            ], className='side-by-side-parent-right'),
+                            ], className='side-by-side-parent-right')
                         ], className='center width-circunferencia-centro-raio'),
                         # div relação reta, circunferência, coordenadas de interseção
                         html.Div([
@@ -351,7 +401,7 @@ def define_layout(app: dash.Dash) -> dash.Dash:
             html.P([''], id='mouse_position_value', hidden=True),
             html.P(['Mouse click?'], id='mouse_click', hidden=True),
             html.P([''], id='mouse_click_value', hidden=True),
-            dbc.Button("Finalizar sessão", id="button_finish_session", n_clicks=0),
+            dbc.Button("Finalizar sessão", id="button_finish_session", className='buttons', n_clicks=0)
         ], className='')
     ], id='sidebar')
 

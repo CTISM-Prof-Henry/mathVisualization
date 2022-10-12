@@ -140,6 +140,13 @@ div.graph {
     font-size: 14px;
 }
 
+.dica-2 {
+    margin-top: -20px;
+    margin-right: 10px;
+    font-family: 'Franklin Gothic Medium', sans-serif;
+    font-size: 14px;
+}
+
 .label-inputs {
     /*margin-left: var(--margin_left_text);*/
     margin-right: 10px;
@@ -161,4 +168,10 @@ input.inputs {
 .selector-label {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.buttons {
+    margin-left: 10px;
+    margin-right: 10px;
+    /*background-color: white;*/
 }

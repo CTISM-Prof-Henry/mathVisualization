@@ -19,12 +19,8 @@
     z-index: 999;
     background: #F08080;
     color: #fff;
-    transition: all 0.3s;
+    /*transition: all 0.3s;*/
 }
-
-/*#sidebar.active {*/
-/*    margin-left: -200px;*/
-/*}*/
 
 #content {
     margin-left: var(--sidebar-width);
