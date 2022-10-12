@@ -255,7 +255,8 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                     placeholder='',
                                     type='text',
                                     value='',
-                                    className='inputs'
+                                    className='inputs',
+                                    readOnly=True
                                 ),
                             ], className='side-by-side-child')
                         ], className='side-by-side-parent-right'),  # div ângulo reta / eixo x
@@ -378,7 +379,8 @@ def define_layout(app: dash.Dash) -> dash.Dash:
                                         type='text',
                                         value='',
                                         size='30',
-                                        className='inputs'
+                                        className='inputs',
+                                        readOnly=True
                                     ),
                                 ], className='side-by-side-child'),
                             ], className='side-by-side-parent-right'),

@@ -205,6 +205,8 @@ def define_callbacks(app: dash.Dash):
 
         return input_reduzida, input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
 
+    # TODO evitar que o usuário consiga selecionar o valor do radial button!
+
     # @app.callback(
     #     Output("input_centro", "value"),
     #     Output("input_raio", "value"),
