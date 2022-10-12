@@ -4,6 +4,7 @@ from dash import Output, Input, State
 from dash.exceptions import PreventUpdate
 from plotly import graph_objects as go
 
+from app.funcoes import get_number
 from app.funcoes.angulo_eixo_x import main as angulo_eixo_x_func
 from app.funcoes.calculo_raio_e_centro import main as calculo_raio_e_centro_func
 from app.funcoes.coeficientes_geral import main as coeficientes_geral_func
@@ -11,7 +12,8 @@ from app.funcoes.coeficientes_reduzida import main as coeficientes_reduzida_func
 from app.funcoes.posicao_relativa import main as posicao_relativa_func
 from app.funcoes.reduzida_para_geral import main as reduzida_para_geral_func
 from app.funcoes.geral_para_reduzida import main as geral_para_reduzida_func
-import numpy as np
+from app.funcoes.coeficientes_geral_para_equacao_geral import main as coeficientes_geral_para_equacao_geral_func
+from app.funcoes.coeficientes_geral_para_equacao_reduzida import main as coeficientes_geral_para_equacao_reduzida_func
 
 
 def define_callbacks(app: dash.Dash):
@@ -92,6 +94,7 @@ def define_callbacks(app: dash.Dash):
         return fig
 
     @app.callback(
+        Output('input_reduzida', 'value'),
         Output('input_geral', 'value'),
         Output('input_angular', 'value'),
         Output('input_linear', 'value'),
@@ -167,7 +170,7 @@ def define_callbacks(app: dash.Dash):
         elif last_clicked == 'button_submit_coeficientes_reduzida':
             print('button_submit_coeficientes_reduzida')
             try:
-                input_reduzida = 'y = {0}x {1:+}'.format(float(input_angular), float(input_linear))
+                input_reduzida = 'y = {0}x {1:+}'.format(get_number(input_angular), get_number(input_linear))
                 input_geral = reduzida_para_geral_func(input_reduzida)
             except:
                 input_reduzida = 'erro!'
@@ -175,8 +178,8 @@ def define_callbacks(app: dash.Dash):
         elif last_clicked == 'button_submit_coeficientes_geral':
             print('button_submit_coeficientes_geral')
             try:
-                input_geral = '{0}x {1:+}y {2:+} = 0'.format(float(input_A), float(input_B), float(input_C))
-                input_reduzida = geral_para_reduzida_func(input_geral)
+                input_geral = coeficientes_geral_para_equacao_geral_func(input_A, input_B, input_C)
+                input_reduzida = coeficientes_geral_para_equacao_reduzida_func(input_A, input_B, input_C)
             except:
                 input_geral = 'erro!'
                 input_reduzida = 'erro!'
@@ -200,68 +203,8 @@ def define_callbacks(app: dash.Dash):
         except:
             input_angulo = 'erro!'
 
-        return input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
+        return input_reduzida, input_geral, input_angular, input_linear, input_A, input_B, input_C, input_angulo
 
-    # @app.callback(
-    #     Output("input_geral", "value"),
-    #     Input("input_reduzida", "value")
-    # )
-    # def atualiza_geral_a_partir_da_reduzida(
-    #         input_reduzida: str
-    # ) -> str:
-    #     try:
-    #         input_geral = reduzida_para_geral_func(input_reduzida)
-    #     except:
-    #         input_geral = 'erro!'
-    #
-    #     return input_geral
-    #
-    # @app.callback(
-    #     Output("input_angular", "value"),
-    #     Output("input_linear", "value"),
-    #     Input("input_reduzida", "value")
-    # )
-    # def atualiza_coeficientes_reduzida(
-    #         input_reduzida: str
-    # ) -> tuple:
-    #
-    #     try:
-    #         input_angular, input_linear = coeficientes_reduzida_func(input_reduzida)
-    #     except:
-    #         input_angular, input_linear = 'erro!', 'erro!'
-    #
-    #     return input_angular, input_linear
-    #
-    # @app.callback(
-    #     Output("input_A", "value"),
-    #     Output("input_B", "value"),
-    #     Output("input_C", "value"),
-    #     Input("input_geral", "value")
-    # )
-    # def atualiza_coeficientes_geral(
-    #         input_geral: str
-    # ) -> tuple:
-    #     try:
-    #         input_A, input_B, input_C = coeficientes_geral_func(input_geral)
-    #     except:
-    #         input_A, input_B, input_C = 'erro!', 'erro!', 'erro!'
-    #
-    #     return input_A, input_B, input_C
-    #
-    # @app.callback(
-    #     Output("input_angulo", "value"),
-    #     Input("input_reduzida", "value")
-    # )
-    # def atualiza_angulo(
-    #         input_reduzida: str
-    # ) -> str:
-    #     try:
-    #         input_angulo = angulo_eixo_x_func(input_reduzida)
-    #     except:
-    #         input_angulo = 'erro!'
-    #
-    #     return input_angulo
-    #
     # @app.callback(
     #     Output("input_centro", "value"),
     #     Output("input_raio", "value"),

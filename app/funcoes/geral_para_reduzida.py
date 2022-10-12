@@ -73,7 +73,7 @@ def testa(relacoes: dict[str: str]) -> bool:
 
 
 if __name__ == "__main__":
-    print(testa({
+    testa({
         "2x+2y+2=0": "y=(-2x-2)/2",
         "2x+y+2=0": "y=-2x-2",
 
@@ -85,5 +85,5 @@ if __name__ == "__main__":
         "2y-x=0": "y=(x)/2",
 
         "(2y-2x-2)/2=0": "y=x+1",
-    }))
+    })
     print(main('1.0x +2.0y +3.0 = 0'))
