@@ -106,10 +106,14 @@ def define_callbacks(app: dash.Dash):
          Input('button_submit_geral', 'n_clicks'),
          Input('button_submit_coeficientes_reduzida', 'n_clicks'),
          Input('button_submit_coeficientes_geral', 'n_clicks')],
+         Input('button_submit_circunferencia', 'n_clicks'),
+         Input('button_submit_centro_raio', 'n_clicks'),
         [State('button_submit_reduzida', 'n_clicks_timestamp'),
          State('button_submit_geral', 'n_clicks_timestamp'),
          State('button_submit_coeficientes_reduzida', 'n_clicks_timestamp'),
          State('button_submit_coeficientes_geral', 'n_clicks_timestamp'),
+         State('button_submit_circunferencia', 'n_clicks_timestamp'),
+         State('button_submit_centro_raio', 'n_clicks_timestamp'),
          State('input_reduzida', 'value'),
          State('input_geral', 'value'),
          State('input_angular', 'value'),
@@ -120,23 +124,38 @@ def define_callbacks(app: dash.Dash):
         # State("start_session_modal", "is_open"),
         # State("finish_session_modal", "is_open")
     )
-    def on_button_submit_input_reduzida_pressed(
-            button_submit_reduzida: int, button_submit_geral: int,
-            button_submit_coeficientes_reduzida: int, button_submit_coeficientes_geral: int,
-            button_submit_reduzida_timestamp: int, button_submit_geral_timestamp: int,
-            button_submit_coeficientes_reduzida_timestamp: int, button_submit_coeficientes_geral_timestamp: int,
-            input_reduzida: str, input_geral: str,
-            input_angular: str, input_linear: str,
-            input_A: str, input_B: str, input_C: str
+    def on_line_equation_button_pressed(
+        button_submit_reduzida: str,
+        button_submit_geral: str,
+        button_submit_coeficientes_reduzida: str,
+        button_submit_coeficientes_geral: str,
+        button_submit_circunferencia: str,
+        button_submit_centro_raio: str,
+        button_submit_reduzida_timestamp: str,
+        button_submit_geral_timestamp: str,
+        button_submit_coeficientes_reduzida_timestamp: str,
+        button_submit_coeficientes_geral_timestamp: str,
+        button_submit_circunferencia_timestamp: str,
+        button_submit_centro_raio_timestamp: str,
+        input_reduzida: str,
+        input_geral: str,
+        input_angular: str,
+        input_linear: str,
+        input_A: str,
+        input_B: str,
+        input_C: str,
             # start_session_modal: bool, finish_session_modal: bool
     ):
-        if button_submit_reduzida or button_submit_geral or button_submit_coeficientes_reduzida or button_submit_coeficientes_geral:
+        if button_submit_reduzida or button_submit_geral or button_submit_coeficientes_reduzida or \
+           button_submit_coeficientes_geral or button_submit_circunferencia or button_submit_centro_raio_timestamp:
             try:
                 dict_buttons = {
                     'button_submit_reduzida': button_submit_reduzida_timestamp,
                     'button_submit_geral': button_submit_geral_timestamp,
                     'button_submit_coeficientes_reduzida': button_submit_coeficientes_reduzida_timestamp,
-                    'button_submit_coeficientes_geral': button_submit_coeficientes_geral_timestamp
+                    'button_submit_coeficientes_geral': button_submit_coeficientes_geral_timestamp,
+                    'button_submit_circunferencia': button_submit_circunferencia,
+                    'button_submit_centro_raio': button_submit_centro_raio_timestamp
                 }
                 last_clicked_time = -np.inf
                 last_clicked = None
@@ -154,21 +173,18 @@ def define_callbacks(app: dash.Dash):
 
         # if button_submit_reduzida and not start_session_modal and not finish_session_modal:  # TODO reativar
         if last_clicked == 'button_submit_reduzida':
-            print('button_submit_reduzida')
             try:
                 input_geral = reduzida_para_geral_func(input_reduzida)
             except:
                 input_geral = 'erro!'
 
         elif last_clicked == 'button_submit_geral':
-            print('button_submit_geral')
             try:
                 input_reduzida = geral_para_reduzida_func(input_geral)
             except:
                 input_reduzida = 'erro!'
 
         elif last_clicked == 'button_submit_coeficientes_reduzida':
-            print('button_submit_coeficientes_reduzida')
             try:
                 input_reduzida = 'y = {0}x {1:+}'.format(get_number(input_angular), get_number(input_linear))
                 input_geral = reduzida_para_geral_func(input_reduzida)
@@ -176,7 +192,6 @@ def define_callbacks(app: dash.Dash):
                 input_reduzida = 'erro!'
                 input_geral = 'erro!'
         elif last_clicked == 'button_submit_coeficientes_geral':
-            print('button_submit_coeficientes_geral')
             try:
                 input_geral = coeficientes_geral_para_equacao_geral_func(input_A, input_B, input_C)
                 input_reduzida = coeficientes_geral_para_equacao_reduzida_func(input_A, input_B, input_C)
@@ -207,21 +222,119 @@ def define_callbacks(app: dash.Dash):
 
     # TODO evitar que o usuário consiga selecionar o valor do radial button!
 
-    # @app.callback(
-    #     Output("input_centro", "value"),
-    #     Output("input_raio", "value"),
-    #     Input("input_circunferencia", "value")
-    # )
-    # def atualiza_centro_e_raio_circunferencia(
-    #         input_circunferencia: str
-    # ) -> tuple:
-    #     try:
-    #         xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
-    #     except:
-    #         xc, yc, r = 'erro!', 'erro!', 'erro!'
-    #
-    #     return '({0}, {1})'.format(xc, yc), r
-    #
+    @app.callback(
+        Output('input_circunferencia', 'value'),
+        Output('input_centro', 'value'),
+        Output('input_raio', 'value'),
+        Output('input_interceptam', 'value'),
+        Output('seletor_intersecao_reta_circunferencia', 'value'),
+        [Input('button_submit_reduzida', 'n_clicks'),
+         Input('button_submit_geral', 'n_clicks'),
+         Input('button_submit_coeficientes_reduzida', 'n_clicks'),
+         Input('button_submit_coeficientes_geral', 'n_clicks'),
+         Input('button_submit_circunferencia', 'n_clicks'),
+         Input('button_submit_centro_raio', 'n_clicks')],
+        [State('input_angular', 'value'),
+         State('input_linear', 'value'),
+         State('button_submit_reduzida', 'n_clicks_timestamp'),
+         State('button_submit_geral', 'n_clicks_timestamp'),
+         State('button_submit_coeficientes_reduzida', 'n_clicks_timestamp'),
+         State('button_submit_coeficientes_geral', 'n_clicks_timestamp'),
+         State('button_submit_circunferencia', 'n_clicks_timestamp'),
+         State('button_submit_centro_raio', 'n_clicks_timestamp'),
+         State('input_circunferencia', 'value'),
+         State('input_centro', 'value'),
+         State('input_raio', 'value'),
+         State('input_interceptam', 'value')]
+    )
+    def on_line_equation_button_pressed(
+        button_submit_reduzida: str,
+        button_submit_geral: str,
+        button_submit_coeficientes_reduzida: str,
+        button_submit_coeficientes_geral: str,
+        button_submit_circunferencia: str,
+        button_submit_centro_raio: str,
+        input_angular: str,
+        input_linear: str,
+        button_submit_reduzida_timestamp: str,
+        button_submit_geral_timestamp: str,
+        button_submit_coeficientes_reduzida_timestamp: str,
+        button_submit_coeficientes_geral_timestamp: str,
+        button_submit_circunferencia_timestamp: str,
+        button_submit_centro_raio_timestamp: str,
+        input_circunferencia: str,
+        input_centro: str,
+        input_raio: str,
+        input_interceptam: str,
+    ):
+        xc = None
+        yc = None
+        r = None
+
+        if button_submit_reduzida or button_submit_geral or button_submit_coeficientes_reduzida or \
+           button_submit_coeficientes_geral or button_submit_circunferencia or button_submit_centro_raio:
+            try:
+                dict_buttons = {
+                    'button_submit_reduzida': button_submit_reduzida_timestamp,
+                    'button_submit_geral': button_submit_geral_timestamp,
+                    'button_submit_coeficientes_reduzida': button_submit_coeficientes_reduzida_timestamp,
+                    'button_submit_coeficientes_geral': button_submit_coeficientes_geral_timestamp,
+                    'button_submit_circunferencia': button_submit_circunferencia_timestamp,
+                    'button_submit_centro_raio': button_submit_centro_raio_timestamp
+                }
+                last_clicked_time = -np.inf
+                last_clicked = None
+                for k, v in dict_buttons.items():
+                    try:
+                        if v > last_clicked_time:
+                            last_clicked_time = v
+                            last_clicked = k
+                    except TypeError:
+                        pass
+            except:
+                raise PreventUpdate()
+        else:
+            raise PreventUpdate()
+
+        if last_clicked == 'button_submit_circunferencia':
+            try:
+                xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
+            except:
+                xc, yc, r = 'erro!', 'erro!', 'erro!'
+
+            input_raio = str(r)
+            input_centro = '({0}, {1})'.format(xc, yc)
+
+        elif last_clicked == 'button_submit_centro_raio':
+            try:
+                xc, yc = eval(input_centro)
+                xc = get_number(xc)
+                yc = get_number(yc)
+
+                input_circunferencia = '(x - {0})**2 + (y - {1})**2 = {2}**2'.format(xc, yc, r)
+            except:
+                input_circunferencia = 'erro!'
+
+        try:
+            m = get_number(input_angular)
+            n = get_number(input_linear)
+            r = get_number(input_raio)
+
+            seletor_intersecao_reta_circunferencia, p1, p2 = posicao_relativa_func(xc, yc, r, m, n)
+
+            if seletor_intersecao_reta_circunferencia == 'Disjuntas':
+                input_interceptam = 'não se interceptam'
+            elif seletor_intersecao_reta_circunferencia == 'Secantes':
+                input_interceptam = '({0}, {1})'.format(*p1)
+            else:
+                input_interceptam = '({0}, {1}) e ({2}, {3})'.format(*p1, *p2)
+
+        except:
+            seletor_intersecao_reta_circunferencia, p1, p2 = 'erro!', 'erro!', 'erro!'
+
+        return input_circunferencia, input_centro, input_raio, input_interceptam, seletor_intersecao_reta_circunferencia
+
+
     # @app.callback(
     #     Output("seletor_intersecao_reta_circunferencia", "value"),
     #     Output("input_interceptam", "value"),

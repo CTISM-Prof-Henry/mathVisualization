@@ -46,25 +46,25 @@ body {
 /* divs lado a lado */
 
 div.side-by-side-parent-right {
-    border: 1px solid cyan;
+    /*border: 1px solid cyan;*/
     text-align: right;
 }
 
 div.side-by-side-parent-center {
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
     text-align: center;
 }
 
 div.side-by-side-child {
     display: inline-block;
     vertical-align: middle;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 div.side-by-side-child-top {
     display: inline-block;
     vertical-align: text-top;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 div.graph {
@@ -163,6 +163,7 @@ input.inputs {
     color: white;
     border-radius: 7px 7px 7px 7px;
     size: 15px;
+    margin: 4px;
 }
 
 .selector-label {

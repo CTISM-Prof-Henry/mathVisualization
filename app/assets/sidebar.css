@@ -17,8 +17,9 @@
     left: 0;
     height: 100vh; /* 100% da altura do viewport */
     z-index: 999;
-    background: #F08080;
+    background: #709CEE;
     color: #fff;
+    border: 3px solid #48D1CC;
     /*transition: all 0.3s;*/
 }
 

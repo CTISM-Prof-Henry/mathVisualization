@@ -1,7 +1,7 @@
 # TODO: implementar codigo com as funcoes que capturam os
 # TODO coeficientes das equacoes da reta e da circunferencia
 
-def main(a, b, r, m, n) -> tuple:
+def main(a: int | float, b: int | float, r: int | float, m: int | float, n: int | float) -> tuple:
     """
     Calcula a relação entre uma reta e uma circunferência ('Secantes', 'Tangentes' ou 'Disjuntas'), e em que ponto elas
     se interceptam (se for o caso).
