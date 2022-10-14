@@ -1,21 +1,18 @@
-import time
-
 import dash
 import numpy as np
 from dash import Output, Input, State
 from dash.exceptions import PreventUpdate
-from plotly import graph_objects as go
 
 from app.funcoes import get_number
 from app.funcoes.angulo_eixo_x import main as angulo_eixo_x_func
 from app.funcoes.calculo_raio_e_centro import main as calculo_raio_e_centro_func
 from app.funcoes.coeficientes_geral import main as coeficientes_geral_func
-from app.funcoes.coeficientes_reduzida import main as coeficientes_reduzida_func
-from app.funcoes.posicao_relativa import main as posicao_relativa_func
-from app.funcoes.reduzida_para_geral import main as reduzida_para_geral_func
-from app.funcoes.geral_para_reduzida import main as geral_para_reduzida_func
 from app.funcoes.coeficientes_geral_para_equacao_geral import main as coeficientes_geral_para_equacao_geral_func
 from app.funcoes.coeficientes_geral_para_equacao_reduzida import main as coeficientes_geral_para_equacao_reduzida_func
+from app.funcoes.coeficientes_reduzida import main as coeficientes_reduzida_func
+from app.funcoes.geral_para_reduzida import main as geral_para_reduzida_func
+from app.funcoes.posicao_relativa import main as posicao_relativa_func
+from app.funcoes.reduzida_para_geral import main as reduzida_para_geral_func
 from app.layout import get_default_graph
 
 
