@@ -26,10 +26,6 @@
     list-style: var(--rListListStyle, none) !important;
 }
 
-.menu {
-    --rLinkColor: var(--menuLinkColor, currentColor);
-}
-
 .menu__link {
     display: var(--menuLinkDisplay, block);
 }
@@ -44,10 +40,9 @@
 }
 
 .menu {
-    /*margin-left: var(--sidebar-width);*/
-    width: 100vw;
     background-color: var(--menuBackgroundColor, #F08080);
     box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
+    --rLinkColor: var(--menuLinkColor, currentColor);
 }
 
 .menu__list {
@@ -99,11 +94,13 @@
 }
 
 .page {
-    box-sizing: border-box;
+    /*margin-left: var(--sidebar-width);*/
+    width: calc(100vw - var(--sidebar-width) - 17px);
+    /*box-sizing: border-box;*/
     float: top;
-    max-width: 1900px;
-    padding-left: .0rem;
-    padding-right: .0rem;
+    /*max-width: 1900px;*/
+    /*padding-left: .0rem;*/
+    /*padding-right: .0rem;*/
 }
 
 .page__menu:nth-child(n+2) {

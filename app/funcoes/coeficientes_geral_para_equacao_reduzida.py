@@ -6,7 +6,7 @@ def main(a: str, b: str, c: str) -> str:
     b = get_number(b)
     c = get_number(c)
 
-    reduzida = 'y = {0}x {1:+}'.format(get_number(str(a/b)), get_number(str(c/b))).replace('+', '+ ')
+    reduzida = 'y = {0}x {1:+}'.format(get_number(str(a/-b)), get_number(str(c/-b))).replace('+', '+ ')
 
     return reduzida
 
