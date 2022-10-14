@@ -1,3 +1,5 @@
+import time
+
 import dash
 import numpy as np
 from dash import Output, Input, State
@@ -14,6 +16,7 @@ from app.funcoes.reduzida_para_geral import main as reduzida_para_geral_func
 from app.funcoes.geral_para_reduzida import main as geral_para_reduzida_func
 from app.funcoes.coeficientes_geral_para_equacao_geral import main as coeficientes_geral_para_equacao_geral_func
 from app.funcoes.coeficientes_geral_para_equacao_reduzida import main as coeficientes_geral_para_equacao_reduzida_func
+from app.layout import get_default_graph
 
 
 def define_callbacks(app: dash.Dash):
@@ -44,35 +47,23 @@ def define_callbacks(app: dash.Dash):
 
     @app.callback(
         Output("grafico", "figure"),
-        [Input('button_submit_reduzida', 'n_clicks'),
-         Input('button_submit_geral', 'n_clicks'),
-         Input('button_submit_coeficientes_reduzida', 'n_clicks'),
-         Input('button_submit_coeficientes_geral', 'n_clicks'),
-         Input('button_submit_circunferencia', 'n_clicks'),
-         Input('button_submit_centro_raio', 'n_clicks')],
-        [State("input_angular", "value"),
-         State("input_linear", "value"),
-         State("input_circunferencia", "value")]
+        Input("input_angular", "value"),
+        Input("input_linear", "value"),
+        Input("input_centro", "value"),
+        Input("input_raio", "value"),
+        prevent_initial_call=True
     )
-    def update_graph(button_submit_reduzida, button_submit_geral, button_submit_coeficientes_reduzida,
-                     button_submit_coeficientes_geral, button_submit_circunferencia, button_submit_centro_raio,
-                     input_angular, input_linear, input_circunferencia
-                     ):
-        fig = go.Figure(
-            layout=go.Layout(
-                paper_bgcolor='#48D1CC',
-                plot_bgcolor='#48D1CC',
-                font={'color': 'white', 'family': 'Montserrat', 'size': 17.5},
-                xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
-                yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
-            )
-        )  # type: go.Figure
+    def update_graph(input_angular, input_linear, input_centro, input_raio):
+        fig = get_default_graph()
 
         xc = 0  # centro da circunferência e do gráfico no eixo x
         r = 10  # raio da circunferência
 
         try:
-            xc, yc, r = calculo_raio_e_centro_func(input_circunferencia)
+            xc, yc = eval(input_centro)
+            xc = get_number(xc)
+            yc = get_number(yc)
+            r = get_number(input_raio)
 
             fig.add_shape(
                 type="circle",

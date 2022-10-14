@@ -1,7 +1,21 @@
 import dash
 import dash_bootstrap_components as dbc
 from dash import html, dcc
+import plotly.graph_objects as go
 
+
+def get_default_graph():
+    fig = go.Figure(
+        layout=go.Layout(
+            paper_bgcolor='#48D1CC',
+            plot_bgcolor='#48D1CC',
+            font={'color': 'white', 'family': 'Montserrat', 'size': 17.5},
+            xaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
+            yaxis={'zerolinecolor': '#F08080', 'griddash': 'dot'},
+        )
+    )  # type: go.Figure
+
+    return fig
 
 def define_layout(app: dash.Dash) -> dash.Dash:
     # modal com introdução
@@ -390,7 +404,7 @@ def define_layout(app: dash.Dash) -> dash.Dash:
             ], className='side-by-side-parent-center'),  # div reta, circunferência
             # div gráfico
             html.Div([
-                dcc.Loading(dcc.Graph(id="grafico"), type="cube"),
+                dcc.Loading(dcc.Graph(id="grafico", figure=get_default_graph()), type="cube"),
             ], className='body graph'),  # div gráfico
         ], className='body'),  # div central: contém reta, circunferência e gráfico
     ], className='body', id='content')  # layout geral
