@@ -23,7 +23,11 @@ def main():
     app = define_layout(app)
     app = define_callbacks(app)
 
-    app.run_server(debug=True)
+    # substitua pelo IP da máquina para permitir que o app seja servido
+    # para qualquer computador na rede local
+    # e.g. host='172.17.10.165' permite que o servidor seja acessado por
+    # http://172.17.10.165:5000/ no navegador
+    app.run_server(host='localhost', port=5000, debug=True, threaded=False)
 
 
 if __name__ == "__main__":
