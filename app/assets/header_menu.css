@@ -95,7 +95,8 @@
 
 .page {
     /*margin-left: var(--sidebar-width);*/
-    width: calc(100vw - var(--sidebar-width) - 17px);
+    /*width: calc(100vw - var(--sidebar-width) - 17px);*/  /*TODO reactivate for sidebar*/
+    width: 100vw;  /*TODO remove for sidebar*/
     /*box-sizing: border-box;*/
     float: top;
     /*max-width: 1900px;*/

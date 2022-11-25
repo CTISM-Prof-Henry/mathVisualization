@@ -24,6 +24,6 @@
 }
 
 #content {
-    margin-left: var(--sidebar-width);
+    /*margin-left: var(--sidebar-width);*/  /*TODO reactivate for sidebar*/
     width: 100vw;
 }

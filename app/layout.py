@@ -422,7 +422,7 @@ def define_layout(app: dash.Dash) -> dash.Dash:
     ], id='sidebar')
 
     app.layout = html.Div([
-        sidebar,
+        # sidebar,    # TODO reactivate for timer
         main_content
     ], className='wrapper body')
 
