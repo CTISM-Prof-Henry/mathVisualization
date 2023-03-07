@@ -77,12 +77,12 @@ aquela atividade.
        main, para testar se a função está funcionando corretamente (usar o arquivo [angulo_eixo_x](app/funcoes/angulo_eixo_x.py)
        como exemplo). Caso, para algum tipo de entrada de texto, a função não funcione, avisar os colegas responsáveis 
        para que eles façam a correção.
-8. [ ] (Liza, Nicole) Fazer o banner para a JAI no Canva.
+8. [x] (Liza, Nicole) Fazer o banner para a JAI no Canva.
 9. [x] Apresentar a ferramenta na feira de Ciências. 
    * Sexta-feira de manhã: Tales, Guilherme
    * Sexta-feira de tarde: Liza, Aline
    * Sábado: Luize, Liza
-10. [ ] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
+10. [x] (Henry) Resolver referências cíclicas das callbacks do dash e revisão final da ferramenta.
 
 ## API
 
