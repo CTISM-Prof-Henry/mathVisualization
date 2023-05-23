@@ -1,10 +1,8 @@
 import argparse
-import os
 
-from matplotlib import pyplot as plt
-import pandas as pd
 import numpy as np
-from scipy.sparse import lil_matrix, csr_matrix
+import pandas as pd
+from matplotlib import pyplot as plt
 
 
 def main(file):

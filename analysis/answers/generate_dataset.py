@@ -1,6 +1,10 @@
-import pandas as pd
-import numpy as np
+"""
+Script para gerar dataset para mineração de dados.
+"""
+
 import os
+
+import pandas as pd
 
 
 def main():

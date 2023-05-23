@@ -4,11 +4,10 @@ import os
 from matplotlib import pyplot as plt
 import pandas as pd
 import numpy as np
-from scipy.sparse import lil_matrix, csr_matrix
+from scipy.sparse import csr_matrix
 
 
 def main(path):
-
     all_coords = []
     max_x = -np.inf
     max_y = -np.inf
@@ -37,7 +36,6 @@ def main(path):
 
     fig, ax = plt.subplots()
     ax.hist2d(matrix[:, 0], matrix[:, 1], bins=(50, 50), cmap=plt.cm.viridis)
-    # im = ax.imshow(matrix, interpolation='nearest')
 
     plt.show()
 
