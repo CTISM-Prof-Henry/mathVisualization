@@ -48,18 +48,27 @@ def plot_heatmap(name, df, fig, ax):
     fig.tight_layout()
 
 
-def add_arrows(fig, axes):
+def add_arrows(fig, axes, equivalencies):
     transFigure = fig.transFigure.inverted()
 
-    points = [
-        ((1.25, 0), (0.40, 0)),
-        ((1.25, 0), (0.40, 1)),
-        ((1.25, 0), (0.40, 2))
-    ]
+    xA = 1.25
+    xB = 0.40
+
+    translate_a = {k: i for i, k in enumerate(np.sort(equivalencies['pre-test'].unique()))}
+    translate_b = {k: i for i, k in enumerate(np.sort(equivalencies['post-test'].unique()))}
+
+    points = []
+
+    for i, line in equivalencies.iterrows():
+        points.append((
+            (xA, translate_a[line.iloc[0]]), (xB, translate_b[line.iloc[1]])
+        ))
 
     for point in points:
         p1_trans = transFigure.transform(axes[0].transData.transform(point[0]))
         p2_trans = transFigure.transform(axes[1].transData.transform(point[1]))
+
+        # TODO angles: https://members.cbio.mines-paristech.fr/~nvaroquaux/tmp/matplotlib/users/annotations.html
 
         fig.patches.append(
             patches.FancyArrowPatch(
@@ -69,14 +78,11 @@ def add_arrows(fig, axes):
                 shrinkB=0,  # so head is exactly on posB (default shrink is 2)
                 transform=fig.transFigure,
                 color='black',
-                arrowstyle='-|>',  # "normal" arrow
-                # connectionstyle=ConnectionStyle("Arc3", rad=0.2),
-                connectionstyle=ConnectionStyle(
-                    "arc3"
-                ),
-                # joinstyle='round',
+                arrowstyle='-',  # "normal" arrow
+                # connectionstyle='arc',
                 mutation_scale=30,  # controls arrow head size
                 linewidth=3,
+                alpha=0.5,
             )
         )
     return fig
@@ -88,13 +94,14 @@ def main():
 
     pre_test = generate_general_counts(os.path.join('raw', 'pre-test.csv'))
     post_test = generate_general_counts(os.path.join('raw', 'post-test.csv'))
+    equivalencies = pd.read_csv(os.path.join('raw', 'equivalencies.csv'))
 
     fig, axes = plt.subplots(nrows=1, ncols=2)  # , gridspec_kw={'width_ratios': [2, 1]})
     axes = axes.ravel()
     plot_heatmap('Pré-teste', pre_test, fig, axes[0])
     plot_heatmap('Pós-teste', post_test, fig, axes[1])
 
-    fig = add_arrows(fig, axes)
+    fig = add_arrows(fig, axes, equivalencies)
 
     fig.suptitle('Taxa de acertos para cada questão dos testes, todos os alunos')
     # manager = plt.get_current_fig_manager()
