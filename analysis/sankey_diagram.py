@@ -1,69 +1,33 @@
-"""
-Script para gerar visualização dos resultados do pré-teste e pós-teste com matplotlib e pandas.
-"""
-
-import os
-
 import numpy as np
 import pandas as pd
-from matplotlib import lines
-from matplotlib import patches
+from pySankey import sankey
+import os
 from matplotlib import pyplot as plt
-from matplotlib import patheffects as path_effects
-from matplotlib.patches import ConnectionStyle
-
-
-def add_arrows(fig, axes, equivalencies):
-    transFigure = fig.transFigure.inverted()
-
-    xA = 1.25
-    xB = 0.40
-
-    translate_a = {k: i for i, k in enumerate(np.sort(equivalencies['pre-test'].unique()))}
-    translate_b = {k: i for i, k in enumerate(np.sort(equivalencies['post-test'].unique()))}
-
-    points = []
-
-    for i, line in equivalencies.iterrows():
-        points.append((
-            (xA, translate_a[line.iloc[0]]), (xB, translate_b[line.iloc[1]])
-        ))
-
-    for point in points:
-        p1_trans = transFigure.transform(axes[0].transData.transform(point[0]))
-        p2_trans = transFigure.transform(axes[1].transData.transform(point[1]))
-
-        # TODO angles: https://members.cbio.mines-paristech.fr/~nvaroquaux/tmp/matplotlib/users/annotations.html
-
-        fig.patches.append(
-            patches.FancyArrowPatch(
-                p1_trans,  # posA
-                p2_trans,  # posB
-                shrinkA=0,  # so tail is exactly on posA (default shrink is 2)
-                shrinkB=0,  # so head is exactly on posB (default shrink is 2)
-                transform=fig.transFigure,
-                color='black',
-                arrowstyle='fancy',  # "normal" arrow
-                # connectionstyle='arc',
-                mutation_scale=30,  # controls arrow head size
-                linewidth=3,
-                alpha=0.5,
-            )
-        )
-    return fig
+from matplotlib import cm
+from matplotlib.colors import to_hex
 
 
 def main():
-    equivalencies = pd.read_csv(os.path.join('raw', 'equivalencies.csv'))
+    pd.options.display.max_rows = 8
+    df = pd.read_csv(os.path.join('answers', 'raw', 'equivalencies.csv'))
 
-    fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(5.5, 10), gridspec_kw={'width_ratios': [2, 1]})
-    axes = axes.ravel()
+    labels_pre = np.sort(df['pre-test'].unique())
+    labels_post = np.sort(df['post-test'].unique())
 
-    fig = add_arrows(fig, axes, equivalencies)
+    colors_pre = {k: to_hex(cm.viridis(i)) for k, i in zip(labels_pre, np.linspace(0, 1, len(labels_pre)))}
+    colors_post = {k: to_hex(cm.viridis(i)) for k, i in zip(labels_post, np.linspace(0, 1, len(labels_post)))}
 
-    fig.suptitle('Taxa de acertos para cada questão dos testes, todos os alunos')
+    colors_pre.update(colors_post)
+    colors_dict = colors_pre
+
+    sankey.sankey(
+        df['pre-test'], df['post-test'], aspect=20, colorDict=colors_dict,
+        fontsize=12
+    )
+
     plt.tight_layout()
     plt.savefig(os.path.join('plots', 'sankey_questions.pdf'), format='pdf')
+
     plt.show()
 
 
