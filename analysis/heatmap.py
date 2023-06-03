@@ -1,3 +1,7 @@
+"""
+Gera um mapa de calor a partir dos dados de movimento do mouse coletados.
+"""
+
 import argparse
 import os
 

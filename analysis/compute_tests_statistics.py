@@ -1,5 +1,7 @@
 """
 Script para gerar visualização dos resultados do pré-teste e pós-teste com matplotlib e pandas.
+
+Cria 4 subplots, com os resultados do pré- e pós-teste para cada turma em cada um dos subplots.
 """
 
 import os
@@ -10,7 +12,7 @@ from matplotlib import pyplot as plt
 from matplotlib import patheffects as path_effects
 
 
-def generate_general_counts(df_in):
+def to_frequencies(df_in):
     df_out = pd.DataFrame(data=0., index=df_in.columns, columns=['errado', 'meio', 'certo'], dtype=float)
 
     for column in df_in.columns:
@@ -55,8 +57,8 @@ def generate_all_plot(pre_test, post_test, description, name, cmap='YlGn'):
 
 
 def main():
-    pre_test = generate_general_counts(pd.read_csv(os.path.join('answers', 'raw', 'pre-test.csv'), index_col=(0, 1)))
-    post_test = generate_general_counts(pd.read_csv(os.path.join('answers', 'raw', 'post-test.csv'), index_col=(0, 1)))
+    pre_test = to_frequencies(pd.read_csv(os.path.join('answers', 'raw', 'pre-test.csv'), index_col=(0, 1)))
+    post_test = to_frequencies(pd.read_csv(os.path.join('answers', 'raw', 'post-test.csv'), index_col=(0, 1)))
 
     generate_all_plot(
         pre_test, post_test, name='heatmap_general.pdf',
@@ -71,8 +73,8 @@ def main():
         pre_this_class = pre_this_class.loc[turma, slice(None)]
         post_this_class = post_this_class.loc[turma, slice(None)]
 
-        pre_this_class = generate_general_counts(pre_this_class)
-        post_this_class = generate_general_counts(post_this_class)
+        pre_this_class = to_frequencies(pre_this_class)
+        post_this_class = to_frequencies(post_this_class)
 
         generate_all_plot(
             round(pre_this_class - pre_test, 2), round(post_this_class - post_test, 2),
