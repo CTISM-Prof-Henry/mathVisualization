@@ -52,7 +52,7 @@ def main():
     pre_questions = pre.columns.unique().sort_values()
 
     count = 0
-    fig, axes = plt.subplots(nrows=5, ncols=4, figsize=(9, 10), sharey=True)
+    fig, axes = plt.subplots(nrows=6, ncols=4, figsize=(9, 10), sharey=True)
     axes = np.ravel(axes.T)
     count = plot_local(pre_questions, equis, pre, post, axes, count, overall_colors, 'todas as turmas', set_ylabel=True)
 
