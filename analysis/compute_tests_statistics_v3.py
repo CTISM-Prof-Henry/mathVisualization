@@ -13,20 +13,27 @@ from matplotlib.colors import to_hex
 from matplotlib import cm as colormaps
 
 
-def plot_local(pre_questions, equis, pre, post, axes, count, color, title):
+def plot_local(pre_questions, equis, pre, post, axes, count, color, title, set_ylabel=False):
     x_ticks = np.arange(2)
+
+    # seta o título apenas para o primeiro subplot da coluna
+    axes[count].set_title(f'{title}')
+
     for p in pre_questions:
         q = equis.loc[equis['pre-test'] == p]['post-test'].values.tolist()
 
         if len(q) > 0:
-            x_ticklabels = [p, '\n'.join(q)]
+            x_ticklabels = [p.split('.')[-1], ', '.join([x.split('.')[-1] for x in q])]
 
             axes[count].bar(x_ticks, [pre[p].mean(), post[q].mean(axis=0).mean()], color=color)
             axes[count].set_yticks([0, 1])
             axes[count].set_yticklabels(['0%', '100%'])
             axes[count].set_xticks(x_ticks)
             axes[count].set_xticklabels(x_ticklabels)
-            axes[count].set_title(f'{title}, {p}')
+
+            if set_ylabel:
+                axes[count].set_ylabel(f"Questão {p.split('.')[-1]}")
+
             count += 1
 
     return count
@@ -45,17 +52,18 @@ def main():
     pre_questions = pre.columns.unique().sort_values()
 
     count = 0
-    fig, axes = plt.subplots(nrows=5, ncols=4)
+    fig, axes = plt.subplots(nrows=5, ncols=4, figsize=(9, 10), sharey=True)
     axes = np.ravel(axes.T)
-    count = plot_local(pre_questions, equis, pre, post, axes, count, overall_colors, 'todas as turmas')
+    count = plot_local(pre_questions, equis, pre, post, axes, count, overall_colors, 'todas as turmas', set_ylabel=True)
 
     for turma, color in zip(turmas, class_colors):
         pre_this_class = pre.loc[turma, slice(None)]
         post_this_class = post.loc[turma, slice(None)]
 
-        count = plot_local(pre_questions, equis, pre_this_class, post_this_class, axes, count, color, f'turma {turma}')
+        count = plot_local(pre_questions, equis, pre_this_class, post_this_class, axes, count, color, f'{turma}')
 
-    fig.suptitle('Taxa de acertos entre questões do pré-questionário e suas equivalências no pós-questionário')
+    # fig.suptitle('Taxa de acertos entre questões do pré-questionário e suas equivalências no pós-questionário')
+    plt.savefig(os.path.join('plots', 'barplot_questions.pdf'), format='pdf')
     fig.tight_layout()
     plt.show()
 
