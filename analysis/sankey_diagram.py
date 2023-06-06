@@ -9,7 +9,7 @@ from matplotlib.colors import to_hex
 
 def main():
     pd.options.display.max_rows = 8
-    df = pd.read_csv(os.path.join('answers', 'raw', 'equivalencies.csv'))
+    df = pd.read_csv(os.path.join('answers', 'raw', 'equivalencies_simplified.csv'))
 
     labels_pre = np.sort(df['pre-test'].unique()).tolist()  # type: list
     labels_post = np.sort(df['post-test'].unique()).tolist()  # type: list
