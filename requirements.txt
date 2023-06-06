@@ -1,7 +1,7 @@
 pip
-plotly==5.9.*
-matplotlib==3.5.*
-numpy==1.23.*
-pandas==1.4.*
-scipy==1.9.*
+plotly==5.*
+matplotlib==3.*
+numpy>=1.*
+pandas==1.*
+scipy==1.*
 seaborn>=0.8.*
